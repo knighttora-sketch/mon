@@ -40,9 +40,7 @@
             --warning: #ffab40;
             --info: #40c4ff;
         }
-
         * { box-sizing: border-box; }
-
         body {
             font-family: 'Space Grotesk', sans-serif;
             background: var(--bg);
@@ -50,226 +48,83 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
-
         .bg-grid {
-            position: fixed;
-            inset: 0;
+            position: fixed; inset: 0;
             background-image:
                 linear-gradient(rgba(0,230,118,0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0,230,118,0.03) 1px, transparent 1px);
             background-size: 60px 60px;
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; z-index: 0;
         }
-
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
-        }
-        .orb-1 {
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(0,230,118,0.08), transparent 70%);
-            top: -100px; left: -100px;
-            animation: orbFloat1 20s ease-in-out infinite;
-        }
-        .orb-2 {
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(255,193,7,0.06), transparent 70%);
-            bottom: -50px; right: -50px;
-            animation: orbFloat2 25s ease-in-out infinite;
-        }
-        .orb-3 {
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(0,230,118,0.05), transparent 70%);
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            animation: orbFloat3 18s ease-in-out infinite;
-        }
-
-        @keyframes orbFloat1 {
-            0%, 100% { transform: translate(0, 0); }
-            33% { transform: translate(80px, 60px); }
-            66% { transform: translate(-40px, 100px); }
-        }
-        @keyframes orbFloat2 {
-            0%, 100% { transform: translate(0, 0); }
-            33% { transform: translate(-60px, -80px); }
-            66% { transform: translate(50px, -40px); }
-        }
-        @keyframes orbFloat3 {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.3); }
-        }
-
+        .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+        .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,230,118,0.08), transparent 70%); top: -100px; left: -100px; animation: oF1 20s ease-in-out infinite; }
+        .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,193,7,0.06), transparent 70%); bottom: -50px; right: -50px; animation: oF2 25s ease-in-out infinite; }
+        .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(0,230,118,0.05), transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); animation: oF3 18s ease-in-out infinite; }
+        @keyframes oF1 { 0%,100%{transform:translate(0,0)} 33%{transform:translate(80px,60px)} 66%{transform:translate(-40px,100px)} }
+        @keyframes oF2 { 0%,100%{transform:translate(0,0)} 33%{transform:translate(-60px,-80px)} 66%{transform:translate(50px,-40px)} }
+        @keyframes oF3 { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.3)} }
         .sidebar {
-            position: fixed;
-            left: 0; top: 0; bottom: 0;
-            width: 260px;
-            background: rgba(6, 10, 8, 0.95);
-            border-right: 1px solid var(--border);
-            z-index: 50;
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: blur(20px);
-            transition: transform 0.3s ease;
+            position: fixed; left: 0; top: 0; bottom: 0; width: 260px;
+            background: rgba(6,10,8,0.95); border-right: 1px solid var(--border);
+            z-index: 50; display: flex; flex-direction: column;
+            backdrop-filter: blur(20px); transition: transform 0.3s ease;
         }
-
-        .sidebar-logo {
-            padding: 24px 20px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .sidebar-nav {
-            flex: 1;
-            padding: 12px 10px;
-            overflow-y: auto;
-        }
-
+        .sidebar-logo { padding: 24px 20px; border-bottom: 1px solid var(--border); }
+        .sidebar-nav { flex: 1; padding: 12px 10px; overflow-y: auto; }
         .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 14px;
-            border-radius: 10px;
-            cursor: pointer;
-            color: var(--text-muted);
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            margin-bottom: 2px;
-            position: relative;
-            overflow: hidden;
+            display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+            border-radius: 10px; cursor: pointer; color: var(--text-muted);
+            font-size: 14px; font-weight: 500; transition: all 0.2s ease;
+            margin-bottom: 2px; position: relative; overflow: hidden;
         }
         .nav-item::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 3px;
-            background: var(--accent);
-            border-radius: 0 3px 3px 0;
-            opacity: 0;
-            transform: scaleY(0);
-            transition: all 0.2s ease;
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+            background: var(--accent); border-radius: 0 3px 3px 0;
+            opacity: 0; transform: scaleY(0); transition: all 0.2s ease;
         }
-        .nav-item:hover {
-            color: var(--text);
-            background: var(--accent-glow);
-        }
-        .nav-item.active {
-            color: var(--accent);
-            background: var(--accent-glow);
-        }
-        .nav-item.active::before {
-            opacity: 1;
-            transform: scaleY(1);
-        }
+        .nav-item:hover { color: var(--text); background: var(--accent-glow); }
+        .nav-item.active { color: var(--accent); background: var(--accent-glow); }
+        .nav-item.active::before { opacity: 1; transform: scaleY(1); }
         .nav-item i { width: 20px; text-align: center; font-size: 15px; }
-        .nav-item .deprecated-badge {
-            font-size: 9px;
-            padding: 1px 5px;
-            border-radius: 4px;
-            background: rgba(255,82,82,0.15);
-            color: var(--error);
-            font-weight: 600;
-            margin-left: auto;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .nav-item .dep-badge {
+            font-size: 9px; padding: 1px 5px; border-radius: 4px;
+            background: rgba(255,82,82,0.15); color: var(--error);
+            font-weight: 600; margin-left: auto; text-transform: uppercase; letter-spacing: 0.5px;
         }
-
-        .main-content {
-            margin-left: 260px;
-            padding: 32px 40px;
-            position: relative;
-            z-index: 10;
-            min-height: 100vh;
-        }
-
+        .main-content { margin-left: 260px; padding: 32px 40px; position: relative; z-index: 10; min-height: 100vh; }
         .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 24px;
-            backdrop-filter: blur(10px);
-            transition: all 0.25s ease;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 24px; backdrop-filter: blur(10px); transition: all 0.25s ease;
         }
         .card:hover { border-color: var(--border-hover); }
-
         .input-field {
-            background: var(--bg-input);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 12px 16px;
-            color: var(--text);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            width: 100%;
-            outline: none;
-            transition: all 0.2s ease;
+            background: var(--bg-input); border: 1px solid var(--border);
+            border-radius: 10px; padding: 12px 16px; color: var(--text);
+            font-family: 'JetBrains Mono', monospace; font-size: 14px;
+            width: 100%; outline: none; transition: all 0.2s ease;
         }
         .input-field::placeholder { color: var(--text-dim); }
-        .input-field:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-glow);
-        }
-
+        .input-field:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
         .btn-primary {
             background: linear-gradient(135deg, var(--accent), var(--accent-dim));
-            color: #060a08;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 12px 24px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Space Grotesk', sans-serif;
+            color: #060a08; font-weight: 600; font-size: 14px; padding: 12px 24px;
+            border-radius: 10px; border: none; cursor: pointer; transition: all 0.2s ease;
+            display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Grotesk', sans-serif;
         }
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 24px rgba(0,230,118,0.25);
-        }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,230,118,0.25); }
         .btn-primary:active { transform: translateY(0); }
-        .btn-primary:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
         .btn-secondary {
-            background: transparent;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 13px;
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: 'Space Grotesk', sans-serif;
+            background: transparent; color: var(--text-muted); font-weight: 500;
+            font-size: 13px; padding: 8px 16px; border-radius: 8px;
+            border: 1px solid var(--border); cursor: pointer;
+            transition: all 0.2s ease; font-family: 'Space Grotesk', sans-serif;
         }
-        .btn-secondary:hover {
-            color: var(--text);
-            border-color: var(--border-hover);
-            background: var(--accent-glow);
-        }
-
+        .btn-secondary:hover { color: var(--text); border-color: var(--border-hover); background: var(--accent-glow); }
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 3px 10px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px;
+            border-radius: 6px; font-size: 11px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.5px;
         }
         .badge-success { background: rgba(0,230,118,0.12); color: var(--success); }
         .badge-error { background: rgba(255,82,82,0.12); color: var(--error); }
@@ -277,230 +132,96 @@
         .badge-info { background: rgba(64,196,255,0.12); color: var(--info); }
         .badge-gold { background: rgba(255,193,7,0.12); color: var(--gold); }
         .badge-dim { background: rgba(90,112,102,0.15); color: var(--text-muted); }
-
         .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            transition: all 0.25s ease;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; transition: all 0.25s ease;
         }
-        .stat-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
+        .stat-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
         .data-table { width: 100%; border-collapse: separate; border-spacing: 0; }
         .data-table thead th {
-            padding: 12px 16px;
-            text-align: left;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: var(--bg-card);
-            z-index: 2;
+            padding: 12px 16px; text-align: left; font-size: 11px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0;
+            background: var(--bg-card); z-index: 2;
         }
         .data-table tbody tr { transition: background 0.15s ease; }
         .data-table tbody tr:hover { background: var(--accent-glow); }
         .data-table tbody td {
-            padding: 10px 16px;
-            font-size: 13px;
+            padding: 10px 16px; font-size: 13px;
             border-bottom: 1px solid rgba(0,230,118,0.04);
             font-family: 'JetBrains Mono', monospace;
         }
-
         .spinner {
-            width: 20px; height: 20px;
-            border: 2px solid rgba(0,230,118,0.2);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-            display: inline-block;
+            width: 20px; height: 20px; border: 2px solid rgba(0,230,118,0.2);
+            border-top-color: var(--accent); border-radius: 50%;
+            animation: spin 0.7s linear infinite; display: inline-block;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
-
-        .toast-container {
-            position: fixed;
-            top: 24px; right: 24px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+        .toast-container { position: fixed; top: 24px; right: 24px; z-index: 1000; display: flex; flex-direction: column; gap: 8px; }
         .toast {
-            padding: 14px 20px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            backdrop-filter: blur(20px);
-            border: 1px solid;
-            animation: toastIn 0.3s ease;
-            min-width: 280px;
-            max-width: 420px;
+            padding: 14px 20px; border-radius: 10px; font-size: 13px; font-weight: 500;
+            display: flex; align-items: center; gap: 10px; backdrop-filter: blur(20px);
+            border: 1px solid; animation: tIn 0.3s ease; min-width: 280px; max-width: 440px;
         }
         .toast-success { background: rgba(0,230,118,0.08); border-color: rgba(0,230,118,0.2); color: var(--success); }
         .toast-error { background: rgba(255,82,82,0.08); border-color: rgba(255,82,82,0.2); color: var(--error); }
         .toast-info { background: rgba(64,196,255,0.08); border-color: rgba(64,196,255,0.2); color: var(--info); }
-        @keyframes toastIn {
-            from { opacity: 0; transform: translateX(40px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .page-section { display: none; animation: fadeIn 0.3s ease; }
+        @keyframes tIn { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:translateX(0)} }
+        .page-section { display: none; animation: fIn 0.3s ease; }
         .page-section.active { display: block; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        @keyframes fIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(0,230,118,0.15); border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: rgba(0,230,118,0.3); }
-
-        .table-wrapper {
-            max-height: 520px;
-            overflow-y: auto;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-        }
-
-        .trade-ad-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            transition: all 0.2s ease;
-        }
-        .trade-ad-card:hover {
-            border-color: var(--border-hover);
-            background: var(--bg-card-hover);
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 5px;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-            margin: 2px;
-        }
+        .table-wrapper { max-height: 520px; overflow-y: auto; border-radius: 10px; border: 1px solid var(--border); }
+        .trade-ad-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: all 0.2s ease; }
+        .trade-ad-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 5px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; margin: 2px; }
         .tag-green { background: rgba(0,230,118,0.12); color: var(--success); }
         .tag-gold { background: rgba(255,193,7,0.12); color: var(--gold); }
         .tag-blue { background: rgba(64,196,255,0.12); color: var(--info); }
         .tag-red { background: rgba(255,82,82,0.12); color: var(--error); }
         .tag-dim { background: rgba(90,112,102,0.15); color: var(--text-muted); }
-
         .hamburger {
-            display: none;
-            position: fixed;
-            top: 16px; left: 16px;
-            z-index: 60;
-            width: 42px; height: 42px;
-            border-radius: 10px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text);
-            font-size: 18px;
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
+            display: none; position: fixed; top: 16px; left: 16px; z-index: 60;
+            width: 42px; height: 42px; border-radius: 10px; background: var(--bg-card);
+            border: 1px solid var(--border); color: var(--text); font-size: 18px;
+            cursor: pointer; align-items: center; justify-content: center;
         }
-
-        .rap-change-positive { color: var(--success); }
-        .rap-change-negative { color: var(--error); }
-
-        .pulse-dot {
-            width: 8px; height: 8px;
-            border-radius: 50%;
-            background: var(--accent);
-            display: inline-block;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,230,118,0.4); }
-            50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0,230,118,0); }
-        }
-
-        .section-line {
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            border: none;
-            margin: 8px 0 0 0;
-            border-radius: 1px;
-        }
-
-        .item-thumb {
-            width: 40px; height: 40px;
-            border-radius: 8px;
-            object-fit: cover;
-            background: rgba(0,230,118,0.05);
-            border: 1px solid var(--border);
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--border);
-        }
+        .rap-pos { color: var(--success); }
+        .rap-neg { color: var(--error); }
+        .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,230,118,0.4)} 50%{opacity:0.7;box-shadow:0 0 0 6px rgba(0,230,118,0)} }
+        .section-line { height: 2px; background: linear-gradient(90deg, var(--accent), transparent); border: none; margin: 8px 0 0 0; border-radius: 1px; }
+        .item-thumb { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; background: rgba(0,230,118,0.05); border: 1px solid var(--border); }
+        .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border); }
         .detail-row:last-child { border-bottom: none; }
         .detail-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
         .detail-value { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; }
-
         @media (max-width: 900px) {
             .sidebar { transform: translateX(-100%); }
             .sidebar.open { transform: translateX(0); }
             .main-content { margin-left: 0; padding: 24px 16px; padding-top: 70px; }
             .hamburger { display: flex; }
         }
-
-        .sidebar-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-            z-index: 40;
-        }
+        .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 40; }
         .sidebar-overlay.active { display: block; }
-
         .raw-data-block {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--text-muted);
-            max-height: 300px;
-            overflow: auto;
-            white-space: pre-wrap;
-            word-break: break-all;
-            line-height: 1.6;
+            background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 10px;
+            padding: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px;
+            color: var(--text-muted); max-height: 300px; overflow: auto;
+            white-space: pre-wrap; word-break: break-all; line-height: 1.6;
         }
-
         .deprecated-notice {
-            background: rgba(255,82,82,0.06);
-            border: 1px solid rgba(255,82,82,0.15);
-            border-radius: 10px;
-            padding: 14px 18px;
-            font-size: 13px;
-            color: var(--error);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
+            background: rgba(255,82,82,0.06); border: 1px solid rgba(255,82,82,0.15);
+            border-radius: 10px; padding: 14px 18px; font-size: 13px; color: var(--error);
+            display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+        }
+        .proxy-badge {
+            font-size: 10px; padding: 2px 8px; border-radius: 4px;
+            background: rgba(64,196,255,0.1); color: var(--info);
+            font-family: 'JetBrains Mono', monospace; font-weight: 500;
         }
     </style>
 </head>
@@ -510,55 +231,39 @@
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
 
-    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-    </button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-logo">
             <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: var(--accent-glow); border: 1px solid var(--border-hover);">
-                    <i class="fas fa-gem" style="color: var(--accent); font-size: 15px;"></i>
+                <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:var(--accent-glow);border:1px solid var(--border-hover);">
+                    <i class="fas fa-gem" style="color:var(--accent);font-size:15px;"></i>
                 </div>
                 <div>
-                    <div class="text-sm font-bold" style="color: var(--text);">Rolimons API</div>
-                    <div class="text-xs" style="color: var(--text-dim);">Tool Suite v1.0</div>
+                    <div class="text-sm font-bold" style="color:var(--text);">Rolimons API</div>
+                    <div class="text-xs" style="color:var(--text-dim);">Tool Suite v1.0</div>
                 </div>
             </div>
         </div>
         <nav class="sidebar-nav">
-            <div class="text-xs font-semibold uppercase tracking-wider px-3 py-2" style="color: var(--text-dim);">Endpoints</div>
-            <div class="nav-item active" data-page="dashboard">
-                <i class="fas fa-chart-line"></i><span>Dashboard</span>
-            </div>
-            <div class="nav-item" data-page="itemDetails">
-                <i class="fas fa-search"></i><span>Item Details</span>
-            </div>
-            <div class="nav-item" data-page="allItems">
-                <i class="fas fa-boxes-stacked"></i><span>All Items</span>
-            </div>
-            <div class="nav-item" data-page="tradeAds">
-                <i class="fas fa-arrows-rotate"></i><span>Trade Ads</span>
-            </div>
-            <div class="nav-item" data-page="dealActivity">
-                <i class="fas fa-bolt"></i><span>Deal Activity</span>
-            </div>
-            <div class="text-xs font-semibold uppercase tracking-wider px-3 py-2 mt-4" style="color: var(--text-dim);">Utilities</div>
-            <div class="nav-item" data-page="rapCalculator">
-                <i class="fas fa-calculator"></i><span>RAP Calculator</span>
-            </div>
-            <div class="text-xs font-semibold uppercase tracking-wider px-3 py-2 mt-4" style="color: var(--text-dim);">Deprecated</div>
-            <div class="nav-item" data-page="playerInfo">
-                <i class="fas fa-user"></i><span>Player Info</span>
-                <span class="deprecated-badge">Off</span>
-            </div>
+            <div class="text-xs font-semibold uppercase tracking-wider px-3 py-2" style="color:var(--text-dim);">Endpoints</div>
+            <div class="nav-item active" data-page="dashboard"><i class="fas fa-chart-line"></i><span>Dashboard</span></div>
+            <div class="nav-item" data-page="itemDetails"><i class="fas fa-search"></i><span>Item Details</span></div>
+            <div class="nav-item" data-page="allItems"><i class="fas fa-boxes-stacked"></i><span>All Items</span></div>
+            <div class="nav-item" data-page="tradeAds"><i class="fas fa-arrows-rotate"></i><span>Trade Ads</span></div>
+            <div class="nav-item" data-page="dealActivity"><i class="fas fa-bolt"></i><span>Deal Activity</span></div>
+            <div class="text-xs font-semibold uppercase tracking-wider px-3 py-2 mt-4" style="color:var(--text-dim);">Utilities</div>
+            <div class="nav-item" data-page="rapCalculator"><i class="fas fa-calculator"></i><span>RAP Calculator</span></div>
+            <div class="text-xs font-semibold uppercase tracking-wider px-3 py-2 mt-4" style="color:var(--text-dim);">Deprecated</div>
+            <div class="nav-item" data-page="playerInfo"><i class="fas fa-user"></i><span>Player Info</span><span class="dep-badge">Off</span></div>
         </nav>
-        <div class="p-4 border-t" style="border-color: var(--border);">
-            <div class="flex items-center gap-2 text-xs" style="color: var(--text-dim);">
+        <div class="p-4 border-t" style="border-color:var(--border);">
+            <div class="flex items-center gap-2 text-xs" style="color:var(--text-dim);">
                 <span class="pulse-dot"></span>
                 <span id="statusText">Ready</span>
             </div>
+            <div class="mt-2" id="proxyStatus"></div>
         </div>
     </aside>
 
@@ -568,51 +273,40 @@
             <div class="mb-8">
                 <h1 class="text-3xl font-bold mb-1">Dashboard</h1>
                 <hr class="section-line w-16">
-                <p class="text-sm mt-3" style="color: var(--text-muted);">Overview of Rolimons marketplace data at a glance.</p>
+                <p class="text-sm mt-3" style="color:var(--text-muted);">Overview of Rolimons marketplace data at a glance.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 <div class="stat-card">
-                    <div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color: var(--text-dim);">Total Items</div>
-                    <div class="text-2xl font-bold font-mono" style="color: var(--accent);" id="dashItemCount">--</div>
+                    <div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--text-dim);">Total Items</div>
+                    <div class="text-2xl font-bold font-mono" style="color:var(--accent);" id="dashItemCount">--</div>
                 </div>
                 <div class="stat-card">
-                    <div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color: var(--text-dim);">Trade Ads</div>
-                    <div class="text-2xl font-bold font-mono" style="color: var(--gold);" id="dashTradeCount">--</div>
+                    <div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--text-dim);">Trade Ads</div>
+                    <div class="text-2xl font-bold font-mono" style="color:var(--gold);" id="dashTradeCount">--</div>
                 </div>
                 <div class="stat-card">
-                    <div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color: var(--text-dim);">Projected Items</div>
-                    <div class="text-2xl font-bold font-mono" style="color: var(--warning);" id="dashProjected">--</div>
+                    <div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--text-dim);">Projected Items</div>
+                    <div class="text-2xl font-bold font-mono" style="color:var(--warning);" id="dashProjected">--</div>
                 </div>
                 <div class="stat-card">
-                    <div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color: var(--text-dim);">Rare Items</div>
-                    <div class="text-2xl font-bold font-mono" style="color: var(--info);" id="dashRare">--</div>
+                    <div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--text-dim);">Rare Items</div>
+                    <div class="text-2xl font-bold font-mono" style="color:var(--info);" id="dashRare">--</div>
                 </div>
             </div>
             <div class="card">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-lg font-semibold">Quick Actions</h2>
-                </div>
+                <h2 class="text-lg font-semibold mb-4">Quick Actions</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('itemDetails')">
-                        <i class="fas fa-search" style="color: var(--accent);"></i>
-                        <div>
-                            <div class="text-sm font-semibold" style="color: var(--text);">Look Up Item</div>
-                            <div class="text-xs" style="color: var(--text-dim);">Search by Item ID</div>
-                        </div>
+                        <i class="fas fa-search" style="color:var(--accent);"></i>
+                        <div><div class="text-sm font-semibold" style="color:var(--text);">Look Up Item</div><div class="text-xs" style="color:var(--text-dim);">Search by Item ID</div></div>
                     </button>
                     <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('tradeAds')">
-                        <i class="fas fa-arrows-rotate" style="color: var(--gold);"></i>
-                        <div>
-                            <div class="text-sm font-semibold" style="color: var(--text);">Browse Trade Ads</div>
-                            <div class="text-xs" style="color: var(--text-dim);">View recent posts</div>
-                        </div>
+                        <i class="fas fa-arrows-rotate" style="color:var(--gold);"></i>
+                        <div><div class="text-sm font-semibold" style="color:var(--text);">Browse Trade Ads</div><div class="text-xs" style="color:var(--text-dim);">View recent posts</div></div>
                     </button>
                     <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('rapCalculator')">
-                        <i class="fas fa-calculator" style="color: var(--info);"></i>
-                        <div>
-                            <div class="text-sm font-semibold" style="color: var(--text);">RAP Calculator</div>
-                            <div class="text-xs" style="color: var(--text-dim);">Predict RAP changes</div>
-                        </div>
+                        <i class="fas fa-calculator" style="color:var(--info);"></i>
+                        <div><div class="text-sm font-semibold" style="color:var(--text);">RAP Calculator</div><div class="text-xs" style="color:var(--text-dim);">Predict RAP changes</div></div>
                     </button>
                 </div>
             </div>
@@ -623,20 +317,15 @@
             <div class="mb-8">
                 <h1 class="text-3xl font-bold mb-1">Item Details</h1>
                 <hr class="section-line w-16">
-                <p class="text-sm mt-3" style="color: var(--text-muted);">
-                    Look up any limited item by its catalog ID. Corresponds to
-                    <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background: var(--accent-glow); color: var(--accent);">Rolimons.GetItemDetails()</code>
-                </p>
+                <p class="text-sm mt-3" style="color:var(--text-muted);">Look up any limited item by its catalog ID. <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:var(--accent-glow);color:var(--accent);">Rolimons.GetItemDetails()</code></p>
             </div>
             <div class="card mb-6">
                 <div class="flex gap-3 items-end flex-wrap">
                     <div class="flex-1 min-w-[200px]">
-                        <label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color: var(--text-dim);">Item ID</label>
+                        <label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Item ID</label>
                         <input type="number" class="input-field" id="itemDetailInput" placeholder="e.g. 28487797">
                     </div>
-                    <button class="btn-primary" id="itemDetailBtn" onclick="fetchItemDetails()">
-                        <i class="fas fa-search"></i> Look Up
-                    </button>
+                    <button class="btn-primary" id="itemDetailBtn" onclick="fetchItemDetails()"><i class="fas fa-search"></i> Look Up</button>
                 </div>
             </div>
             <div id="itemDetailResult"></div>
@@ -647,18 +336,15 @@
             <div class="mb-8">
                 <h1 class="text-3xl font-bold mb-1">All Items</h1>
                 <hr class="section-line w-16">
-                <p class="text-sm mt-3" style="color: var(--text-muted);">
-                    Browse all non-UGC limited items. Corresponds to
-                    <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background: var(--accent-glow); color: var(--accent);">Rolimons.GetItems()</code>
-                </p>
+                <p class="text-sm mt-3" style="color:var(--text-muted);">Browse all non-UGC limited items. <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:var(--accent-glow);color:var(--accent);">Rolimons.GetItems()</code></p>
             </div>
             <div class="card mb-6">
                 <div class="flex gap-3 items-end flex-wrap">
                     <div class="flex-1 min-w-[200px]">
-                        <label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color: var(--text-dim);">Search Items</label>
+                        <label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Search Items</label>
                         <input type="text" class="input-field" id="allItemsSearch" placeholder="Search by name or ID..." oninput="filterAllItems()">
                     </div>
-                    <select class="input-field" style="width: auto; min-width: 140px;" id="allItemsDemandFilter" onchange="filterAllItems()">
+                    <select class="input-field" style="width:auto;min-width:140px;" id="allItemsDemandFilter" onchange="filterAllItems()">
                         <option value="">All Demand</option>
                         <option value="Amazing">Amazing</option>
                         <option value="High">High</option>
@@ -667,16 +353,14 @@
                         <option value="Terrible">Terrible</option>
                         <option value="Unassigned">Unassigned</option>
                     </select>
-                    <select class="input-field" style="width: auto; min-width: 140px;" id="allItemsSort" onchange="filterAllItems()">
+                    <select class="input-field" style="width:auto;min-width:140px;" id="allItemsSort" onchange="filterAllItems()">
                         <option value="value-desc">Value: High to Low</option>
                         <option value="value-asc">Value: Low to High</option>
                         <option value="rap-desc">RAP: High to Low</option>
                         <option value="rap-asc">RAP: Low to High</option>
                         <option value="name-asc">Name: A-Z</option>
                     </select>
-                    <button class="btn-primary" id="allItemsBtn" onclick="fetchAllItems()">
-                        <i class="fas fa-download"></i> Load Items
-                    </button>
+                    <button class="btn-primary" id="allItemsBtn" onclick="fetchAllItems()"><i class="fas fa-download"></i> Load Items</button>
                 </div>
             </div>
             <div id="allItemsResult"></div>
@@ -687,19 +371,13 @@
             <div class="mb-8">
                 <h1 class="text-3xl font-bold mb-1">Recent Trade Ads</h1>
                 <hr class="section-line w-16">
-                <p class="text-sm mt-3" style="color: var(--text-muted);">
-                    View the latest trade ads from Rolimons. Corresponds to
-                    <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background: var(--accent-glow); color: var(--accent);">Rolimons.GetRecentAds()</code>
-                </p>
+                <p class="text-sm mt-3" style="color:var(--text-muted);">View the latest trade ads from Rolimons. <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:var(--accent-glow);color:var(--accent);">Rolimons.GetRecentAds()</code></p>
             </div>
             <div class="card mb-6">
                 <div class="flex gap-3 items-end flex-wrap">
-                    <button class="btn-primary" id="tradeAdsBtn" onclick="fetchTradeAds()">
-                        <i class="fas fa-arrows-rotate"></i> Fetch Trade Ads
-                    </button>
-                    <label class="flex items-center gap-2 cursor-pointer text-sm" style="color: var(--text-muted);">
-                        <input type="checkbox" id="tradeAdsRawToggle" onchange="fetchTradeAds()" class="accent-green-500">
-                        Show Raw Data
+                    <button class="btn-primary" id="tradeAdsBtn" onclick="fetchTradeAds()"><i class="fas fa-arrows-rotate"></i> Fetch Trade Ads</button>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm" style="color:var(--text-muted);">
+                        <input type="checkbox" id="tradeAdsRawToggle" onchange="fetchTradeAds()" class="accent-green-500"> Show Raw Data
                     </label>
                 </div>
             </div>
@@ -711,15 +389,10 @@
             <div class="mb-8">
                 <h1 class="text-3xl font-bold mb-1">Deal Activity</h1>
                 <hr class="section-line w-16">
-                <p class="text-sm mt-3" style="color: var(--text-muted);">
-                    Raw deal activity data. Corresponds to
-                    <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background: var(--accent-glow); color: var(--accent);">Rolimons.GetRecentDealActivity()</code>
-                </p>
+                <p class="text-sm mt-3" style="color:var(--text-muted);">Raw deal activity data. <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:var(--accent-glow);color:var(--accent);">Rolimons.GetRecentDealActivity()</code></p>
             </div>
             <div class="card mb-6">
-                <button class="btn-primary" id="dealActivityBtn" onclick="fetchDealActivity()">
-                    <i class="fas fa-bolt"></i> Fetch Deal Activity
-                </button>
+                <button class="btn-primary" id="dealActivityBtn" onclick="fetchDealActivity()"><i class="fas fa-bolt"></i> Fetch Deal Activity</button>
             </div>
             <div id="dealActivityResult"></div>
         </section>
@@ -729,45 +402,34 @@
             <div class="mb-8">
                 <h1 class="text-3xl font-bold mb-1">RAP Calculator</h1>
                 <hr class="section-line w-16">
-                <p class="text-sm mt-3" style="color: var(--text-muted);">
-                    Predict RAP changes when selling at a specific price. Corresponds to
-                    <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background: var(--accent-glow); color: var(--accent);">Rolimons.CalculateRAPChange()</code>
-                </p>
+                <p class="text-sm mt-3" style="color:var(--text-muted);">Predict RAP changes when selling at a specific price. <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:var(--accent-glow);color:var(--accent);">Rolimons.CalculateRAPChange()</code></p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="card">
                     <h2 class="text-lg font-semibold mb-4">Input</h2>
                     <div class="mb-4">
-                        <label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color: var(--text-dim);">Current RAP</label>
+                        <label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Current RAP</label>
                         <input type="number" class="input-field" id="rapOldPrice" placeholder="e.g. 15000" oninput="calculateRAP()">
                     </div>
                     <div class="mb-4">
-                        <label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color: var(--text-dim);">Sale Price</label>
+                        <label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Sale Price</label>
                         <input type="number" class="input-field" id="rapNewPrice" placeholder="e.g. 20000" oninput="calculateRAP()">
                     </div>
-                    <div class="text-xs" style="color: var(--text-dim);">
-                        <i class="fas fa-info-circle mr-1"></i>
-                        Uses the same formula from the Lua script: change = floor(|price - RAP| / 10)
-                    </div>
+                    <div class="text-xs" style="color:var(--text-dim);"><i class="fas fa-info-circle mr-1"></i>Uses the same formula from the Lua script: change = floor(|price - RAP| / 10)</div>
                 </div>
-                <div class="card" id="rapResultCard">
+                <div class="card">
                     <h2 class="text-lg font-semibold mb-4">Result</h2>
-                    <div id="rapResult">
-                        <div class="text-sm" style="color: var(--text-dim);">Enter values to calculate RAP change.</div>
-                    </div>
+                    <div id="rapResult"><div class="text-sm" style="color:var(--text-dim);">Enter values to calculate RAP change.</div></div>
                 </div>
             </div>
         </section>
 
-        <!-- Player Info (Deprecated) -->
+        <!-- Player Info -->
         <section class="page-section" id="page-playerInfo">
             <div class="mb-8">
                 <h1 class="text-3xl font-bold mb-1">Player Info</h1>
                 <hr class="section-line w-16">
-                <p class="text-sm mt-3" style="color: var(--text-muted);">
-                    Corresponds to
-                    <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background: rgba(255,82,82,0.1); color: var(--error);">Rolimons.GetPlayerInfo()</code> — <strong>Deprecated</strong>
-                </p>
+                <p class="text-sm mt-3" style="color:var(--text-muted);"><code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:rgba(255,82,82,0.1);color:var(--error);">Rolimons.GetPlayerInfo()</code> — <strong>Deprecated</strong></p>
             </div>
             <div class="deprecated-notice">
                 <i class="fas fa-triangle-exclamation"></i>
@@ -776,10 +438,10 @@
             <div class="card">
                 <div class="flex gap-3 items-end flex-wrap">
                     <div class="flex-1 min-w-[200px]">
-                        <label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color: var(--text-dim);">User ID</label>
+                        <label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">User ID</label>
                         <input type="number" class="input-field" id="playerInfoInput" placeholder="e.g. 12345678">
                     </div>
-                    <button class="btn-primary" id="playerInfoBtn" onclick="fetchPlayerInfo()" style="background: linear-gradient(135deg, var(--error), #d32f2f);">
+                    <button class="btn-primary" id="playerInfoBtn" onclick="fetchPlayerInfo()" style="background:linear-gradient(135deg,var(--error),#d32f2f);">
                         <i class="fas fa-user"></i> Attempt Lookup
                     </button>
                 </div>
@@ -792,7 +454,7 @@
 
     <script>
         /* ============================================================
-           Endpoints — exact copy from Rolimons.Endpoints in the Lua script
+           Endpoints — from Rolimons.Endpoints
            ============================================================ */
         const Endpoints = {
             ItemDetails: "https://api.rolimons.com/items/v1/itemdetails",
@@ -802,316 +464,263 @@
         };
 
         /* ============================================================
-           Util.Demands — exact copy from Util.lua
-           [-1] = "Unassigned", [0] = "Terrible", [1] = "Low",
-           [2] = "Normal",    [3] = "High",      [4] = "Amazing"
+           CORS Proxy System
+           The Rolimons API does not send Access-Control-Allow-Origin,
+           so direct browser fetch() silently fails. We route through
+           CORS proxies with automatic failover.
+           ============================================================ */
+        const PROXY_LIST = [
+            function(url) { return "https://api.allorigins.win/raw?url=" + encodeURIComponent(url); },
+            function(url) { return "https://corsproxy.io/?" + encodeURIComponent(url); },
+            function(url) { return "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(url); }
+        ];
+
+        let activeProxyIndex = -1; // -1 means not yet determined
+
+        /* Try to find a working proxy, cache the result */
+        async function findWorkingProxy() {
+            const testUrl = Endpoints.DealActivity; // small payload, good for testing
+            for (let i = 0; i < PROXY_LIST.length; i++) {
+                try {
+                    const proxyUrl = PROXY_LIST[i](testUrl);
+                    const controller = new AbortController();
+                    const timeout = setTimeout(function() { controller.abort(); }, 8000);
+                    const resp = await fetch(proxyUrl, { signal: controller.signal });
+                    clearTimeout(timeout);
+                    if (resp.ok) {
+                        const text = await resp.text();
+                        const data = JSON.parse(text);
+                        if (data && typeof data === "object") {
+                            activeProxyIndex = i;
+                            updateProxyStatus(i, true);
+                            return i;
+                        }
+                    }
+                } catch (e) {
+                    // This proxy failed, try next
+                }
+            }
+            activeProxyIndex = -1;
+            updateProxyStatus(-1, false);
+            return -1;
+        }
+
+        function updateProxyStatus(index, ok) {
+            const el = document.getElementById("proxyStatus");
+            if (!ok) {
+                el.innerHTML = '<span class="proxy-badge" style="background:rgba(255,82,82,0.1);color:var(--error);"><i class="fas fa-times-circle mr-1"></i>No proxy available</span>';
+                return;
+            }
+            const names = ["allorigins", "corsproxy.io", "codetabs"];
+            el.innerHTML = '<span class="proxy-badge"><i class="fas fa-shield-halved mr-1"></i>' + (names[index] || "proxy " + index) + '</span>';
+        }
+
+        /* ============================================================
+           Util.CallEndpoint — mirrors the Lua version but with
+           CORS proxy routing and failover
+           ============================================================ */
+        async function CallEndpoint(ep) {
+            /* If we don't know which proxy works yet, find one */
+            if (activeProxyIndex === -1) {
+                setStatus("Finding proxy...");
+                const idx = await findWorkingProxy();
+                setStatus("Ready");
+                if (idx === -1) {
+                    console.warn("[ Rolimons ] All CORS proxies failed for " + ep);
+                    return null;
+                }
+            }
+
+            /* Try the active proxy first */
+            try {
+                const proxyUrl = PROXY_LIST[activeProxyIndex](ep);
+                const controller = new AbortController();
+                const timeout = setTimeout(function() { controller.abort(); }, 15000);
+                const resp = await fetch(proxyUrl, { signal: controller.signal });
+                clearTimeout(timeout);
+                if (!resp.ok) throw new Error("HTTP " + resp.status);
+                const text = await resp.text();
+                const data = JSON.parse(text);
+                if (!data.success) {
+                    console.warn("[ Rolimons ] Endpoint " + ep + " returned success=false");
+                }
+                return data;
+            } catch (err) {
+                console.warn("[ Rolimons ] Active proxy failed for " + ep + ": " + err.message + " — trying others...");
+            }
+
+            /* Failover: try remaining proxies */
+            for (let i = 0; i < PROXY_LIST.length; i++) {
+                if (i === activeProxyIndex) continue;
+                try {
+                    const proxyUrl = PROXY_LIST[i](ep);
+                    const controller = new AbortController();
+                    const timeout = setTimeout(function() { controller.abort(); }, 15000);
+                    const resp = await fetch(proxyUrl, { signal: controller.signal });
+                    clearTimeout(timeout);
+                    if (!resp.ok) continue;
+                    const text = await resp.text();
+                    const data = JSON.parse(text);
+                    if (data && typeof data === "object") {
+                        activeProxyIndex = i;
+                        updateProxyStatus(i, true);
+                        if (!data.success) {
+                            console.warn("[ Rolimons ] Endpoint " + ep + " returned success=false");
+                        }
+                        return data;
+                    }
+                } catch (e) {
+                    // continue to next proxy
+                }
+            }
+
+            console.warn("[ Rolimons ] All proxies failed for " + ep);
+            return null;
+        }
+
+        /* ============================================================
+           Util.Demands — exact from Util.lua
            ============================================================ */
         const Demands = {
-            [-1]: "Unassigned",
-            [0]:  "Terrible",
-            [1]:  "Low",
-            [2]:  "Normal",
-            [3]:  "High",
-            [4]:  "Amazing"
+            [-1]: "Unassigned", [0]: "Terrible", [1]: "Low",
+            [2]: "Normal", [3]: "High", [4]: "Amazing"
         };
 
         /* ============================================================
-           Util.Trends — exact copy from Util.lua
-           [-1] = "None", [0] = "Lowering", [1] = "Unstable",
-           [2] = "Stable", [3] = "Raising", [4] = "Fluctuating"
+           Util.Trends — exact from Util.lua
            ============================================================ */
         const Trends = {
-            [-1]: "None",
-            [0]:  "Lowering",
-            [1]:  "Unstable",
-            [2]:  "Stable",
-            [3]:  "Raising",
-            [4]:  "Fluctuating"
+            [-1]: "None", [0]: "Lowering", [1]: "Unstable",
+            [2]: "Stable", [3]: "Raising", [4]: "Fluctuating"
         };
 
         /* ============================================================
-           Util.TagToString — exact copy from Util.lua
-           [1]="Demand", [2]="Rares", [3]="Robux", [4]="Any",
-           [5]="Upgrading", [6]="Downgrade", [7]="RAP",
-           [8]="Wishlist", [9]="Projecteds", [10]="Adds"
+           Util.TagToString — exact from Util.lua
            ============================================================ */
         const TagToString = {
-            [1]:  "Demand",
-            [2]:  "Rares",
-            [3]:  "Robux",
-            [4]:  "Any",
-            [5]:  "Upgrading",
-            [6]:  "Downgrade",
-            [7]:  "RAP",
-            [8]:  "Wishlist",
-            [9]:  "Projecteds",
-            [10]: "Adds"
+            [1]: "Demand", [2]: "Rares", [3]: "Robux", [4]: "Any",
+            [5]: "Upgrading", [6]: "Downgrade", [7]: "RAP",
+            [8]: "Wishlist", [9]: "Projecteds", [10]: "Adds"
         };
 
-        /* Tag-to-color mapping for UI rendering */
         const TagColors = {
-            [1]:  "tag-blue",
-            [2]:  "tag-gold",
-            [3]:  "tag-green",
-            [4]:  "tag-dim",
-            [5]:  "tag-green",
-            [6]:  "tag-red",
-            [7]:  "tag-blue",
-            [8]:  "tag-gold",
-            [9]:  "tag-dim",
-            [10]: "tag-dim"
+            [1]: "tag-blue", [2]: "tag-gold", [3]: "tag-green", [4]: "tag-dim",
+            [5]: "tag-green", [6]: "tag-red", [7]: "tag-blue", [8]: "tag-gold",
+            [9]: "tag-dim", [10]: "tag-dim"
         };
 
-        /* ============================================================
-           Cached data
-           ============================================================ */
+        /* Cached data */
         let cachedItems = null;
         let cachedRawItems = null;
         let cachedItemCount = null;
 
         /* ============================================================
-           Util.CallEndpoint — mirrors the Lua version:
-           pcall wrapping HTTPService:GetAsync, then JSONDecode,
-           warns on failure, returns data or nil
-           ============================================================ */
-        async function CallEndpoint(ep) {
-            try {
-                const response = await fetch(ep);
-                if (!response.ok) {
-                    console.warn("[ Rolimons ] Endpoint call to " + ep + " failed; HTTP " + response.status + ": " + response.statusText);
-                    return null;
-                }
-                const data = await response.json();
-                if (!data.success) {
-                    console.warn("[ Rolimons ] Endpoint call to " + ep + " failed; The Rolimon's API responded with a status of success=false. Please try again later.");
-                }
-                return data;
-            } catch (err) {
-                console.warn("[ Rolimons ] Endpoint call to " + ep + " failed; " + err.message);
-                return null;
-            }
-        }
-
-        /* ============================================================
-           Util.ParseItemAsObject — exact mapping from Util.lua:
-           item[1]=Name, item[2]=Acronym, item[3]=RAP, item[4]=Value,
-           item[5]=DefaultValue, item[6]=Demand (via Demands map),
-           item[7]=Trend (via Trends map), item[8]=Projected,
-           item[9]=Hyped, item[10]=Rare
+           Util.ParseItemAsObject — exact from Util.lua
            ============================================================ */
         function ParseItemAsObject(item) {
             if (!item || !Array.isArray(item)) return null;
             return {
-                Success: true,
-                RawData: item,
-                Name: item[1] || "Unknown",
-                Acronym: item[2] || "",
-                RAP: item[3] || 0,
-                Value: item[4] || 0,
-                DefaultValue: item[5] || 0,
+                Success: true, RawData: item,
+                Name: item[1] || "Unknown", Acronym: item[2] || "",
+                RAP: item[3] || 0, Value: item[4] || 0, DefaultValue: item[5] || 0,
                 Demand: Demands[item[6]] !== undefined ? Demands[item[6]] : "Unassigned",
                 Trend: Trends[item[7]] !== undefined ? Trends[item[7]] : "None",
-                Projected: item[8] !== -1,
-                Hyped: item[9] !== -1,
-                Rare: item[10] !== -1
+                Projected: item[8] !== -1, Hyped: item[9] !== -1, Rare: item[10] !== -1
             };
         }
 
         /* ============================================================
-           Util.ParseTradeAsObject — exact mapping from Util.lua:
-           tradeAd[4] = username
-           tradeAd[5].items = offeringItems
-           tradeAd[5].robux = offeringRobux
-           tradeAd[6].items = requestingItems
-           tradeAd[6].tags  = tags (mapped through TagToString)
+           Util.ParseTradeAsObject — exact from Util.lua
+           tradeAd[4]=username, tradeAd[5].items, tradeAd[5].robux,
+           tradeAd[6].items, tradeAd[6].tags
            ============================================================ */
         function ParseTradeAsObject(tradeAd) {
             if (!tradeAd || !Array.isArray(tradeAd)) return null;
-
             const username = tradeAd[4];
             const offeringData = tradeAd[5] || {};
             const requestingData = tradeAd[6] || {};
-
             const offeringItems = offeringData.items || [];
             const offeringRobux = offeringData.robux || 0;
             const requestingItems = requestingData.items || [];
             const rawTags = requestingData.tags || null;
-
-            /* getTags() — mirrors the Lua local function */
             let tags = null;
             if (rawTags !== null && Array.isArray(rawTags)) {
-                tags = rawTags.map(function(tag) {
-                    return TagToString[tag] !== undefined ? TagToString[tag] : ("Tag " + tag);
-                });
+                tags = rawTags.map(function(t) { return TagToString[t] !== undefined ? TagToString[t] : ("Tag " + t); });
             }
-
-            return {
-                Username: username || "Unknown",
-                OfferingItems: offeringItems,
-                OfferingRobux: offeringRobux,
-                RequestingItems: requestingItems,
-                Tags: tags
-            };
+            return { Username: username || "Unknown", OfferingItems: offeringItems, OfferingRobux: offeringRobux, RequestingItems: requestingItems, Tags: tags };
         }
 
-        /* ============================================================
-           Format helpers
-           ============================================================ */
+        /* Format helpers */
         function formatNumber(n) {
             if (n === null || n === undefined || n === -1) return "--";
             return Number(n).toLocaleString();
         }
-
-        function getDemandBadge(demand) {
-            const colors = {
-                "Amazing": "badge-success",
-                "High": "badge-info",
-                "Normal": "badge-gold",
-                "Low": "badge-warning",
-                "Terrible": "badge-error",
-                "Unassigned": "badge-dim"
-            };
-            return '<span class="badge ' + (colors[demand] || "badge-dim") + '">' + demand + '</span>';
+        function getDemandBadge(d) {
+            var c = { Amazing:"badge-success", High:"badge-info", Normal:"badge-gold", Low:"badge-warning", Terrible:"badge-error", Unassigned:"badge-dim" };
+            return '<span class="badge '+(c[d]||"badge-dim")+'">'+d+'</span>';
         }
-
-        function getTrendBadge(trend) {
-            const colors = {
-                "Raising": "badge-success",
-                "Stable": "badge-info",
-                "Fluctuating": "badge-warning",
-                "Unstable": "badge-warning",
-                "Lowering": "badge-error",
-                "None": "badge-dim"
-            };
-            const icons = {
-                "Raising": "fa-arrow-up",
-                "Stable": "fa-minus",
-                "Fluctuating": "fa-wave-square",
-                "Unstable": "fa-wave-square",
-                "Lowering": "fa-arrow-down",
-                "None": "fa-minus"
-            };
-            return '<span class="badge ' + (colors[trend] || "badge-dim") + '"><i class="fas ' + (icons[trend] || "fa-minus") + ' mr-1" style="font-size:9px;"></i>' + trend + '</span>';
+        function getTrendBadge(t) {
+            var c = { Raising:"badge-success", Stable:"badge-info", Fluctuating:"badge-warning", Unstable:"badge-warning", Lowering:"badge-error", None:"badge-dim" };
+            var i = { Raising:"fa-arrow-up", Stable:"fa-minus", Fluctuating:"fa-wave-square", Unstable:"fa-wave-square", Lowering:"fa-arrow-down", None:"fa-minus" };
+            return '<span class="badge '+(c[t]||"badge-dim")+'"><i class="fas '+(i[t]||"fa-minus")+' mr-1" style="font-size:9px;"></i>'+t+'</span>';
         }
+        function getTagBadge(name, num) { return '<span class="tag '+(TagColors[num]||"tag-dim")+'">'+name+'</span>'; }
+        function thumb(id) { return "https://thumbnails.roblox.com/v1/items/item-thumbnail?assetId="+id+"&width=80&height=80&format=Png"; }
+        function rolLink(id) { return "https://www.rolimons.com/item/"+id; }
+        function rbxLink(id) { return "https://www.roblox.com/catalog/"+id; }
 
-        function getTagBadge(tagName, rawTagNum) {
-            const cls = TagColors[rawTagNum] || "tag-dim";
-            return '<span class="tag ' + cls + '">' + tagName + '</span>';
-        }
-
-        function getItemThumbnail(itemId) {
-            return "https://thumbnails.roblox.com/v1/items/item-thumbnail?assetId=" + itemId + "&width=80&height=80&format=Png";
-        }
-
-        function getItemLink(itemId) {
-            return "https://www.rolimons.com/item/" + itemId;
-        }
-
-        function getRobloxItemLink(itemId) {
-            return "https://www.roblox.com/catalog/" + itemId;
-        }
-
-        /* ============================================================
-           Toast notification system
-           ============================================================ */
-        function showToast(message, type) {
+        /* Toast system */
+        function showToast(msg, type) {
             type = type || "info";
-            const container = document.getElementById("toastContainer");
-            const toast = document.createElement("div");
-            toast.className = "toast toast-" + type;
-            const icons = { success: "fa-check-circle", error: "fa-times-circle", info: "fa-info-circle" };
-            toast.innerHTML = '<i class="fas ' + (icons[type] || icons.info) + '"></i><span>' + message + '</span>';
-            container.appendChild(toast);
-            setTimeout(function() {
-                toast.style.transition = "opacity 0.3s ease, transform 0.3s ease";
-                toast.style.opacity = "0";
-                toast.style.transform = "translateX(40px)";
-                setTimeout(function() { toast.remove(); }, 300);
-            }, 4000);
+            var c = document.getElementById("toastContainer");
+            var t = document.createElement("div");
+            t.className = "toast toast-" + type;
+            var icons = { success:"fa-check-circle", error:"fa-times-circle", info:"fa-info-circle" };
+            t.innerHTML = '<i class="fas '+(icons[type]||icons.info)+'"></i><span>'+msg+'</span>';
+            c.appendChild(t);
+            setTimeout(function(){ t.style.transition="opacity 0.3s,transform 0.3s"; t.style.opacity="0"; t.style.transform="translateX(40px)"; setTimeout(function(){t.remove();},300); }, 4000);
+        }
+        function setStatus(s) { document.getElementById("statusText").textContent = s; }
+        function setLoading(id, on) {
+            var b = document.getElementById(id); if(!b) return;
+            b.disabled = on;
+            if(on) { b.dataset.oh = b.innerHTML; b.innerHTML = '<span class="spinner"></span> Loading...'; }
+            else { b.innerHTML = b.dataset.oh || b.innerHTML; }
         }
 
-        function setStatus(text) {
-            document.getElementById("statusText").textContent = text;
-        }
-
-        function setLoading(btnId, loading) {
-            const btn = document.getElementById(btnId);
-            if (!btn) return;
-            btn.disabled = loading;
-            if (loading) {
-                btn.dataset.originalHtml = btn.innerHTML;
-                btn.innerHTML = '<span class="spinner"></span> Loading...';
-            } else {
-                btn.innerHTML = btn.dataset.originalHtml || btn.innerHTML;
-            }
-        }
-
-        /* ============================================================
-           Navigation
-           ============================================================ */
-        function navigateTo(page) {
-            document.querySelectorAll(".nav-item").forEach(function(item) {
-                item.classList.toggle("active", item.dataset.page === page);
-            });
-            document.querySelectorAll(".page-section").forEach(function(section) {
-                section.classList.toggle("active", section.id === "page-" + page);
-            });
+        /* Navigation */
+        function navigateTo(p) {
+            document.querySelectorAll(".nav-item").forEach(function(n){ n.classList.toggle("active", n.dataset.page===p); });
+            document.querySelectorAll(".page-section").forEach(function(s){ s.classList.toggle("active", s.id==="page-"+p); });
             document.getElementById("sidebar").classList.remove("open");
             document.getElementById("sidebarOverlay").classList.remove("active");
         }
-
-        document.querySelectorAll(".nav-item").forEach(function(item) {
-            item.addEventListener("click", function() {
-                if (item.dataset.page) navigateTo(item.dataset.page);
-            });
-        });
-
-        document.getElementById("hamburgerBtn").addEventListener("click", function() {
-            document.getElementById("sidebar").classList.toggle("open");
-            document.getElementById("sidebarOverlay").classList.toggle("active");
-        });
-        document.getElementById("sidebarOverlay").addEventListener("click", function() {
-            document.getElementById("sidebar").classList.remove("open");
-            document.getElementById("sidebarOverlay").classList.remove("active");
-        });
-
-        /* Enter key shortcuts */
-        document.getElementById("itemDetailInput").addEventListener("keydown", function(e) {
-            if (e.key === "Enter") fetchItemDetails();
-        });
-        document.getElementById("playerInfoInput").addEventListener("keydown", function(e) {
-            if (e.key === "Enter") fetchPlayerInfo();
-        });
+        document.querySelectorAll(".nav-item").forEach(function(n){ n.addEventListener("click", function(){ if(n.dataset.page) navigateTo(n.dataset.page); }); });
+        document.getElementById("hamburgerBtn").addEventListener("click", function(){ document.getElementById("sidebar").classList.toggle("open"); document.getElementById("sidebarOverlay").classList.toggle("active"); });
+        document.getElementById("sidebarOverlay").addEventListener("click", function(){ document.getElementById("sidebar").classList.remove("open"); document.getElementById("sidebarOverlay").classList.remove("active"); });
+        document.getElementById("itemDetailInput").addEventListener("keydown", function(e){ if(e.key==="Enter") fetchItemDetails(); });
+        document.getElementById("playerInfoInput").addEventListener("keydown", function(e){ if(e.key==="Enter") fetchPlayerInfo(); });
 
         /* ============================================================
            Rolimons.GetItemCount()
            ============================================================ */
         async function GetItemCount() {
-            const data = await CallEndpoint(Endpoints.ItemDetails);
-            if (data && data.success) {
-                cachedItemCount = data.item_count;
-                return data.item_count;
-            }
+            var d = await CallEndpoint(Endpoints.ItemDetails);
+            if(d&&d.success){ cachedItemCount=d.item_count; return d.item_count; }
             return null;
         }
 
         /* ============================================================
-           Rolimons.GetItems() — fetches and caches all items
+           Rolimons.GetItems()
            ============================================================ */
         async function GetItems() {
-            if (cachedItems) return cachedItems;
-
+            if(cachedItems) return cachedItems;
             setStatus("Fetching items...");
-            const data = await CallEndpoint(Endpoints.ItemDetails);
+            var d = await CallEndpoint(Endpoints.ItemDetails);
             setStatus("Ready");
-
-            if (data && data.success) {
-                cachedRawItems = data.items;
-                cachedItemCount = data.item_count;
-                cachedItems = {};
-                for (const itemId in data.items) {
-                    cachedItems[itemId] = ParseItemAsObject(data.items[itemId]);
-                }
+            if(d&&d.success){
+                cachedRawItems=d.items; cachedItemCount=d.item_count; cachedItems={};
+                for(var id in d.items) cachedItems[id]=ParseItemAsObject(d.items[id]);
                 return cachedItems;
             }
             return null;
@@ -1121,522 +730,164 @@
            Rolimons.GetItemDetails(ItemId)
            ============================================================ */
         async function fetchItemDetails() {
-            const input = document.getElementById("itemDetailInput").value.trim();
-            if (!input) { showToast("Please enter an Item ID.", "error"); return; }
-            const itemId = parseInt(input);
-            if (isNaN(itemId)) { showToast("Invalid Item ID.", "error"); return; }
-
-            setLoading("itemDetailBtn", true);
-            setStatus("Fetching item details...");
-
-            const data = await CallEndpoint(Endpoints.ItemDetails);
-            setLoading("itemDetailBtn", false);
-            setStatus("Ready");
-
-            if (data && data.success) {
-                /* Cache for later use by other sections */
-                if (!cachedRawItems) {
-                    cachedRawItems = data.items;
-                    cachedItemCount = data.item_count;
-                    cachedItems = {};
-                    for (const id in data.items) {
-                        cachedItems[id] = ParseItemAsObject(data.items[id]);
-                    }
+            var inp = document.getElementById("itemDetailInput").value.trim();
+            if(!inp){showToast("Please enter an Item ID.","error");return;}
+            var itemId = parseInt(inp);
+            if(isNaN(itemId)){showToast("Invalid Item ID.","error");return;}
+            setLoading("itemDetailBtn",true); setStatus("Fetching item details...");
+            var data = await CallEndpoint(Endpoints.ItemDetails);
+            setLoading("itemDetailBtn",false); setStatus("Ready");
+            if(data&&data.success){
+                if(!cachedRawItems){ cachedRawItems=data.items; cachedItemCount=data.item_count; cachedItems={}; for(var id in data.items) cachedItems[id]=ParseItemAsObject(data.items[id]); }
+                var item = data.items[String(itemId)];
+                if(!item){
+                    document.getElementById("itemDetailResult").innerHTML='<div class="card" style="border-color:rgba(255,82,82,0.2);"><div class="flex items-center gap-3"><i class="fas fa-times-circle text-xl" style="color:var(--error);"></i><div><div class="font-semibold" style="color:var(--error);">Item Not Found</div><div class="text-sm" style="color:var(--text-muted);">No item with ID '+itemId+' exists.</div></div></div></div>';
+                    showToast("Item "+itemId+" not found.","error"); return;
                 }
-
-                const item = data.items[String(itemId)];
-                if (!item) {
-                    document.getElementById("itemDetailResult").innerHTML =
-                        '<div class="card" style="border-color: rgba(255,82,82,0.2);">' +
-                        '<div class="flex items-center gap-3">' +
-                        '<i class="fas fa-times-circle text-xl" style="color: var(--error);"></i>' +
-                        '<div><div class="font-semibold" style="color: var(--error);">Item Not Found</div>' +
-                        '<div class="text-sm" style="color: var(--text-muted);">No item with ID ' + itemId + ' exists in the Rolimons database.</div></div></div></div>';
-                    showToast("Item " + itemId + " not found.", "error");
-                    return;
-                }
-
-                /* Use ParseItemAsObject — same as the Lua function */
-                const parsed = ParseItemAsObject(item);
-                const valueDiff = parsed.Value - parsed.RAP;
-                const valueDiffStr = valueDiff > 0 ? "+" + formatNumber(valueDiff) : valueDiff < 0 ? formatNumber(valueDiff) : "0";
-                const valueDiffClass = valueDiff > 0 ? "rap-change-positive" : valueDiff < 0 ? "rap-change-negative" : "";
-
-                document.getElementById("itemDetailResult").innerHTML =
-                    '<div class="card mb-4">' +
-                        '<div class="flex flex-col sm:flex-row gap-6">' +
-                            '<div class="flex-shrink-0">' +
-                                '<img src="' + getItemThumbnail(itemId) + '" alt="' + parsed.Name + '" class="w-24 h-24 rounded-xl object-cover" style="border: 1px solid var(--border); background: var(--accent-glow);" onerror="this.style.display=\'none\'">' +
-                            '</div>' +
-                            '<div class="flex-1">' +
-                                '<div class="flex items-center gap-3 flex-wrap mb-2">' +
-                                    '<h2 class="text-xl font-bold">' + parsed.Name + '</h2>' +
-                                    (parsed.Projected ? '<span class="badge badge-warning">Projected</span>' : '') +
-                                    (parsed.Hyped ? '<span class="badge badge-info">Hyped</span>' : '') +
-                                    (parsed.Rare ? '<span class="badge badge-gold">Rare</span>' : '') +
-                                '</div>' +
-                                '<div class="text-sm mb-3" style="color: var(--text-muted);">' +
-                                    'ID: <span class="font-mono">' + itemId + '</span>' +
-                                    (parsed.Acronym ? ' &middot; Acronym: <span class="font-mono">' + parsed.Acronym + '</span>' : '') +
-                                '</div>' +
-                                '<div class="flex gap-2 flex-wrap">' +
-                                    '<a href="' + getItemLink(itemId) + '" target="_blank" class="btn-secondary text-xs"><i class="fas fa-external-link-alt mr-1"></i> Rolimons</a>' +
-                                    '<a href="' + getRobloxItemLink(itemId) + '" target="_blank" class="btn-secondary text-xs"><i class="fab fa-roblox mr-1"></i> Roblox</a>' +
-                                '</div>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>' +
-                    '<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">' +
-                        '<div class="card">' +
-                            '<div class="detail-row"><span class="detail-label">Recent Average Price</span><span class="detail-value" style="color: var(--accent);">R$ ' + formatNumber(parsed.RAP) + '</span></div>' +
-                            '<div class="detail-row"><span class="detail-label">Value</span><span class="detail-value" style="color: var(--gold);">R$ ' + formatNumber(parsed.Value) + '</span></div>' +
-                            '<div class="detail-row"><span class="detail-label">Value vs RAP</span><span class="detail-value ' + valueDiffClass + '">' + valueDiffStr + '</span></div>' +
-                            '<div class="detail-row"><span class="detail-label">Default Value</span><span class="detail-value">' + formatNumber(parsed.DefaultValue) + '</span></div>' +
-                        '</div>' +
-                        '<div class="card">' +
-                            '<div class="detail-row"><span class="detail-label">Demand</span><span>' + getDemandBadge(parsed.Demand) + '</span></div>' +
-                            '<div class="detail-row"><span class="detail-label">Trend</span><span>' + getTrendBadge(parsed.Trend) + '</span></div>' +
-                            '<div class="detail-row"><span class="detail-label">Projected</span><span class="badge ' + (parsed.Projected ? 'badge-warning' : 'badge-dim') + '">' + (parsed.Projected ? 'Yes' : 'No') + '</span></div>' +
-                            '<div class="detail-row"><span class="detail-label">Rare</span><span class="badge ' + (parsed.Rare ? 'badge-gold' : 'badge-dim') + '">' + (parsed.Rare ? 'Yes' : 'No') + '</span></div>' +
-                        '</div>' +
-                    '</div>' +
-                    '<details class="card" style="cursor: pointer;">' +
-                        '<summary class="text-sm font-semibold" style="color: var(--text-muted);"><i class="fas fa-code mr-2"></i>Raw Data</summary>' +
-                        '<div class="raw-data-block mt-3">' + JSON.stringify(item, null, 2) + '</div>' +
-                    '</details>';
-
-                showToast("Found: " + parsed.Name, "success");
+                var p=ParseItemAsObject(item);
+                var vd=p.Value-p.RAP, vds=vd>0?"+"+formatNumber(vd):vd<0?formatNumber(vd):"0", vdc=vd>0?"rap-pos":vd<0?"rap-neg":"";
+                document.getElementById("itemDetailResult").innerHTML=
+                    '<div class="card mb-4"><div class="flex flex-col sm:flex-row gap-6"><div class="flex-shrink-0"><img src="'+thumb(itemId)+'" alt="'+p.Name+'" class="w-24 h-24 rounded-xl object-cover" style="border:1px solid var(--border);background:var(--accent-glow);" onerror="this.style.display=\'none\'"></div><div class="flex-1"><div class="flex items-center gap-3 flex-wrap mb-2"><h2 class="text-xl font-bold">'+p.Name+'</h2>'+(p.Projected?'<span class="badge badge-warning">Projected</span>':'')+(p.Hyped?'<span class="badge badge-info">Hyped</span>':'')+(p.Rare?'<span class="badge badge-gold">Rare</span>':'')+'</div><div class="text-sm mb-3" style="color:var(--text-muted);">ID: <span class="font-mono">'+itemId+'</span>'+(p.Acronym?' &middot; Acronym: <span class="font-mono">'+p.Acronym+'</span>':'')+'</div><div class="flex gap-2 flex-wrap"><a href="'+rolLink(itemId)+'" target="_blank" class="btn-secondary text-xs"><i class="fas fa-external-link-alt mr-1"></i> Rolimons</a><a href="'+rbxLink(itemId)+'" target="_blank" class="btn-secondary text-xs"><i class="fab fa-roblox mr-1"></i> Roblox</a></div></div></div></div>'+
+                    '<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4"><div class="card"><div class="detail-row"><span class="detail-label">Recent Average Price</span><span class="detail-value" style="color:var(--accent);">R$ '+formatNumber(p.RAP)+'</span></div><div class="detail-row"><span class="detail-label">Value</span><span class="detail-value" style="color:var(--gold);">R$ '+formatNumber(p.Value)+'</span></div><div class="detail-row"><span class="detail-label">Value vs RAP</span><span class="detail-value '+vdc+'">'+vds+'</span></div><div class="detail-row"><span class="detail-label">Default Value</span><span class="detail-value">'+formatNumber(p.DefaultValue)+'</span></div></div><div class="card"><div class="detail-row"><span class="detail-label">Demand</span><span>'+getDemandBadge(p.Demand)+'</span></div><div class="detail-row"><span class="detail-label">Trend</span><span>'+getTrendBadge(p.Trend)+'</span></div><div class="detail-row"><span class="detail-label">Projected</span><span class="badge '+(p.Projected?'badge-warning':'badge-dim')+'">'+(p.Projected?'Yes':'No')+'</span></div><div class="detail-row"><span class="detail-label">Rare</span><span class="badge '+(p.Rare?'badge-gold':'badge-dim')+'">'+(p.Rare?'Yes':'No')+'</span></div></div></div>'+
+                    '<details class="card" style="cursor:pointer;"><summary class="text-sm font-semibold" style="color:var(--text-muted);"><i class="fas fa-code mr-2"></i>Raw Data</summary><div class="raw-data-block mt-3">'+JSON.stringify(item,null,2)+'</div></details>';
+                showToast("Found: "+p.Name,"success");
             } else {
-                document.getElementById("itemDetailResult").innerHTML =
-                    '<div class="card" style="border-color: rgba(255,82,82,0.2);">' +
-                    '<div class="flex items-center gap-3">' +
-                    '<i class="fas fa-times-circle text-xl" style="color: var(--error);"></i>' +
-                    '<div><div class="font-semibold" style="color: var(--error);">API Error</div>' +
-                    '<div class="text-sm" style="color: var(--text-muted);">The Rolimons API returned an unsuccessful response.</div></div></div></div>';
-                showToast("API returned unsuccessful response.", "error");
+                document.getElementById("itemDetailResult").innerHTML='<div class="card" style="border-color:rgba(255,82,82,0.2);"><div class="flex items-center gap-3"><i class="fas fa-times-circle text-xl" style="color:var(--error);"></i><div><div class="font-semibold" style="color:var(--error);">API Error</div><div class="text-sm" style="color:var(--text-muted);">Could not reach the Rolimons API. All CORS proxies may be down — try again later.</div></div></div></div>';
+                showToast("API request failed.","error");
             }
         }
 
         /* ============================================================
            Rolimons.GetItems() — All Items Browser
            ============================================================ */
-        let allItemsLoaded = false;
-
+        var allItemsLoaded = false;
         async function fetchAllItems() {
-            if (allItemsLoaded && cachedItems) { filterAllItems(); return; }
-
-            setLoading("allItemsBtn", true);
-            const items = await GetItems();
-            setLoading("allItemsBtn", false);
-
-            if (items) {
-                allItemsLoaded = true;
-                filterAllItems();
-                showToast("Loaded " + Object.keys(items).length + " items.", "success");
-            } else {
-                showToast("Failed to fetch items.", "error");
-            }
+            if(allItemsLoaded&&cachedItems){filterAllItems();return;}
+            setLoading("allItemsBtn",true);
+            var items = await GetItems();
+            setLoading("allItemsBtn",false);
+            if(items){allItemsLoaded=true;filterAllItems();showToast("Loaded "+Object.keys(items).length+" items.","success");}
+            else{showToast("Failed to fetch items.","error");}
         }
-
         function filterAllItems() {
-            if (!cachedItems) {
-                document.getElementById("allItemsResult").innerHTML =
-                    '<div class="text-sm text-center py-12" style="color: var(--text-dim);">' +
-                    '<i class="fas fa-boxes-stacked text-3xl mb-3 block"></i>' +
-                    'Click "Load Items" to fetch the item database.</div>';
-                return;
-            }
-
-            const search = document.getElementById("allItemsSearch").value.toLowerCase().trim();
-            const demandFilter = document.getElementById("allItemsDemandFilter").value;
-            const sortBy = document.getElementById("allItemsSort").value;
-
-            let entries = Object.entries(cachedItems);
-
-            if (search) {
-                entries = entries.filter(function(entry) {
-                    const id = entry[0];
-                    const item = entry[1];
-                    return item.Name.toLowerCase().includes(search) || id.includes(search) || (item.Acronym && item.Acronym.toLowerCase().includes(search));
-                });
-            }
-
-            if (demandFilter) {
-                entries = entries.filter(function(entry) { return entry[1].Demand === demandFilter; });
-            }
-
-            switch (sortBy) {
-                case "value-desc": entries.sort(function(a,b){ return b[1].Value - a[1].Value; }); break;
-                case "value-asc":  entries.sort(function(a,b){ return a[1].Value - b[1].Value; }); break;
-                case "rap-desc":   entries.sort(function(a,b){ return b[1].RAP - a[1].RAP; }); break;
-                case "rap-asc":    entries.sort(function(a,b){ return a[1].RAP - b[1].RAP; }); break;
-                case "name-asc":   entries.sort(function(a,b){ return a[1].Name.localeCompare(b[1].Name); }); break;
-            }
-
-            const displayed = entries.slice(0, 200);
-            const totalFiltered = entries.length;
-
-            if (displayed.length === 0) {
-                document.getElementById("allItemsResult").innerHTML =
-                    '<div class="text-sm text-center py-12" style="color: var(--text-dim);">' +
-                    '<i class="fas fa-search text-3xl mb-3 block"></i>No items match your search criteria.</div>';
-                return;
-            }
-
-            let rows = displayed.map(function(entry) {
-                const id = entry[0];
-                const item = entry[1];
-                const valueDiff = item.Value - item.RAP;
-                const diffStr = valueDiff > 0 ? '<span class="rap-change-positive">+' + formatNumber(valueDiff) + '</span>' :
-                    valueDiff < 0 ? '<span class="rap-change-negative">' + formatNumber(valueDiff) + '</span>' :
-                    '<span style="color:var(--text-dim);">0</span>';
-
-                return '<tr>' +
-                    '<td><img src="' + getItemThumbnail(id) + '" class="item-thumb" loading="lazy" onerror="this.style.display=\'none\'"></td>' +
-                    '<td><a href="' + getItemLink(id) + '" target="_blank" class="hover:underline" style="color:var(--accent);">' + item.Name + '</a><div class="text-xs" style="color:var(--text-dim);">' + id + '</div></td>' +
-                    '<td>' + formatNumber(item.RAP) + '</td>' +
-                    '<td style="color:var(--gold);">' + formatNumber(item.Value) + '</td>' +
-                    '<td>' + diffStr + '</td>' +
-                    '<td>' + getDemandBadge(item.Demand) + '</td>' +
-                    '<td>' + getTrendBadge(item.Trend) + '</td>' +
-                    '<td>' +
-                        (item.Projected ? '<span class="badge badge-warning" style="font-size:9px;">Proj</span> ' : '') +
-                        (item.Rare ? '<span class="badge badge-gold" style="font-size:9px;">Rare</span>' : '') +
-                    '</td>' +
-                '</tr>';
-            }).join("");
-
-            document.getElementById("allItemsResult").innerHTML =
-                '<div class="text-xs mb-3" style="color: var(--text-muted);">Showing ' + displayed.length + ' of ' + totalFiltered + ' items' + (totalFiltered > 200 ? ' (limited to 200 for performance)' : '') + '</div>' +
-                '<div class="table-wrapper"><table class="data-table"><thead><tr>' +
-                '<th style="width:50px;"></th><th>Name</th><th>RAP</th><th>Value</th><th>Diff</th><th>Demand</th><th>Trend</th><th>Flags</th>' +
-                '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+            if(!cachedItems){document.getElementById("allItemsResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);"><i class="fas fa-boxes-stacked text-3xl mb-3 block"></i>Click "Load Items" to fetch the item database.</div>';return;}
+            var s=document.getElementById("allItemsSearch").value.toLowerCase().trim(), df=document.getElementById("allItemsDemandFilter").value, sb=document.getElementById("allItemsSort").value;
+            var e=Object.entries(cachedItems);
+            if(s) e=e.filter(function(x){return x[1].Name.toLowerCase().includes(s)||x[0].includes(s)||(x[1].Acronym&&x[1].Acronym.toLowerCase().includes(s));});
+            if(df) e=e.filter(function(x){return x[1].Demand===df;});
+            switch(sb){case"value-desc":e.sort(function(a,b){return b[1].Value-a[1].Value;});break;case"value-asc":e.sort(function(a,b){return a[1].Value-b[1].Value;});break;case"rap-desc":e.sort(function(a,b){return b[1].RAP-a[1].RAP;});break;case"rap-asc":e.sort(function(a,b){return a[1].RAP-b[1].RAP;});break;case"name-asc":e.sort(function(a,b){return a[1].Name.localeCompare(b[1].Name);});break;}
+            var d=e.slice(0,200), tf=e.length;
+            if(!d.length){document.getElementById("allItemsResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);"><i class="fas fa-search text-3xl mb-3 block"></i>No items match your search criteria.</div>';return;}
+            var rows=d.map(function(x){var id=x[0],it=x[1],vd=it.Value-it.RAP,ds=vd>0?'<span class="rap-pos">+'+formatNumber(vd)+'</span>':vd<0?'<span class="rap-neg">'+formatNumber(vd)+'</span>':'<span style="color:var(--text-dim);">0</span>';return '<tr><td><img src="'+thumb(id)+'" class="item-thumb" loading="lazy" onerror="this.style.display=\'none\'"></td><td><a href="'+rolLink(id)+'" target="_blank" class="hover:underline" style="color:var(--accent);">'+it.Name+'</a><div class="text-xs" style="color:var(--text-dim);">'+id+'</div></td><td>'+formatNumber(it.RAP)+'</td><td style="color:var(--gold);">'+formatNumber(it.Value)+'</td><td>'+ds+'</td><td>'+getDemandBadge(it.Demand)+'</td><td>'+getTrendBadge(it.Trend)+'</td><td>'+(it.Projected?'<span class="badge badge-warning" style="font-size:9px;">Proj</span> ':'')+(it.Rare?'<span class="badge badge-gold" style="font-size:9px;">Rare</span>':'')+'</td></tr>';}).join("");
+            document.getElementById("allItemsResult").innerHTML='<div class="text-xs mb-3" style="color:var(--text-muted);">Showing '+d.length+' of '+tf+' items'+(tf>200?' (limited to 200)':'')+'</div><div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:50px;"></th><th>Name</th><th>RAP</th><th>Value</th><th>Diff</th><th>Demand</th><th>Trend</th><th>Flags</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
         }
 
         /* ============================================================
-           Rolimons.GetRecentAds() — uses ParseTradeAsObject with
-           corrected indices from Util.lua: [4], [5].items, [5].robux,
-           [6].items, [6].tags
+           Rolimons.GetRecentAds()
            ============================================================ */
         async function fetchTradeAds() {
-            const showRaw = document.getElementById("tradeAdsRawToggle").checked;
-            setLoading("tradeAdsBtn", true);
-            setStatus("Fetching trade ads...");
-
-            const data = await CallEndpoint(Endpoints.GetRecentAds);
-            setLoading("tradeAdsBtn", false);
-            setStatus("Ready");
-
-            if (data && data.success) {
-                if (showRaw) {
-                    document.getElementById("tradeAdsResult").innerHTML =
-                        '<div class="card">' +
-                        '<div class="flex items-center justify-between mb-3">' +
-                        '<span class="text-sm font-semibold" style="color: var(--text-muted);">Raw Response</span>' +
-                        '<span class="text-xs font-mono" style="color: var(--text-dim);">trade_ad_count: ' + data.trade_ad_count + '</span></div>' +
-                        '<div class="raw-data-block">' + JSON.stringify(data, null, 2) + '</div></div>';
-                } else {
-                    /* Parse each trade ad using ParseTradeAsObject (from Util.lua) */
-                    const rawAds = data.trade_ads || [];
-                    const tradeAds = [];
-                    const rawTagMap = []; /* Keep raw tag numbers for color mapping */
-
-                    for (let i = 0; i < rawAds.length; i++) {
-                        const parsed = ParseTradeAsObject(rawAds[i]);
-                        if (parsed) {
-                            tradeAds.push(parsed);
-                            /* Extract raw tag numbers for color mapping */
-                            const reqData = rawAds[i][6] || {};
-                            rawTagMap.push(Array.isArray(reqData.tags) ? reqData.tags : []);
-                        }
-                    }
-
-                    const adCount = data.trade_ad_count;
-
-                    if (tradeAds.length === 0) {
-                        document.getElementById("tradeAdsResult").innerHTML =
-                            '<div class="text-sm text-center py-12" style="color: var(--text-dim);">No trade ads found.</div>';
-                        return;
-                    }
-
-                    /* Resolve item names from cache if available */
-                    let itemNameMap = cachedItems || {};
-
-                    let html = '<div class="text-xs mb-4" style="color: var(--text-muted);">Showing ' + tradeAds.length + ' of ' + adCount + ' ads</div>';
-                    html += '<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">';
-
-                    for (let i = 0; i < tradeAds.length; i++) {
-                        const ad = tradeAds[i];
-                        const rawTags = rawTagMap[i] || [];
-
-                        /* Build offering items HTML */
-                        let offeringHtml = '';
-                        for (let j = 0; j < ad.OfferingItems.length; j++) {
-                            const iid = ad.OfferingItems[j];
-                            const name = itemNameMap[String(iid)] ? itemNameMap[String(iid)].Name : ("Item " + iid);
-                            offeringHtml += '<a href="' + getItemLink(iid) + '" target="_blank" class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-mono hover:underline" style="background:rgba(0,230,118,0.06); color:var(--accent); border:1px solid var(--border);">' +
-                                '<img src="' + getItemThumbnail(iid) + '" class="w-5 h-5 rounded" loading="lazy" onerror="this.style.display=\'none\'">' +
-                                name + '</a> ';
-                        }
-                        if (ad.OfferingRobux > 0) {
-                            offeringHtml += '<span class="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-mono" style="background:rgba(0,230,118,0.06); color:var(--accent); border:1px solid var(--border);">R$ ' + formatNumber(ad.OfferingRobux) + '</span>';
-                        }
-
-                        /* Build requesting items HTML */
-                        let requestingHtml = '';
-                        for (let j = 0; j < ad.RequestingItems.length; j++) {
-                            const iid = ad.RequestingItems[j];
-                            const name = itemNameMap[String(iid)] ? itemNameMap[String(iid)].Name : ("Item " + iid);
-                            requestingHtml += '<a href="' + getItemLink(iid) + '" target="_blank" class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-mono hover:underline" style="background:rgba(255,193,7,0.06); color:var(--gold); border:1px solid var(--border);">' +
-                                '<img src="' + getItemThumbnail(iid) + '" class="w-5 h-5 rounded" loading="lazy" onerror="this.style.display=\'none\'">' +
-                                name + '</a> ';
-                        }
-
-                        /* Build tags HTML using TagToString names + raw numbers for colors */
-                        let tagsHtml = '';
-                        if (ad.Tags) {
-                            for (let j = 0; j < ad.Tags.length; j++) {
-                                const rawNum = rawTags[j] || 0;
-                                tagsHtml += getTagBadge(ad.Tags[j], rawNum);
-                            }
-                        }
-
-                        html += '<div class="trade-ad-card">' +
-                            '<div class="flex items-center justify-between mb-3">' +
-                                '<span class="font-semibold text-sm" style="color: var(--text);">' + ad.Username + '</span>' +
-                                (tagsHtml ? '<div class="flex flex-wrap gap-1">' + tagsHtml + '</div>' : '') +
-                            '</div>' +
-                            '<div class="mb-3">' +
-                                '<div class="text-xs font-semibold uppercase tracking-wider mb-1.5" style="color: var(--success);">' +
-                                    '<i class="fas fa-arrow-up mr-1" style="font-size:10px;"></i> Offering' +
-                                '</div>' +
-                                '<div class="flex flex-wrap gap-1.5">' + (offeringHtml || '<span class="text-xs" style="color:var(--text-dim);">Nothing</span>') + '</div>' +
-                            '</div>' +
-                            '<div>' +
-                                '<div class="text-xs font-semibold uppercase tracking-wider mb-1.5" style="color: var(--gold);">' +
-                                    '<i class="fas fa-arrow-down mr-1" style="font-size:10px;"></i> Requesting' +
-                                '</div>' +
-                                '<div class="flex flex-wrap gap-1.5">' + (requestingHtml || '<span class="text-xs" style="color:var(--text-dim);">Nothing</span>') + '</div>' +
-                            '</div>' +
-                        '</div>';
-                    }
-
-                    html += '</div>';
-                    document.getElementById("tradeAdsResult").innerHTML = html;
+            var raw=document.getElementById("tradeAdsRawToggle").checked;
+            setLoading("tradeAdsBtn",true); setStatus("Fetching trade ads...");
+            var data=await CallEndpoint(Endpoints.GetRecentAds);
+            setLoading("tradeAdsBtn",false); setStatus("Ready");
+            if(data&&data.success){
+                if(raw){document.getElementById("tradeAdsResult").innerHTML='<div class="card"><div class="flex items-center justify-between mb-3"><span class="text-sm font-semibold" style="color:var(--text-muted);">Raw Response</span><span class="text-xs font-mono" style="color:var(--text-dim);">trade_ad_count: '+data.trade_ad_count+'</span></div><div class="raw-data-block">'+JSON.stringify(data,null,2)+'</div></div>';showToast("Loaded raw data.","success");return;}
+                var ra=data.trade_ads||[],ads=[],rm=[];
+                for(var i=0;i<ra.length;i++){var p=ParseTradeAsObject(ra[i]);if(p){ads.push(p);rm.push(Array.isArray((ra[i][6]||{}).tags)?(ra[i][6]||{}).tags:[]);}}
+                if(!ads.length){document.getElementById("tradeAdsResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);">No trade ads found.</div>';return;}
+                var nm=cachedItems||{};
+                var h='<div class="text-xs mb-4" style="color:var(--text-muted);">Showing '+ads.length+' of '+data.trade_ad_count+' ads</div><div class="grid grid-cols-1 lg:grid-cols-2 gap-4">';
+                for(var i=0;i<ads.length;i++){
+                    var ad=ads[i],rt=rm[i]||[];
+                    var oh='';
+                    for(var j=0;j<ad.OfferingItems.length;j++){var iid=ad.OfferingItems[j],nm2=nm[String(iid)]?nm[String(iid)].Name:("Item "+iid);oh+='<a href="'+rolLink(iid)+'" target="_blank" class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-mono hover:underline" style="background:rgba(0,230,118,0.06);color:var(--accent);border:1px solid var(--border);"><img src="'+thumb(iid)+'" class="w-5 h-5 rounded" loading="lazy" onerror="this.style.display=\'none\'">'+nm2+'</a> ';}
+                    if(ad.OfferingRobux>0) oh+='<span class="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-mono" style="background:rgba(0,230,118,0.06);color:var(--accent);border:1px solid var(--border);">R$ '+formatNumber(ad.OfferingRobux)+'</span>';
+                    var rh='';
+                    for(var j=0;j<ad.RequestingItems.length;j++){var iid=ad.RequestingItems[j],nm2=nm[String(iid)]?nm[String(iid)].Name:("Item "+iid);rh+='<a href="'+rolLink(iid)+'" target="_blank" class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-mono hover:underline" style="background:rgba(255,193,7,0.06);color:var(--gold);border:1px solid var(--border);"><img src="'+thumb(iid)+'" class="w-5 h-5 rounded" loading="lazy" onerror="this.style.display=\'none\'">'+nm2+'</a> ';}
+                    var th='';if(ad.Tags){for(var j=0;j<ad.Tags.length;j++) th+=getTagBadge(ad.Tags[j],rt[j]||0);}
+                    h+='<div class="trade-ad-card"><div class="flex items-center justify-between mb-3"><span class="font-semibold text-sm" style="color:var(--text);">'+ad.Username+'</span>'+(th?'<div class="flex flex-wrap gap-1">'+th+'</div>':'')+'</div><div class="mb-3"><div class="text-xs font-semibold uppercase tracking-wider mb-1.5" style="color:var(--success);"><i class="fas fa-arrow-up mr-1" style="font-size:10px;"></i> Offering</div><div class="flex flex-wrap gap-1.5">'+(oh||'<span class="text-xs" style="color:var(--text-dim);">Nothing</span>')+'</div></div><div><div class="text-xs font-semibold uppercase tracking-wider mb-1.5" style="color:var(--gold);"><i class="fas fa-arrow-down mr-1" style="font-size:10px;"></i> Requesting</div><div class="flex flex-wrap gap-1.5">'+(rh||'<span class="text-xs" style="color:var(--text-dim);">Nothing</span>')+'</div></div></div>';
                 }
-                showToast("Loaded " + data.trade_ad_count + " trade ads.", "success");
-            } else {
-                showToast("API returned unsuccessful response.", "error");
-            }
+                h+='</div>';
+                document.getElementById("tradeAdsResult").innerHTML=h;
+                showToast("Loaded "+data.trade_ad_count+" trade ads.","success");
+            } else { showToast("API request failed.","error"); }
         }
 
         /* ============================================================
            Rolimons.GetRecentDealActivity()
            ============================================================ */
         async function fetchDealActivity() {
-            setLoading("dealActivityBtn", true);
-            setStatus("Fetching deal activity...");
-
-            const data = await CallEndpoint(Endpoints.DealActivity);
-            setLoading("dealActivityBtn", false);
-            setStatus("Ready");
-
-            if (data && data.success) {
-                document.getElementById("dealActivityResult").innerHTML =
-                    '<div class="card">' +
-                    '<div class="flex items-center justify-between mb-3">' +
-                    '<span class="text-sm font-semibold" style="color: var(--text-muted);">Raw Deal Activity Response</span>' +
-                    '<span class="badge badge-success">Success</span></div>' +
-                    '<div class="raw-data-block">' + JSON.stringify(data, null, 2) + '</div></div>';
-                showToast("Deal activity data loaded.", "success");
-            } else {
-                document.getElementById("dealActivityResult").innerHTML =
-                    '<div class="card" style="border-color: rgba(255,82,82,0.2);">' +
-                    '<div class="flex items-center gap-3">' +
-                    '<i class="fas fa-times-circle text-xl" style="color: var(--error);"></i>' +
-                    '<div><div class="font-semibold" style="color: var(--error);">Request Failed</div>' +
-                    '<div class="text-sm" style="color: var(--text-muted);">The API returned an unsuccessful response.</div></div></div></div>';
-                showToast("API returned unsuccessful response.", "error");
-            }
+            setLoading("dealActivityBtn",true); setStatus("Fetching deal activity...");
+            var data=await CallEndpoint(Endpoints.DealActivity);
+            setLoading("dealActivityBtn",false); setStatus("Ready");
+            if(data&&data.success){document.getElementById("dealActivityResult").innerHTML='<div class="card"><div class="flex items-center justify-between mb-3"><span class="text-sm font-semibold" style="color:var(--text-muted);">Raw Deal Activity Response</span><span class="badge badge-success">Success</span></div><div class="raw-data-block">'+JSON.stringify(data,null,2)+'</div></div>';showToast("Deal activity loaded.","success");}
+            else{document.getElementById("dealActivityResult").innerHTML='<div class="card" style="border-color:rgba(255,82,82,0.2);"><div class="flex items-center gap-3"><i class="fas fa-times-circle text-xl" style="color:var(--error);"></i><div><div class="font-semibold" style="color:var(--error);">Request Failed</div><div class="text-sm" style="color:var(--text-muted);">Could not reach the API. Try again later.</div></div></div></div>';showToast("API request failed.","error");}
         }
 
         /* ============================================================
-           Rolimons.CalculateRAPChange(OldPrice, NewPrice)
-           Exact port of the Lua formula — ascending and descending
+           Rolimons.CalculateRAPChange(OldPrice, NewPrice) — exact formula
            ============================================================ */
-        function CalculateRAPChange(OldPrice, NewPrice) {
-            const RAP = Number(OldPrice);
-            const price = Number(NewPrice);
-
-            if (isNaN(RAP) || isNaN(price) || RAP <= 0 || price <= 0) return null;
-
-            let expectedRAP, RAPChange, percentChange, isGainingRAP;
-
-            if (price >= RAP) {
-                /* Ascending formula */
-                const RAPsub = price - RAP;
-                const initialChange = RAPsub / 10;
-                const gain = Math.floor(initialChange);
-                const finalRAP = RAP + gain;
-                const increasePercent = Math.round(100 * gain / finalRAP * 100) / 100;
-                expectedRAP = finalRAP;
-                isGainingRAP = true;
-                percentChange = increasePercent;
-                RAPChange = gain;
-            } else {
-                /* Descending formula */
-                const RAPsub = RAP - price;
-                const initialChange = RAPsub / 10;
-                const loss = Math.floor(initialChange);
-                const finalRAP = RAP - loss;
-                const decreasePercent = Math.round(100 * loss / finalRAP * 100) / 100;
-                expectedRAP = finalRAP;
-                isGainingRAP = false;
-                percentChange = -decreasePercent;
-                RAPChange = -loss;
-            }
-
-            return {
-                OriginalRAP: RAP,
-                ExpectedRAP: expectedRAP,
-                RAPChange: RAPChange,
-                PercentChange: percentChange,
-                IsGainingRAP: isGainingRAP
-            };
+        function CalculateRAPChange(OldPrice,NewPrice) {
+            var RAP=Number(OldPrice),price=Number(NewPrice);
+            if(isNaN(RAP)||isNaN(price)||RAP<=0||price<=0) return null;
+            var expectedRAP,RAPChange,percentChange,isGainingRAP;
+            if(price>=RAP){var s=price-RAP,g=Math.floor(s/10),f=RAP+g;expectedRAP=f;isGainingRAP=true;percentChange=Math.round(100*g/f*100)/100;RAPChange=g;}
+            else{var s=RAP-price,l=Math.floor(s/10),f=RAP-l;expectedRAP=f;isGainingRAP=false;percentChange=-Math.round(100*l/f*100)/100;RAPChange=-l;}
+            return {OriginalRAP:RAP,ExpectedRAP:expectedRAP,RAPChange:RAPChange,PercentChange:percentChange,IsGainingRAP:isGainingRAP};
         }
-
         function calculateRAP() {
-            const oldPrice = document.getElementById("rapOldPrice").value;
-            const newPrice = document.getElementById("rapNewPrice").value;
-
-            if (!oldPrice || !newPrice) {
-                document.getElementById("rapResult").innerHTML =
-                    '<div class="text-sm" style="color: var(--text-dim);">Enter values to calculate RAP change.</div>';
-                return;
-            }
-
-            const result = CalculateRAPChange(oldPrice, newPrice);
-            if (!result) {
-                document.getElementById("rapResult").innerHTML =
-                    '<div class="text-sm" style="color: var(--error);">Please enter valid positive numbers.</div>';
-                return;
-            }
-
-            const changeClass = result.IsGainingRAP ? "rap-change-positive" : "rap-change-negative";
-            const changeIcon = result.IsGainingRAP ? "fa-arrow-up" : "fa-arrow-down";
-            const changeSign = result.RAPChange > 0 ? "+" : "";
-            const pctSign = result.PercentChange > 0 ? "+" : "";
-
-            document.getElementById("rapResult").innerHTML =
-                '<div class="space-y-0">' +
-                    '<div class="detail-row"><span class="detail-label">Original RAP</span><span class="detail-value">R$ ' + formatNumber(result.OriginalRAP) + '</span></div>' +
-                    '<div class="detail-row"><span class="detail-label">Expected RAP</span><span class="detail-value" style="color: var(--accent); font-size: 18px; font-weight: 700;">R$ ' + formatNumber(result.ExpectedRAP) + '</span></div>' +
-                    '<div class="detail-row"><span class="detail-label">RAP Change</span><span class="detail-value ' + changeClass + '" style="font-size: 16px; font-weight: 700;"><i class="fas ' + changeIcon + ' mr-1" style="font-size: 12px;"></i>' + changeSign + formatNumber(result.RAPChange) + '</span></div>' +
-                    '<div class="detail-row"><span class="detail-label">Percent Change</span><span class="detail-value ' + changeClass + '">' + pctSign + result.PercentChange + '%</span></div>' +
-                    '<div class="detail-row"><span class="detail-label">Direction</span><span class="badge ' + (result.IsGainingRAP ? 'badge-success' : 'badge-error') + '"><i class="fas ' + (result.IsGainingRAP ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down') + ' mr-1" style="font-size:10px;"></i>' + (result.IsGainingRAP ? 'Gaining RAP' : 'Losing RAP') + '</span></div>' +
-                '</div>' +
-                '<div class="mt-4 p-3 rounded-lg text-xs" style="background: rgba(0,0,0,0.3); color: var(--text-dim);">' +
-                    '<strong>Formula:</strong> change = floor(|' + formatNumber(newPrice) + ' - ' + formatNumber(result.OriginalRAP) + '| / 10) = ' + formatNumber(Math.abs(result.RAPChange)) + '<br>' +
-                    (result.IsGainingRAP
-                        ? 'Expected RAP = ' + formatNumber(result.OriginalRAP) + ' + ' + formatNumber(result.RAPChange) + ' = ' + formatNumber(result.ExpectedRAP)
-                        : 'Expected RAP = ' + formatNumber(result.OriginalRAP) + ' - ' + formatNumber(Math.abs(result.RAPChange)) + ' = ' + formatNumber(result.ExpectedRAP)
-                    ) +
-                '</div>';
+            var o=document.getElementById("rapOldPrice").value,n=document.getElementById("rapNewPrice").value;
+            if(!o||!n){document.getElementById("rapResult").innerHTML='<div class="text-sm" style="color:var(--text-dim);">Enter values to calculate RAP change.</div>';return;}
+            var r=CalculateRAPChange(o,n);
+            if(!r){document.getElementById("rapResult").innerHTML='<div class="text-sm" style="color:var(--error);">Please enter valid positive numbers.</div>';return;}
+            var cc=r.IsGainingRAP?"rap-pos":"rap-neg",ci=r.IsGainingRAP?"fa-arrow-up":"fa-arrow-down",cs=r.RAPChange>0?"+":"",ps=r.PercentChange>0?"+":"";
+            document.getElementById("rapResult").innerHTML='<div class="space-y-0"><div class="detail-row"><span class="detail-label">Original RAP</span><span class="detail-value">R$ '+formatNumber(r.OriginalRAP)+'</span></div><div class="detail-row"><span class="detail-label">Expected RAP</span><span class="detail-value" style="color:var(--accent);font-size:18px;font-weight:700;">R$ '+formatNumber(r.ExpectedRAP)+'</span></div><div class="detail-row"><span class="detail-label">RAP Change</span><span class="detail-value '+cc+'" style="font-size:16px;font-weight:700;"><i class="fas '+ci+' mr-1" style="font-size:12px;"></i>'+cs+formatNumber(r.RAPChange)+'</span></div><div class="detail-row"><span class="detail-label">Percent Change</span><span class="detail-value '+cc+'">'+ps+r.PercentChange+'%</span></div><div class="detail-row"><span class="detail-label">Direction</span><span class="badge '+(r.IsGainingRAP?'badge-success':'badge-error')+'"><i class="fas '+(r.IsGainingRAP?'fa-arrow-trend-up':'fa-arrow-trend-down')+' mr-1" style="font-size:10px;"></i>'+(r.IsGainingRAP?'Gaining RAP':'Losing RAP')+'</span></div></div><div class="mt-4 p-3 rounded-lg text-xs" style="background:rgba(0,0,0,0.3);color:var(--text-dim);"><strong>Formula:</strong> change = floor(|'+formatNumber(n)+' - '+formatNumber(r.OriginalRAP)+'| / 10) = '+formatNumber(Math.abs(r.RAPChange))+'<br>'+(r.IsGainingRAP?'Expected RAP = '+formatNumber(r.OriginalRAP)+' + '+formatNumber(r.RAPChange)+' = '+formatNumber(r.ExpectedRAP):'Expected RAP = '+formatNumber(r.OriginalRAP)+' - '+formatNumber(Math.abs(r.RAPChange))+' = '+formatNumber(r.ExpectedRAP))+'</div>';
         }
 
         /* ============================================================
            Rolimons.GetPlayerInfo(UserId) — DEPRECATED
            ============================================================ */
         async function fetchPlayerInfo() {
-            const input = document.getElementById("playerInfoInput").value.trim();
-            if (!input) { showToast("Please enter a User ID.", "error"); return; }
-            const userId = parseInt(input);
-            if (isNaN(userId)) { showToast("Invalid User ID.", "error"); return; }
-
-            setLoading("playerInfoBtn", true);
-            setStatus("Attempting PlayerInfo...");
-
-            try {
-                const data = await CallEndpoint(Endpoints.PlayerInfo + userId);
-                setLoading("playerInfoBtn", false);
-                setStatus("Ready");
-
-                if (data && data.success) {
-                    const player = {
-                        Name: data.name, Value: data.value, RAP: data.rap,
-                        Rank: data.rank, Premium: data.premium,
-                        PrivacyEnabled: data.privacy_enabled, Terminated: data.terminated,
-                        StatsUpdated: data.stats_updated, LastScan: data.last_scan,
-                        LastOnline: data.last_online, LastLocation: data.last_location,
-                        Rolibadges: data.rolibadges
-                    };
-
-                    let html = '<div class="card mt-4" style="border-color: rgba(0,230,118,0.2);">';
-                    html += '<div class="text-xs mb-3" style="color: var(--success);"><i class="fas fa-check-circle mr-1"></i> Unexpectedly succeeded! The endpoint may be working again.</div>';
-                    for (const key in player) {
-                        const val = player[key] !== null && player[key] !== undefined ? player[key] : '--';
-                        html += '<div class="detail-row"><span class="detail-label">' + key + '</span><span class="detail-value font-mono text-sm">' + val + '</span></div>';
-                    }
-                    html += '</div>';
-                    document.getElementById("playerInfoResult").innerHTML = html;
-                    showToast("PlayerInfo succeeded unexpectedly!", "info");
-                } else {
-                    document.getElementById("playerInfoResult").innerHTML =
-                        '<div class="mt-4 p-3 rounded-lg" style="background: rgba(255,82,82,0.06); border: 1px solid rgba(255,82,82,0.15);">' +
-                        '<span class="text-sm" style="color: var(--error);"><i class="fas fa-times-circle mr-1"></i> API returned unsuccessful response for user ' + userId + '.</span></div>';
-                }
-            } catch (err) {
-                setLoading("playerInfoBtn", false);
-                setStatus("Ready");
-
-                const is403 = err.message && err.message.includes("403");
-                document.getElementById("playerInfoResult").innerHTML =
-                    '<div class="mt-4 p-4 rounded-lg" style="background: rgba(255,82,82,0.06); border: 1px solid rgba(255,82,82,0.15);">' +
-                    '<div class="font-semibold mb-1" style="color: var(--error);"><i class="fas fa-ban mr-1"></i> ' + (is403 ? 'HTTP 403 Forbidden' : 'Request Failed') + '</div>' +
-                    '<div class="text-sm" style="color: var(--text-muted);">' +
-                    (is403 ? 'As documented, the PlayerInfo endpoint is restricted. Rolimon\'s blocks requests from certain sources including browser-based clients.' : err.message) +
-                    '</div></div>';
-
-                showToast(is403 ? "Expected 403 — PlayerInfo is restricted." : "Request failed: " + err.message, is403 ? "info" : "error");
+            var inp=document.getElementById("playerInfoInput").value.trim();
+            if(!inp){showToast("Please enter a User ID.","error");return;}
+            var uid=parseInt(inp);
+            if(isNaN(uid)){showToast("Invalid User ID.","error");return;}
+            setLoading("playerInfoBtn",true); setStatus("Attempting PlayerInfo...");
+            var data=await CallEndpoint(Endpoints.PlayerInfo+uid);
+            setLoading("playerInfoBtn",false); setStatus("Ready");
+            if(data&&data.success){
+                var pl={Name:data.name,Value:data.value,RAP:data.rap,Rank:data.rank,Premium:data.premium,PrivacyEnabled:data.privacy_enabled,Terminated:data.terminated,StatsUpdated:data.stats_updated,LastScan:data.last_scan,LastOnline:data.last_online,LastLocation:data.last_location,Rolibadges:data.rolibadges};
+                var h='<div class="card mt-4" style="border-color:rgba(0,230,118,0.2);"><div class="text-xs mb-3" style="color:var(--success);"><i class="fas fa-check-circle mr-1"></i>Unexpectedly succeeded!</div>';
+                for(var k in pl) h+='<div class="detail-row"><span class="detail-label">'+k+'</span><span class="detail-value font-mono text-sm">'+(pl[k]!==null&&pl[k]!==undefined?pl[k]:'--')+'</span></div>';
+                h+='</div>'; document.getElementById("playerInfoResult").innerHTML=h; showToast("PlayerInfo succeeded unexpectedly!","info");
+            } else {
+                document.getElementById("playerInfoResult").innerHTML='<div class="mt-4 p-4 rounded-lg" style="background:rgba(255,82,82,0.06);border:1px solid rgba(255,82,82,0.15);"><div class="font-semibold mb-1" style="color:var(--error);"><i class="fas fa-ban mr-1"></i>Request Failed</div><div class="text-sm" style="color:var(--text-muted);">As documented, the PlayerInfo endpoint is restricted by Rolimon\'s. Expected 403 Forbidden.</div></div>';
+                showToast("Expected 403 — PlayerInfo is restricted.","info");
             }
         }
 
         /* ============================================================
-           Dashboard — loads on startup
+           Dashboard — auto-loads on startup
            ============================================================ */
         async function loadDashboard() {
-            try {
-                const data = await CallEndpoint(Endpoints.ItemDetails);
-                if (data && data.success) {
-                    cachedRawItems = data.items;
-                    cachedItemCount = data.item_count;
-                    cachedItems = {};
-                    let projected = 0, rare = 0;
-                    for (const itemId in data.items) {
-                        const parsed = ParseItemAsObject(data.items[itemId]);
-                        cachedItems[itemId] = parsed;
-                        if (parsed.Projected) projected++;
-                        if (parsed.Rare) rare++;
-                    }
-                    document.getElementById("dashItemCount").textContent = formatNumber(data.item_count);
-                    document.getElementById("dashProjected").textContent = formatNumber(projected);
-                    document.getElementById("dashRare").textContent = formatNumber(rare);
-                    allItemsLoaded = true;
-                }
-            } catch (e) {
-                document.getElementById("dashItemCount").textContent = "Error";
+            setStatus("Connecting...");
+            var data = await CallEndpoint(Endpoints.ItemDetails);
+            if(data&&data.success){
+                cachedRawItems=data.items; cachedItemCount=data.item_count; cachedItems={};
+                var proj=0,rare=0;
+                for(var id in data.items){var p=ParseItemAsObject(data.items[id]);cachedItems[id]=p;if(p.Projected)proj++;if(p.Rare)rare++;}
+                document.getElementById("dashItemCount").textContent=formatNumber(data.item_count);
+                document.getElementById("dashProjected").textContent=formatNumber(proj);
+                document.getElementById("dashRare").textContent=formatNumber(rare);
+                allItemsLoaded=true;
+            } else {
+                document.getElementById("dashItemCount").textContent="Error";
             }
-
-            try {
-                const adData = await CallEndpoint(Endpoints.GetRecentAds);
-                if (adData && adData.success) {
-                    document.getElementById("dashTradeCount").textContent = formatNumber(adData.trade_ad_count);
-                }
-            } catch (e) {
-                document.getElementById("dashTradeCount").textContent = "Error";
-            }
+            var adData=await CallEndpoint(Endpoints.GetRecentAds);
+            if(adData&&adData.success) document.getElementById("dashTradeCount").textContent=formatNumber(adData.trade_ad_count);
+            else document.getElementById("dashTradeCount").textContent="Error";
+            setStatus("Ready");
         }
-
         loadDashboard();
         filterAllItems();
     </script>
