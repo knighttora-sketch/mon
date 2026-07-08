@@ -69,8 +69,8 @@
         @keyframes pd{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,230,118,.4)}50%{opacity:.7;box-shadow:0 0 0 6px rgba(0,230,118,0)}}
         .section-line{height:2px;background:linear-gradient(90deg,var(--accent),transparent);border:none;margin:8px 0 0 0;border-radius:1px}
         .section-line-purple{height:2px;background:linear-gradient(90deg,var(--purple),transparent);border:none;margin:8px 0 0 0;border-radius:1px}
-        .item-thumb-sm{width:40px;height:40px;border-radius:8px;object-fit:cover;background:rgba(0,230,118,.05);border:1px solid var(--border);flex-shrink:0}
-        .item-thumb-xl{width:120px;height:120px;border-radius:16px;object-fit:cover;background:rgba(0,230,118,.05);border:2px solid var(--border);flex-shrink:0}
+        .item-thumb-sm{width:40px;height:40px;border-radius:8px;object-fit:cover;background:rgba(20,30,25,.6);border:1px solid var(--border);flex-shrink:0}
+        .item-thumb-xl{width:120px;height:120px;border-radius:16px;object-fit:cover;background:rgba(20,30,25,.6);border:2px solid var(--border);flex-shrink:0}
         .detail-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}.detail-row:last-child{border-bottom:none}
         .detail-label{font-size:13px;color:var(--text-muted);font-weight:500}.detail-value{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500}
         @media(max-width:900px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main-content{margin-left:0;padding:24px 16px;padding-top:70px}.hamburger{display:flex}.item-thumb-xl{width:80px;height:80px}}
@@ -131,7 +131,7 @@
         </section>
 
         <section class="page-section" id="page-allItems">
-            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">All Items</h1><hr class="section-line w-16><p class="text-sm mt-3" style="color:var(--text-muted);">Non-UGC limited items only.</p></div>
+            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">All Items</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">Non-UGC limited items only.</p></div>
             <div class="card mb-6"><div class="flex gap-3 items-end flex-wrap">
                 <div class="flex-1 min-w-[200px]"><label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Search Items</label><input type="text" class="input-field" id="allItemsSearch" placeholder="Search by name or ID..." oninput="filterAllItems()"></div>
                 <select class="input-field" style="width:auto;min-width:140px;" id="allItemsDemandFilter" onchange="filterAllItems()"><option value="">All Demand</option><option value="Amazing">Amazing</option><option value="High">High</option><option value="Normal">Normal</option><option value="Low">Low</option><option value="Terrible">Terrible</option><option value="Unassigned">Unassigned</option></select>
@@ -143,7 +143,7 @@
 
         <section class="page-section" id="page-ugcItems">
             <div class="mb-8"><h1 class="text-3xl font-bold mb-1" style="color:var(--purple);">UGC Limiteds</h1><hr class="section-line-purple w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">New UGC limiteds added shortly after release.</p></div>
-            <div class="info-banner"><i class="fas fa-info-circle"></i><span>UGC data from <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">/itemdetails</code> under <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">ugc_limiteds</code>. Format: <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">[id, name, acronym, rap, value, default, demand, trend, projected, hyped, rare]</code></span></div>
+            <div class="info-banner"><i class="fas fa-info-circle"></i><span>UGC data from <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">/itemdetails</code> under <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">ugc_limiteds</code>.</span></div>
             <div class="card mb-6"><div class="flex gap-3 items-end flex-wrap">
                 <div class="flex-1 min-w-[200px]"><label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Search UGC</label><input type="text" class="input-field" id="ugcSearch" placeholder="Search by name or ID..." oninput="filterUgcItems()"></div>
                 <select class="input-field" style="width:auto;min-width:140px;" id="ugcDemandFilter" onchange="filterUgcItems()"><option value="">All Demand</option><option value="Amazing">Amazing</option><option value="High">High</option><option value="Normal">Normal</option><option value="Low">Low</option><option value="Terrible">Terrible</option><option value="Unassigned">Unassigned</option></select>
@@ -154,13 +154,13 @@
         </section>
 
         <section class="page-section" id="page-tradeAds">
-            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Recent Trade Ads</h1><hr class="section-line w-16><p class="text-sm mt-3" style="color:var(--text-muted);">Latest trade ads from Rolimons.</p></div>
+            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Recent Trade Ads</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">Latest trade ads from Rolimons.</p></div>
             <div class="card mb-6"><div class="flex gap-3 items-end flex-wrap"><button class="btn-primary" id="tradeAdsBtn" onclick="fetchTradeAds()"><i class="fas fa-arrows-rotate"></i> Fetch Trade Ads</button><label class="flex items-center gap-2 cursor-pointer text-sm" style="color:var(--text-muted);"><input type="checkbox" id="tradeAdsRawToggle" onchange="fetchTradeAds()" class="accent-green-500"> Show Raw Data</label></div></div>
             <div id="tradeAdsResult"></div>
         </section>
 
         <section class="page-section" id="page-dealActivity">
-            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Deal Activity</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">Raw deal activity data.</p></div>
+            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Deal Activity</h1><hr class="section-line w-16><p class="text-sm mt-3" style="color:var(--text-muted);">Raw deal activity data.</p></div>
             <div class="card mb-6"><button class="btn-primary" id="dealActivityBtn" onclick="fetchDealActivity()"><i class="fas fa-bolt"></i> Fetch Deal Activity</button></div>
             <div id="dealActivityResult"></div>
         </section>
@@ -183,34 +183,21 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <script>
-        /* ============================================================
-           Fallback image for broken thumbnails
-           ============================================================ */
-        var FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect fill='%23141414' width='40' height='40' rx='8'/%3E%3Ctext x='50%25' y='54%25' fill='%23333' font-size='10' text-anchor='middle' font-family='sans-serif'%3E?%3C/text%3E%3C/svg%3E";
+        var FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect fill='%231a2420' width='40' height='40' rx='8'/%3E%3Ctext x='50%25' y='54%25' fill='%23444' font-size='10' text-anchor='middle' font-family='sans-serif'%3E?%3C/text%3E%3C/svg%3E";
         function imgErr(el){ el.onerror = null; el.src = FALLBACK_IMG; }
 
         /* ============================================================
-           Thumbnail URL — tries rbxcdn (high quality) first,
-           falls back to Roblox thumbnail API through proxy.
+           rbxcdn URL cache & fetcher
+           Scrapes https://www.roblox.com/catalog/{id} HTML for the
+           tr.rbxcdn.com/.../noFilter URL pattern.
            
-           rbxcdn URLs look like:
-           https://tr.rbxcdn.com/180DAY-<hash>/420/420/Hat/Webp/noFilter
-           
-           We scrape the hash from the Roblox catalog page HTML.
+           KEY FIX: For table rows, we use loadRbxcdnAsync() which only
+           sets the src AFTER successfully fetching — no proxy-bloated
+           fallback that fails silently. The item shows placeholder
+           until the real image loads.
            ============================================================ */
-        var rbxcdnCache = {}; // Cache: assetId -> rbxcdn URL
+        var rbxcdnCache = {};
 
-        function thumbUrl(assetId, size) {
-            size = size || 150;
-            // If we already found the rbxcdn URL, use it directly (no proxy needed for rbxcdn)
-            if (rbxcdnCache[assetId]) return rbxcdnCache[assetId];
-            // Fallback: Roblox thumbnail API through CORS proxy
-            var u = "https://thumbnails.roblox.com/v1/items/item-thumbnail?assetId=" + assetId + "&width=" + size + "&height=" + size + "&format=Png";
-            if (activeProxyIndex >= 0) return PROXY_LIST[activeProxyIndex](u);
-            return u;
-        }
-
-        /* Fetch the rbxcdn URL from the Roblox catalog page */
         async function fetchRbxcdnUrl(assetId) {
             if (rbxcdnCache[assetId]) return rbxcdnCache[assetId];
             var catalogUrl = "https://www.roblox.com/catalog/" + assetId;
@@ -223,31 +210,19 @@
                 clearTimeout(timeout);
                 if (!resp.ok) return null;
                 var html = await resp.text();
-                // The page contains the image URL in a pattern like:
-                // https://tr.rbxcdn.com/180DAY-xxxxx/420/420/Hat/Webp/noFilter
                 var match = html.match(/https?:\/\/tr\.rbxcdn\.com\/[0-9A-Za-z-]+\/\d+\/\d+\/\w+\/\w+\/noFilter/);
                 if (match) {
                     rbxcdnCache[assetId] = match[0];
                     return match[0];
                 }
-            } catch (e) {
-                // Silently fail — fallback thumbnail will be used
-            }
+            } catch (e) { /* silent */ }
             return null;
         }
 
-        /* Set image source with rbxcdn priority */
-        function setImgWithRbxcdn(imgEl, assetId, size) {
-            // Try rbxcdn first (cached or fetch)
-            if (rbxcdnCache[assetId]) {
-                imgEl.src = rbxcdnCache[assetId];
-                imgEl.onerror = function() { imgErr(imgEl); };
-                return;
-            }
-            // Set fallback thumbnail immediately so something shows
+        /* For detail page: instant fallback, then upgrade to rbxcdn */
+        function setImgWithFallback(imgEl, assetId, size) {
             imgEl.src = thumbUrl(assetId, size);
             imgEl.onerror = function() { imgErr(imgEl); };
-            // Then try to upgrade to rbxcdn in the background
             fetchRbxcdnUrl(assetId).then(function(url) {
                 if (url && imgEl.parentNode) {
                     imgEl.src = url;
@@ -256,9 +231,19 @@
             });
         }
 
-        /* ============================================================
-           Endpoints
-           ============================================================ */
+        /* For table rows: NO fallback — only set src after rbxcdn succeeds.
+           Shows placeholder until then. This avoids flooding the proxy
+           with 200+ thumbnail API requests that all fail. */
+        function loadRbxcdnAsync(imgEl, assetId) {
+            imgEl.src = FALLBACK_IMG;
+            fetchRbxcdnUrl(assetId).then(function(url) {
+                if (url && imgEl.parentNode) {
+                    imgEl.src = url;
+                    imgEl.onerror = function() { imgErr(imgEl); };
+                }
+            });
+        }
+
         var Endpoints = {
             ItemDetails:  "https://api.rolimons.com/items/v1/itemdetails",
             DealActivity: "https://api.rolimons.com/market/v1/dealactivity",
@@ -285,7 +270,7 @@
             return null;
         }
 
-        /* Util mappings (exact from Util.lua) */
+        /* Util mappings */
         var Demands={[-1]:"Unassigned",[0]:"Terrible",[1]:"Low",[2]:"Normal",[3]:"High",[4]:"Amazing"};
         var Trends={[-1]:"None",[0]:"Lowering",[1]:"Unstable",[2]:"Stable",[3]:"Raising",[4]:"Fluctuating"};
         var TagToString={[1]:"Demand",[2]:"Rares",[3]:"Robux",[4]:"Any",[5]:"Upgrading",[6]:"Downgrade",[7]:"RAP",[8]:"Wishlist",[9]:"Projecteds",[10]:"Adds"};
@@ -308,6 +293,7 @@
             return{Username:ta[4]||"Unknown",OfferingItems:od.items||[],OfferingRobux:od.robux||0,RequestingItems:rd.items||[],Tags:tags};
         }
 
+        function thumbUrl(assetId,size){size=size||150;var u="https://thumbnails.roblox.com/v1/items/item-thumbnail?assetId="+assetId+"&width="+size+"&height="+size+"&format=Png";if(activeProxyIndex>=0)return PROXY_LIST[activeProxyIndex](u);return u;}
         function showImageModal(src,name){var o=document.createElement("div");o.className="img-modal-overlay";o.innerHTML='<img src="'+src+'" alt="'+(name||'')+'">'+(name?'<div class="img-modal-name">'+name+'</div>':'');o.addEventListener("click",function(){o.remove();});document.body.appendChild(o);}
 
         function fmt(n){if(n===null||n===undefined||n===-1)return"--";return Number(n).toLocaleString();}
@@ -327,7 +313,6 @@
         document.getElementById("itemDetailInput").addEventListener("keydown",function(e){if(e.key==="Enter")fetchItemDetails();});
         document.getElementById("playerInfoInput").addEventListener("keydown",function(e){if(e.key==="Enter")fetchPlayerInfo();});
 
-        /* FetchAndCache */
         async function FetchAndCache(){
             if(itemDetailsLoaded)return true;
             setStatus("Fetching item data...");
@@ -340,7 +325,7 @@
             itemDetailsLoaded=true;return true;
         }
 
-        /* Item Details */
+        /* Item Details — uses setImgWithFallback (instant fallback) */
         async function fetchItemDetails(){
             var inp=document.getElementById("itemDetailInput").value.trim();
             if(!inp){showToast("Enter an Item ID.","error");return;}
@@ -352,7 +337,6 @@
             if(!p&&cachedUgcItems){for(var i=0;i<cachedUgcItems.length;i++){if(cachedUgcItems[i].ItemId===itemId){p=cachedUgcItems[i];isUgc=true;break;}}}
             if(!p){document.getElementById("itemDetailResult").innerHTML='<div class="card" style="border-color:rgba(255,82,82,.2);"><div class="flex items-center gap-3"><i class="fas fa-times-circle text-xl" style="color:var(--error);"></i><div><div class="font-semibold" style="color:var(--error);">Not Found</div><div class="text-sm" style="color:var(--text-muted);">No item with ID '+itemId+'.</div></div></div></div>';showToast("Not found.","error");return;}
             var vd=p.Value-p.RAP,vds=vd>0?"+"+fmt(vd):vd<0?fmt(vd):"0",vdc=vd>0?"rap-pos":vd<0?"rap-neg":"";
-            /* Build HTML without inline image src — set it via JS */
             document.getElementById("itemDetailResult").innerHTML=
                 '<div class="card mb-4"><div class="flex flex-col sm:flex-row gap-6">'+
                 '<div class="flex-shrink-0 cursor-zoom-in" id="detailThumbWrap"><img id="detailThumb" class="item-thumb-xl hover:brightness-110 transition-all"><div class="text-xs text-center mt-2" style="color:var(--text-dim);"><i class="fas fa-magnifying-glass-plus mr-1"></i>Click to enlarge</div></div>'+
@@ -370,18 +354,13 @@
                 '<div class="detail-row"><span class="detail-label">Trend</span><span>'+trndBadge(p.Trend)+'</span></div>'+
                 '<div class="detail-row"><span class="detail-label">Projected</span><span class="badge '+(p.Projected?'badge-warning':'badge-dim')+'">'+(p.Projected?'Yes':'No')+'</span></div>'+
                 '<div class="detail-row"><span class="detail-label">Rare</span><span class="badge '+(p.Rare?'badge-gold':'badge-dim')+'">'+(p.Rare?'Yes':'No')+'</span></div></div></div>';
-            /* Set image with rbxcdn priority */
-            var detailThumb = document.getElementById("detailThumb");
-            setImgWithRbxcdn(detailThumb, itemId, 150);
-            /* Click to zoom */
-            document.getElementById("detailThumbWrap").onclick = function(){
-                var src = detailThumb.src;
-                if(src && src !== FALLBACK_IMG) showImageModal(src, p.Name);
-            };
+            var detailThumb=document.getElementById("detailThumb");
+            setImgWithFallback(detailThumb, itemId, 150);
+            document.getElementById("detailThumbWrap").onclick=function(){var src=detailThumb.src;if(src&&src!==FALLBACK_IMG)showImageModal(src,p.Name);};
             showToast("Found: "+p.Name+(isUgc?" (UGC)":""),"success");
         }
 
-        /* All Items */
+        /* All Items — uses loadRbxcdnAsync (NO proxy-bloated fallback) */
         var allItemsNotified=false;
         async function fetchAllItems(){setLoading("allItemsBtn",true);var ok=await FetchAndCache();setLoading("allItemsBtn",false);if(ok){filterAllItems();if(!allItemsNotified){showToast("Loaded "+Object.keys(cachedItems).length+" items.","success");allItemsNotified=true;}}else showToast("Failed.","error");}
         function filterAllItems(){
@@ -399,7 +378,7 @@
                 var tr=document.createElement("tr");
                 tr.innerHTML='<td></td><td><a href="'+rolLink(id)+'" target="_blank" class="hover:underline" style="color:var(--accent);">'+it.Name+'</a><div class="text-xs" style="color:var(--text-dim);">'+id+'</div></td><td>'+fmt(it.RAP)+'</td><td style="color:var(--gold);">'+fmt(it.Value)+'</td><td>'+ds+'</td><td>'+demBadge(it.Demand)+'</td><td>'+trndBadge(it.Trend)+'</td><td>'+(it.Projected?'<span class="badge badge-warning" style="font-size:9px;">Proj</span> ':'')+(it.Rare?'<span class="badge badge-gold" style="font-size:9px;">Rare</span>':'')+'</td>';
                 var img=document.createElement("img");img.className="item-thumb-sm";img.loading="lazy";
-                setImgWithRbxcdn(img, id, 80);
+                loadRbxcdnAsync(img, id);
                 tr.cells[0].appendChild(img);
                 tbody.appendChild(tr);
             }
@@ -407,7 +386,7 @@
             document.querySelector("#allItemsResult .data-table").appendChild(tbody);
         }
 
-        /* UGC Limiteds */
+        /* UGC Limiteds — also uses loadRbxcdnAsync */
         var ugcNotified=false;
         async function fetchUgcItems(){setLoading("ugcBtn",true);var ok=await FetchAndCache();setLoading("ugcBtn",false);if(ok){filterUgcItems();if(!ugcNotified){showToast("Loaded "+cachedUgcItems.length+" UGC items.","success");ugcNotified=true;}}else showToast("Failed.","error");}
         function filterUgcItems(){
@@ -425,7 +404,7 @@
                 var tr=document.createElement("tr");
                 tr.innerHTML='<td></td><td><a href="'+rolLink(it.ItemId)+'" target="_blank" class="hover:underline" style="color:var(--purple);">'+it.Name+'</a><div class="text-xs" style="color:var(--text-dim);">'+it.ItemId+'</div></td><td>'+fmt(it.RAP)+'</td><td style="color:var(--gold);">'+fmt(it.Value)+'</td><td>'+ds+'</td><td>'+demBadge(it.Demand)+'</td><td>'+trndBadge(it.Trend)+'</td><td>'+(it.Projected?'<span class="badge badge-warning" style="font-size:9px;">Proj</span> ':'')+(it.Rare?'<span class="badge badge-gold" style="font-size:9px;">Rare</span>':'')+'</td>';
                 var img=document.createElement("img");img.className="item-thumb-sm";img.loading="lazy";
-                setImgWithRbxcdn(img, it.ItemId, 80);
+                loadRbxcdnAsync(img, it.ItemId);
                 tr.cells[0].appendChild(img);
                 tbody.appendChild(tr);
             }
@@ -433,7 +412,7 @@
             document.querySelector("#ugcResult .data-table").appendChild(tbody);
         }
 
-        /* Trade Ads */
+        /* Trade Ads — uses loadRbxcdnAsync for item chips */
         async function fetchTradeAds(){
             var raw=document.getElementById("tradeAdsRawToggle").checked;
             setLoading("tradeAdsBtn",true);setStatus("Fetching trade ads...");
@@ -447,9 +426,23 @@
                 var h='<div class="text-xs mb-4" style="color:var(--text-muted);">Showing '+ads.length+' of '+data.trade_ad_count+' ads</div><div class="grid grid-cols-1 lg:grid-cols-2 gap-4">';
                 for(var i=0;i<ads.length;i++){
                     var ad=ads[i],rt=rm[i]||[],oh='',rh='';
-                    for(var j=0;j<ad.OfferingItems.length;j++){var iid=ad.OfferingItems[j],iname=nm[String(iid)]?nm[String(iid)].Name:("Item "+iid);oh+='<a href="'+rolLink(iid)+'" target="_blank" class="item-chip item-chip-offer" title="'+iname+'"><img src="'+thumbUrl(iid,80)+'" loading="lazy" onerror="imgErr(this)">'+iname+'</a> ';}
+                    for(var j=0;j<ad.OfferingItems.length;j++){var iid=ad.OfferingItems[j],iname=nm[String(iid)]?nm[String(iid)].Name:("Item "+iid);
+                    var chip=document.createElement("a");chip.href=rolLink(iid);chip.target="_blank";chip.className="item-chip item-chip-offer";chip.title=iname;
+                    var chipImg=document.createElement("img");chipImg.loading="lazy";chipImg.onerror=function(){chipImg.style.display='none';};
+                    loadRbxcdnAsync(chipImg, iid);
+                    chip.appendChild(chipImg);
+                    var span=document.createElement("span");span.textContent=iname;
+                    chip.appendChild(span);
+                    oh+=chip.outerHTML;
                     if(ad.OfferingRobux>0)oh+='<span class="item-chip item-chip-robux"><i class="fas fa-coins mr-1" style="font-size:10px;"></i>R$ '+fmt(ad.OfferingRobux)+'</span>';
-                    for(var j=0;j<ad.RequestingItems.length;j++){var iid=ad.RequestingItems[j],iname=nm[String(iid)]?nm[String(iid)].Name:("Item "+iid);rh+='<a href="'+rolLink(iid)+'" target="_blank" class="item-chip item-chip-request" title="'+iname+'"><img src="'+thumbUrl(iid,80)+'" loading="lazy" onerror="imgErr(this)">'+iname+'</a> ';}
+                    for(var j=0;j<ad.RequestingItems.length;j++){var iid=ad.RequestingItems[j],iname=nm[String(iid)]?nm[String(iid)].Name:("Item "+iid);
+                    var chip=document.createElement("a");chip.href=rolLink(iid);chip.target="_blank";chip.className="item-chip item-chip-request";chip.title=iname;
+                    var chipImg=document.createElement("img");chipImg.loading="lazy";chipImg.onerror=function(){chipImg.style.display='none';};
+                    loadRbxcdnAsync(chipImg, iid);
+                    chip.appendChild(chipImg);
+                    var span=document.createElement("span");span.textContent=iname;
+                    chip.appendChild(span);
+                    rh+=chip.outerHTML;
                     var th='';if(ad.Tags){for(var j=0;j<ad.Tags.length;j++)th+=tagBadge(ad.Tags[j],rt[j]||0);}
                     h+='<div class="trade-ad-card"><div class="flex items-center justify-between mb-3"><span class="font-semibold text-sm" style="color:var(--text);">'+ad.Username+'</span>'+(th?'<div class="flex flex-wrap gap-1">'+th+'</div>':'')+'</div><div class="mb-3"><div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--success);"><i class="fas fa-arrow-up mr-1" style="font-size:10px;"></i> Offering</div><div class="flex flex-wrap gap-1.5">'+(oh||'<span class="text-xs" style="color:var(--text-dim);">Nothing</span>')+'</div></div><div><div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--gold);"><i class="fas fa-arrow-down mr-1" style="font-size:10px;"></i> Requesting</div><div class="flex flex-wrap gap-1.5">'+(rh||'<span class="text-xs" style="color:var(--text-dim);">Nothing</span>')+'</div></div></div>';
                 }
@@ -471,7 +464,9 @@
         }
 
         /* Player Info (Deprecated) */
-        async function fetchPlayerInfo(){var inp=document.getElementById("playerInfoInput").value.trim();if(!inp){showToast("Enter ID.","error");return;}var uid=parseInt(inp);if(isNaN(uid)){showToast("Invalid ID.","error");return;}setLoading("playerInfoBtn",true);setStatus("Attempting...");var data=await CallEndpoint(Endpoints.PlayerInfo+uid);setLoading("playerInfoBtn",false);setStatus("Ready");if(data&&data.success){var pl={Name:data.name,Value:data.value,RAP:data.rap,Rank:data.rank,Premium:data.premium,PrivacyEnabled:data.privacy_enabled,Terminated:data.terminated,StatsUpdated:data.stats_updated,LastScan:data.last_scan,LastOnline:data.last_online,LastLocation:data.last_location,Rolibadges:data.rolibadges};var h='<div class="card mt-4" style="border-color:rgba(0,230,118,.2);"><div class="text-xs mb-3" style="color:var(--success);"><i class="fas fa-check-circle mr-1"></i>Unexpectedly succeeded!</div>';for(var k in pl)h+='<div class="detail-row"><span class="detail-label">'+k+'</span><span class="detail-value font-mono text-sm">'+(pl[k]!==null&&pl[k]!==undefined?pl[k]:'--')+'</span></div>';h+='</div>';document.getElementById("playerInfoResult").innerHTML=h;showToast("Unexpectedly succeeded!","info");}else{document.getElementById("playerInfoResult").innerHTML='<div class="mt-4 p-4 rounded-lg" style="background:rgba(255,82,82,.06);border:1px solid rgba(255,82,82,.15);"><div class="font-semibold mb-1" style="color:var(--error);"><i class="fas fa-ban mr-1"></i>Failed</div><div class="text-sm" style="color:var(--text-muted);">Expected 403 — PlayerInfo is restricted.</div></div>';showToast("Expected 403.","info");}}
+        async function fetchPlayerInfo(){var inp=document.getElementById("playerInfoInput").value.trim();if(!inp){showToast("Enter ID.","error");return;}var uid=parseInt(inp);if(isNaN(uid)){showToast("Invalid ID.","error");return;}setLoading("playerInfoBtn",true);setStatus("Attempting...");var data=await CallEndpoint(Endpoints.PlayerInfo+uid);setLoading("playerInfoBtn",false);setStatus("Ready");
+            if(data&&data.success){var pl={Name:data.name,Value:data.value,RAP:data.rap,Rank:data.rank,Premium:data.premium,PrivacyEnabled:data.privacy_enabled,Terminated:data.terminated,StatsUpdated:data.stats_updated,LastScan:data.last_scan,LastOnline:data.last_online,LastLocation:data.last_location,Rolibadges:data.rolibadges};var h='<div class="card mt-4" style="border-color:rgba(0,230,118,.2);"><div class="text-xs mb-3" style="color:var(--success);"><i class="fas fa-check-circle mr-1"></i>Unexpectedly succeeded!</div>';for(var k in pl)h+='<div class="detail-row"><span class="detail-label">'+k+'</span><span class="detail-value font-mono text-sm">'+(pl[k]!==null&&pl[k]!==undefined?pl[k]:'--')+'</span></div>';h+='</div>';document.getElementById("playerInfoResult").innerHTML=h;showToast("Unexpectedly succeeded!","info");}
+            else{document.getElementById("playerInfoResult").innerHTML='<div class="mt-4 p-4 rounded-lg" style="background:rgba(255,82,82,.06);border:1px solid rgba(255,82,82,.15);"><div class="font-semibold mb-1" style="color:var(--error);"><i class="fas fa-ban mr-1"></i>Failed</div><div class="text-sm" style="color:var(--text-muted);">Expected 403 — PlayerInfo is restricted.</div></div>';showToast("Expected 403.","info");}}
 
         /* Dashboard */
         async function loadDashboard(){
