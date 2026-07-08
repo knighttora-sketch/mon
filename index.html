@@ -8,14 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
-        tailwind.config = {
-            theme: { extend: { fontFamily: { display: ['"Space Grotesk"','sans-serif'], mono: ['"JetBrains Mono"','monospace'] } } }
-        }
+        tailwind.config = { theme: { extend: { fontFamily: { display: ['"Space Grotesk"','sans-serif'], mono: ['"JetBrains Mono"','monospace'] } } } }
     </script>
     <style>
-        :root{--bg:#060a08;--bg-card:rgba(10,20,14,.88);--bg-card-hover:rgba(14,28,20,.92);--bg-input:rgba(6,12,9,.9);--border:rgba(0,230,118,.08);--border-hover:rgba(0,230,118,.25);--accent:#00e676;--accent-dim:#00c853;--accent-glow:rgba(0,230,118,.12);--gold:#ffc107;--gold-dim:#ff9800;--text:#e0e8e4;--text-muted:#5a7066;--text-dim:#3a4a42;--success:#00e676;--error:#ff5252;--warning:#ffab40;--info:#40c4ff;--purple:#bb86fc}
-        *{box-sizing:border-box}
-        body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+        :root{--bg:#060a08;--bg-card:rgba(10,20,14,.88);--bg-card-hover:rgba(14,28,20,.92);--bg-input:rgba(6,12,9,.9);--border:rgba(0,230,118,.08);--border-hover:rgba(0,230,118,.25);--accent:#00e676;--accent-dim:#00c853;--accent-glow:rgba(0,230,118,.12);--gold:#ffc107;--text:#e0e8e4;--text-muted:#5a7066;--text-dim:#3a4a42;--success:#00e676;--error:#ff5252;--warning:#ffab40;--info:#40c4ff;--purple:#bb86fc}
+        *{box-sizing:border-box}body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
         .bg-grid{position:fixed;inset:0;background-image:linear-gradient(rgba(0,230,118,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,230,118,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
         .orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
         .orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(0,230,118,.08),transparent 70%);top:-100px;left:-100px;animation:oF1 20s ease-in-out infinite}
@@ -34,26 +31,21 @@
         .nav-item.active::before{opacity:1;transform:scaleY(1)}
         .nav-item i{width:20px;text-align:center;font-size:15px}
         .nav-item .dep-badge{font-size:9px;padding:1px 5px;border-radius:4px;background:rgba(255,82,82,.15);color:var(--error);font-weight:600;margin-left:auto;text-transform:uppercase;letter-spacing:.5px}
-        .nav-item .new-badge{font-size:9px;padding:1px 6px;border-radius:4px;background:rgba(187,134,252,.15);color:var(--purple);font-weight:600;margin-left:auto;text-transform:uppercase;letter-spacing:.5px;animation:pulse2 2s ease-in-out infinite}
-        @keyframes pulse2{0%,100%{opacity:1}50%{opacity:.6}}
+        .nav-item .new-badge{font-size:9px;padding:1px 6px;border-radius:4px;background:rgba(187,134,252,.15);color:var(--purple);font-weight:600;margin-left:auto;text-transform:uppercase;letter-spacing:.5px;animation:pb 2s ease-in-out infinite}
+        @keyframes pb{0%,100%{opacity:1}50%{opacity:.6}}
         .main-content{margin-left:260px;padding:32px 40px;position:relative;z-index:10;min-height:100vh}
         .card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:24px;backdrop-filter:blur(10px);transition:all .25s ease}
         .card:hover{border-color:var(--border-hover)}
         .input-field{background:var(--bg-input);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:14px;width:100%;outline:none;transition:all .2s ease}
-        .input-field::placeholder{color:var(--text-dim)}
-        .input-field:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+        .input-field::placeholder{color:var(--text-dim)}.input-field:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
         .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-dim));color:#060a08;font-weight:600;font-size:14px;padding:12px 24px;border-radius:10px;border:none;cursor:pointer;transition:all .2s ease;display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif}
-        .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,230,118,.25)}
-        .btn-primary:active{transform:translateY(0)}
-        .btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
-        .btn-primary-purple{background:linear-gradient(135deg,var(--purple),#9c64ff);color:#fff}
-        .btn-primary-purple:hover{box-shadow:0 6px 24px rgba(187,134,252,.3)}
+        .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,230,118,.25)}.btn-primary:active{transform:translateY(0)}.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+        .btn-primary-purple{background:linear-gradient(135deg,var(--purple),#9c64ff);color:#fff}.btn-primary-purple:hover{box-shadow:0 6px 24px rgba(187,134,252,.3)}
         .btn-secondary{background:transparent;color:var(--text-muted);font-weight:500;font-size:13px;padding:8px 16px;border-radius:8px;border:1px solid var(--border);cursor:pointer;transition:all .2s ease;font-family:'Space Grotesk',sans-serif}
         .btn-secondary:hover{color:var(--text);border-color:var(--border-hover);background:var(--accent-glow)}
         .badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
         .badge-success{background:rgba(0,230,118,.12);color:var(--success)}.badge-error{background:rgba(255,82,82,.12);color:var(--error)}.badge-warning{background:rgba(255,171,64,.12);color:var(--warning)}.badge-info{background:rgba(64,196,255,.12);color:var(--info)}.badge-gold{background:rgba(255,193,7,.12);color:var(--gold)}.badge-dim{background:rgba(90,112,102,.15);color:var(--text-muted)}.badge-purple{background:rgba(187,134,252,.12);color:var(--purple)}
-        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .25s ease}
-        .stat-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .25s ease}.stat-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
         .data-table{width:100%;border-collapse:separate;border-spacing:0}
         .data-table thead th{padding:12px 16px;text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted);border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg-card);z-index:2}
         .data-table tbody tr{transition:background .15s ease}.data-table tbody tr:hover{background:var(--accent-glow)}
@@ -73,8 +65,8 @@
         .tag-green{background:rgba(0,230,118,.12);color:var(--success)}.tag-gold{background:rgba(255,193,7,.12);color:var(--gold)}.tag-blue{background:rgba(64,196,255,.12);color:var(--info)}.tag-red{background:rgba(255,82,82,.12);color:var(--error)}.tag-dim{background:rgba(90,112,102,.15);color:var(--text-muted)}
         .hamburger{display:none;position:fixed;top:16px;left:16px;z-index:60;width:42px;height:42px;border-radius:10px;background:var(--bg-card);border:1px solid var(--border);color:var(--text);font-size:18px;cursor:pointer;align-items:center;justify-content:center}
         .rap-pos{color:var(--success)}.rap-neg{color:var(--error)}
-        .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2s ease-in-out infinite}
-        @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,230,118,.4)}50%{opacity:.7;box-shadow:0 0 0 6px rgba(0,230,118,0)}}
+        .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;animation:pd 2s ease-in-out infinite}
+        @keyframes pd{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,230,118,.4)}50%{opacity:.7;box-shadow:0 0 0 6px rgba(0,230,118,0)}}
         .section-line{height:2px;background:linear-gradient(90deg,var(--accent),transparent);border:none;margin:8px 0 0 0;border-radius:1px}
         .section-line-purple{height:2px;background:linear-gradient(90deg,var(--purple),transparent);border:none;margin:8px 0 0 0;border-radius:1px}
         .item-thumb-sm{width:40px;height:40px;border-radius:8px;object-fit:cover;background:rgba(0,230,118,.05);border:1px solid var(--border);flex-shrink:0}
@@ -93,14 +85,11 @@
     </style>
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+    <div class="bg-grid"></div><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
     <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <aside class="sidebar" id="sidebar">
-        <div class="sidebar-logo"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:var(--accent-glow);border:1px solid var(--border-hover);"><i class="fas fa-gem" style="color:var(--accent);font-size:15px;"></i></div><div><div class="text-sm font-bold" style="color:var(--text);">Rolimons API</div><div class="text-xs" style="color:var(--text-dim);">Tool Suite v1.1</div></div></div></div>
+        <div class="sidebar-logo"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:var(--accent-glow);border:1px solid var(--border-hover);"><i class="fas fa-gem" style="color:var(--accent);font-size:15px;"></i></div><div><div class="text-sm font-bold" style="color:var(--text);">Rolimons API</div><div class="text-xs" style="color:var(--text-dim);">Tool Suite v1.2</div></div></div></div>
         <nav class="sidebar-nav">
             <div class="text-xs font-semibold uppercase tracking-wider px-3 py-2" style="color:var(--text-dim);">Endpoints</div>
             <div class="nav-item active" data-page="dashboard"><i class="fas fa-chart-line"></i><span>Dashboard</span></div>
@@ -119,7 +108,7 @@
 
     <main class="main-content">
         <section class="page-section active" id="page-dashboard">
-            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Dashboard</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">Overview of Rolimons marketplace data at a glance.</p></div>
+            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Dashboard</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">Overview of Rolimons marketplace data.</p></div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
                 <div class="stat-card"><div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--text-dim);">Total Items</div><div class="text-2xl font-bold font-mono" style="color:var(--accent);" id="dashItemCount">--</div></div>
                 <div class="stat-card"><div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--text-dim);">UGC Limiteds</div><div class="text-2xl font-bold font-mono" style="color:var(--purple);" id="dashUgcCount">--</div></div>
@@ -128,34 +117,44 @@
                 <div class="stat-card"><div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--text-dim);">Rare</div><div class="text-2xl font-bold font-mono" style="color:var(--info);" id="dashRare">--</div></div>
             </div>
             <div class="card"><h2 class="text-lg font-semibold mb-4">Quick Actions</h2><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('itemDetails')"><i class="fas fa-search" style="color:var(--accent);"></i><div><div class="text-sm font-semibold" style="color:var(--text);">Look Up Item</div><div class="text-xs" style="color:var(--text-dim);">Search by Item ID</div></div></button>
-                <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('ugcItems')"><i class="fas fa-palette" style="color:var(--purple);"></i><div><div class="text-sm font-semibold" style="color:var(--text);">UGC Limiteds</div><div class="text-xs" style="color:var(--text-dim);">Browse UGC items</div></div></button>
-                <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('tradeAds')"><i class="fas fa-arrows-rotate" style="color:var(--gold);"></i><div><div class="text-sm font-semibold" style="color:var(--text);">Browse Trade Ads</div><div class="text-xs" style="color:var(--text-dim);">View recent posts</div></div></button>
-                <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('rapCalculator')"><i class="fas fa-calculator" style="color:var(--info);"></i><div><div class="text-sm font-semibold" style="color:var(--text);">RAP Calculator</div><div class="text-xs" style="color:var(--text-dim);">Predict RAP changes</div></div></button>
+                <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('itemDetails')"><i class="fas fa-search" style="color:var(--accent);"></i><div><div class="text-sm font-semibold" style="color:var(--text);">Look Up Item</div><div class="text-xs" style="color:var(--text-dim);">Search by ID</div></div></button>
+                <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('ugcItems')"><i class="fas fa-palette" style="color:var(--purple);"></i><div><div class="text-sm font-semibold" style="color:var(--text);">UGC Limiteds</div><div class="text-xs" style="color:var(--text-dim);">Browse UGC</div></div></button>
+                <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('tradeAds')"><i class="fas fa-arrows-rotate" style="color:var(--gold);"></i><div><div class="text-sm font-semibold" style="color:var(--text);">Trade Ads</div><div class="text-xs" style="color:var(--text-dim);">Recent posts</div></div></button>
+                <button class="btn-secondary text-left flex items-center gap-3 py-4 px-5" onclick="navigateTo('rapCalculator')"><i class="fas fa-calculator" style="color:var(--info);"></i><div><div class="text-sm font-semibold" style="color:var(--text);">RAP Calculator</div><div class="text-xs" style="color:var(--text-dim);">Predict changes</div></div></button>
             </div></div>
         </section>
 
         <section class="page-section" id="page-itemDetails">
-            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Item Details</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">Look up any limited item (standard or UGC) by catalog ID.</p></div>
+            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Item Details</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">Look up any limited item by catalog ID.</p></div>
             <div class="card mb-6"><div class="flex gap-3 items-end flex-wrap"><div class="flex-1 min-w-[200px]"><label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Item ID</label><input type="number" class="input-field" id="itemDetailInput" placeholder="e.g. 28487797"></div><button class="btn-primary" id="itemDetailBtn" onclick="fetchItemDetails()"><i class="fas fa-search"></i> Look Up</button></div></div>
             <div id="itemDetailResult"></div>
         </section>
 
         <section class="page-section" id="page-allItems">
-            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">All Items</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">Non-UGC limited items only. For UGC, use the dedicated tab.</p></div>
-            <div class="card mb-6"><div class="flex gap-3 items-end flex-wrap"><div class="flex-1 min-w-[200px]"><label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Search Items</label><input type="text" class="input-field" id="allItemsSearch" placeholder="Search by name or ID..." oninput="filterAllItems()"></div><select class="input-field" style="width:auto;min-width:140px;" id="allItemsDemandFilter" onchange="filterAllItems()"><option value="">All Demand</option><option value="Amazing">Amazing</option><option value="High">High</option><option value="Normal">Normal</option><option value="Low">Low</option><option value="Terrible">Terrible</option><option value="Unassigned">Unassigned</option></select><select class="input-field" style="width:auto;min-width:140px;" id="allItemsSort" onchange="filterAllItems()"><option value="value-desc">Value: High to Low</option><option value="value-asc">Value: Low to High</option><option value="rap-desc">RAP: High to Low</option><option value="rap-asc">RAP: Low to High</option><option value="name-asc">Name: A-Z</option></select><button class="btn-primary" id="allItemsBtn" onclick="fetchAllItems()"><i class="fas fa-download"></i> Load Items</button></div></div>
+            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">All Items</h1><hr class="section-line w-16><p class="text-sm mt-3" style="color:var(--text-muted);">Non-UGC limited items only.</p></div>
+            <div class="card mb-6"><div class="flex gap-3 items-end flex-wrap">
+                <div class="flex-1 min-w-[200px]"><label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Search Items</label><input type="text" class="input-field" id="allItemsSearch" placeholder="Search by name or ID..." oninput="filterAllItems()"></div>
+                <select class="input-field" style="width:auto;min-width:140px;" id="allItemsDemandFilter" onchange="filterAllItems()"><option value="">All Demand</option><option value="Amazing">Amazing</option><option value="High">High</option><option value="Normal">Normal</option><option value="Low">Low</option><option value="Terrible">Terrible</option><option value="Unassigned">Unassigned</option></select>
+                <select class="input-field" style="width:auto;min-width:140px;" id="allItemsSort" onchange="filterAllItems()"><option value="value-desc">Value: High to Low</option><option value="value-asc">Value: Low to High</option><option value="rap-desc">RAP: High to Low</option><option value="rap-asc">RAP: Low to High</option><option value="name-asc">Name: A-Z</option><option value="id-desc">Newest First</option></select>
+                <button class="btn-primary" id="allItemsBtn" onclick="fetchAllItems()"><i class="fas fa-download"></i> Load Items</button>
+            </div></div>
             <div id="allItemsResult"></div>
         </section>
 
         <section class="page-section" id="page-ugcItems">
-            <div class="mb-8"><h1 class="text-3xl font-bold mb-1" style="color:var(--purple);">UGC Limiteds</h1><hr class="section-line-purple w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">Browse UGC limited items. New UGC limiteds are added here shortly after they are released on Roblox.</p></div>
-            <div class="info-banner"><i class="fas fa-info-circle"></i><span>UGC data comes from the same <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">/items/v1/itemdetails</code> endpoint under the <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">ugc_limiteds</code> property. Each item is a flat array: <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">[id, name, acronym, rap, value, default_value, demand, trend, projected, hyped, rare]</code></span></div>
-            <div class="card mb-6"><div class="flex gap-3 items-end flex-wrap"><div class="flex-1 min-w-[200px]"><label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Search UGC Items</label><input type="text" class="input-field" id="ugcSearch" placeholder="Search by name or ID..." oninput="filterUgcItems()"></div><select class="input-field" style="width:auto;min-width:140px;" id="ugcDemandFilter" onchange="filterUgcItems()"><option value="">All Demand</option><option value="Amazing">Amazing</option><option value="High">High</option><option value="Normal">Normal</option><option value="Low">Low</option><option value="Terrible">Terrible</option><option value="Unassigned">Unassigned</option></select><select class="input-field" style="width:auto;min-width:140px;" id="ugcSort" onchange="filterUgcItems()"><option value="value-desc">Value: High to Low</option><option value="value-asc">Value: Low to High</option><option value="rap-desc">RAP: High to Low</option><option value="rap-asc">RAP: Low to High</option><option value="name-asc">Name: A-Z</option><option value="id-desc">Newest First</option></select><button class="btn-primary btn-primary-purple" id="ugcBtn" onclick="fetchUgcItems()"><i class="fas fa-palette"></i> Load UGC Items</button></div></div>
+            <div class="mb-8"><h1 class="text-3xl font-bold mb-1" style="color:var(--purple);">UGC Limiteds</h1><hr class="section-line-purple w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">New UGC limiteds added shortly after release.</p></div>
+            <div class="info-banner"><i class="fas fa-info-circle"></i><span>UGC data from <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">/itemdetails</code> under <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">ugc_limiteds</code>. Format: <code class="font-mono text-xs px-1 py-0.5 rounded" style="background:rgba(187,134,252,.1);">[id, name, acronym, rap, value, default, demand, trend, projected, hyped, rare]</code></span></div>
+            <div class="card mb-6"><div class="flex gap-3 items-end flex-wrap">
+                <div class="flex-1 min-w-[200px]"><label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Search UGC</label><input type="text" class="input-field" id="ugcSearch" placeholder="Search by name or ID..." oninput="filterUgcItems()"></div>
+                <select class="input-field" style="width:auto;min-width:140px;" id="ugcDemandFilter" onchange="filterUgcItems()"><option value="">All Demand</option><option value="Amazing">Amazing</option><option value="High">High</option><option value="Normal">Normal</option><option value="Low">Low</option><option value="Terrible">Terrible</option><option value="Unassigned">Unassigned</option></select>
+                <select class="input-field" style="width:auto;min-width:140px;" id="ugcSort" onchange="filterUgcItems()"><option value="value-desc">Value: High to Low</option><option value="value-asc">Value: Low to High</option><option value="rap-desc">RAP: High to Low</option><option value="rap-asc">RAP: Low to High</option><option value="name-asc">Name: A-Z</option><option value="id-desc">Newest First</option></select>
+                <button class="btn-primary btn-primary-purple" id="ugcBtn" onclick="fetchUgcItems()"><i class="fas fa-palette"></i> Load UGC</button>
+            </div></div>
             <div id="ugcResult"></div>
         </section>
 
         <section class="page-section" id="page-tradeAds">
-            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Recent Trade Ads</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">View the latest trade ads from Rolimons.</p></div>
+            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Recent Trade Ads</h1><hr class="section-line w-16><p class="text-sm mt-3" style="color:var(--text-muted);">Latest trade ads from Rolimons.</p></div>
             <div class="card mb-6"><div class="flex gap-3 items-end flex-wrap"><button class="btn-primary" id="tradeAdsBtn" onclick="fetchTradeAds()"><i class="fas fa-arrows-rotate"></i> Fetch Trade Ads</button><label class="flex items-center gap-2 cursor-pointer text-sm" style="color:var(--text-muted);"><input type="checkbox" id="tradeAdsRawToggle" onchange="fetchTradeAds()" class="accent-green-500"> Show Raw Data</label></div></div>
             <div id="tradeAdsResult"></div>
         </section>
@@ -167,7 +166,7 @@
         </section>
 
         <section class="page-section" id="page-rapCalculator">
-            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">RAP Calculator</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);">Predict RAP changes when selling at a specific price.</p></div>
+            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">RAP Calculator</h1><hr class="section-line w-16><p class="text-sm mt-3" style="color:var(--text-muted);">Predict RAP changes when selling at a specific price.</p></div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="card"><h2 class="text-lg font-semibold mb-4">Input</h2><div class="mb-4"><label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Current RAP</label><input type="number" class="input-field" id="rapOldPrice" placeholder="e.g. 15000" oninput="calculateRAP()"></div><div class="mb-4"><label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">Sale Price</label><input type="number" class="input-field" id="rapNewPrice" placeholder="e.g. 20000" oninput="calculateRAP()"></div><div class="text-xs" style="color:var(--text-dim);"><i class="fas fa-info-circle mr-1"></i>change = floor(|price - RAP| / 10)</div></div>
                 <div class="card"><h2 class="text-lg font-semibold mb-4">Result</h2><div id="rapResult"><div class="text-sm" style="color:var(--text-dim);">Enter values to calculate RAP change.</div></div></div>
@@ -175,8 +174,8 @@
         </section>
 
         <section class="page-section" id="page-playerInfo">
-            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Player Info</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);"><code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:rgba(255,82,82,.1);color:var(--error);">Rolimons.GetPlayerInfo()</code> — <strong>Deprecated</strong></p></div>
-            <div class="deprecated-notice"><i class="fas fa-triangle-exclamation"></i><span>As of 1/25/26, Rolimon's restricts API calls to the PlayerInfo endpoint from IPv6 addresses and some other sources.</span></div>
+            <div class="mb-8"><h1 class="text-3xl font-bold mb-1">Player Info</h1><hr class="section-line w-16"><p class="text-sm mt-3" style="color:var(--text-muted);"><code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background:rgba(255,82,82,.1);color:var(--error);">GetPlayerInfo()</code> — <strong>Deprecated</strong></p></div>
+            <div class="deprecated-notice"><i class="fas fa-triangle-exclamation"></i><span>As of 1/25/26, Rolimon's restricts this endpoint. Returns HTTP 403.</span></div>
             <div class="card"><div class="flex gap-3 items-end flex-wrap"><div class="flex-1 min-w-[200px]"><label class="text-xs font-semibold uppercase tracking-wider block mb-2" style="color:var(--text-dim);">User ID</label><input type="number" class="input-field" id="playerInfoInput" placeholder="e.g. 12345678"></div><button class="btn-primary" id="playerInfoBtn" onclick="fetchPlayerInfo()" style="background:linear-gradient(135deg,var(--error),#d32f2f);"><i class="fas fa-user"></i> Attempt Lookup</button></div><div class="mt-4" id="playerInfoResult"></div></div>
         </section>
     </main>
@@ -185,8 +184,80 @@
 
     <script>
         /* ============================================================
-           Endpoints — NO separate UGC endpoint. UGC lives inside
-           the same /itemdetails response as data.ugc_limiteds
+           Fallback image for broken thumbnails
+           ============================================================ */
+        var FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect fill='%23141414' width='40' height='40' rx='8'/%3E%3Ctext x='50%25' y='54%25' fill='%23333' font-size='10' text-anchor='middle' font-family='sans-serif'%3E?%3C/text%3E%3C/svg%3E";
+        function imgErr(el){ el.onerror = null; el.src = FALLBACK_IMG; }
+
+        /* ============================================================
+           Thumbnail URL — tries rbxcdn (high quality) first,
+           falls back to Roblox thumbnail API through proxy.
+           
+           rbxcdn URLs look like:
+           https://tr.rbxcdn.com/180DAY-<hash>/420/420/Hat/Webp/noFilter
+           
+           We scrape the hash from the Roblox catalog page HTML.
+           ============================================================ */
+        var rbxcdnCache = {}; // Cache: assetId -> rbxcdn URL
+
+        function thumbUrl(assetId, size) {
+            size = size || 150;
+            // If we already found the rbxcdn URL, use it directly (no proxy needed for rbxcdn)
+            if (rbxcdnCache[assetId]) return rbxcdnCache[assetId];
+            // Fallback: Roblox thumbnail API through CORS proxy
+            var u = "https://thumbnails.roblox.com/v1/items/item-thumbnail?assetId=" + assetId + "&width=" + size + "&height=" + size + "&format=Png";
+            if (activeProxyIndex >= 0) return PROXY_LIST[activeProxyIndex](u);
+            return u;
+        }
+
+        /* Fetch the rbxcdn URL from the Roblox catalog page */
+        async function fetchRbxcdnUrl(assetId) {
+            if (rbxcdnCache[assetId]) return rbxcdnCache[assetId];
+            var catalogUrl = "https://www.roblox.com/catalog/" + assetId;
+            try {
+                var fetchUrl = catalogUrl;
+                if (activeProxyIndex >= 0) fetchUrl = PROXY_LIST[activeProxyIndex](catalogUrl);
+                var controller = new AbortController();
+                var timeout = setTimeout(function(){ controller.abort(); }, 6000);
+                var resp = await fetch(fetchUrl, { signal: controller.signal });
+                clearTimeout(timeout);
+                if (!resp.ok) return null;
+                var html = await resp.text();
+                // The page contains the image URL in a pattern like:
+                // https://tr.rbxcdn.com/180DAY-xxxxx/420/420/Hat/Webp/noFilter
+                var match = html.match(/https?:\/\/tr\.rbxcdn\.com\/[0-9A-Za-z-]+\/\d+\/\d+\/\w+\/\w+\/noFilter/);
+                if (match) {
+                    rbxcdnCache[assetId] = match[0];
+                    return match[0];
+                }
+            } catch (e) {
+                // Silently fail — fallback thumbnail will be used
+            }
+            return null;
+        }
+
+        /* Set image source with rbxcdn priority */
+        function setImgWithRbxcdn(imgEl, assetId, size) {
+            // Try rbxcdn first (cached or fetch)
+            if (rbxcdnCache[assetId]) {
+                imgEl.src = rbxcdnCache[assetId];
+                imgEl.onerror = function() { imgErr(imgEl); };
+                return;
+            }
+            // Set fallback thumbnail immediately so something shows
+            imgEl.src = thumbUrl(assetId, size);
+            imgEl.onerror = function() { imgErr(imgEl); };
+            // Then try to upgrade to rbxcdn in the background
+            fetchRbxcdnUrl(assetId).then(function(url) {
+                if (url && imgEl.parentNode) {
+                    imgEl.src = url;
+                    imgEl.onerror = function() { imgErr(imgEl); };
+                }
+            });
+        }
+
+        /* ============================================================
+           Endpoints
            ============================================================ */
         var Endpoints = {
             ItemDetails:  "https://api.rolimons.com/items/v1/itemdetails",
@@ -195,108 +266,60 @@
             GetRecentAds: "https://api.rolimons.com/tradeads/v1/getrecentads"
         };
 
-        /* ============================================================
-           CORS Proxy System
-           ============================================================ */
+        /* CORS Proxy */
         var PROXY_LIST = [
             function(url){return "https://api.allorigins.win/raw?url="+encodeURIComponent(url);},
             function(url){return "https://corsproxy.io/?"+encodeURIComponent(url);},
             function(url){return "https://api.codetabs.com/v1/proxy?quest="+encodeURIComponent(url);}
         ];
         var activeProxyIndex = -1;
-
         async function findWorkingProxy(){
-            for(var i=0;i<PROXY_LIST.length;i++){
-                try{var pu=PROXY_LIST[i](Endpoints.DealActivity),c=new AbortController(),t=setTimeout(function(){c.abort();},8000),r=await fetch(pu,{signal:c.signal});clearTimeout(t);if(r.ok){var tx=await r.text(),d=JSON.parse(tx);if(d&&typeof d==="object"){activeProxyIndex=i;updateProxyStatus(i,true);return i;}}}catch(e){}
-            }
+            for(var i=0;i<PROXY_LIST.length;i++){try{var pu=PROXY_LIST[i](Endpoints.DealActivity),c=new AbortController(),t=setTimeout(function(){c.abort();},8000),r=await fetch(pu,{signal:c.signal});clearTimeout(t);if(r.ok){var tx=await r.text(),d=JSON.parse(tx);if(d&&typeof d==="object"){activeProxyIndex=i;updateProxyStatus(i,true);return i;}}}catch(e){}}
             activeProxyIndex=-1;updateProxyStatus(-1,false);return -1;
         }
-        function updateProxyStatus(i,ok){
-            var el=document.getElementById("proxyStatus");
-            if(!ok){el.innerHTML='<span class="proxy-badge" style="background:rgba(255,82,82,.1);color:var(--error);"><i class="fas fa-times-circle mr-1"></i>No proxy</span>';return;}
-            var n=["allorigins","corsproxy.io","codetabs"];
-            el.innerHTML='<span class="proxy-badge"><i class="fas fa-shield-halved mr-1"></i>'+(n[i]||"proxy")+'</span>';
-        }
+        function updateProxyStatus(i,ok){var el=document.getElementById("proxyStatus");if(!ok){el.innerHTML='<span class="proxy-badge" style="background:rgba(255,82,82,.1);color:var(--error);"><i class="fas fa-times-circle mr-1"></i>No proxy</span>';return;}var n=["allorigins","corsproxy.io","codetabs"];el.innerHTML='<span class="proxy-badge"><i class="fas fa-shield-halved mr-1"></i>'+(n[i]||"proxy")+'</span>';}
         async function CallEndpoint(ep){
             if(activeProxyIndex===-1){setStatus("Finding proxy...");var idx=await findWorkingProxy();setStatus("Ready");if(idx===-1)return null;}
-            try{var pu=PROXY_LIST[activeProxyIndex](ep),c=new AbortController(),t=setTimeout(function(){c.abort();},15000),r=await fetch(pu,{signal:c.signal});clearTimeout(t);if(!r.ok)throw new Error("HTTP "+r.status);var tx=await r.text(),d=JSON.parse(tx);if(!d.success)console.warn("[ Rolimons ] "+ep+" success=false");return d;}catch(err){console.warn("[ Rolimons ] Proxy failed: "+err.message);}
-            for(var i=0;i<PROXY_LIST.length;i++){if(i===activeProxyIndex)continue;try{var pu=PROXY_LIST[i](ep),c=new AbortController(),t=setTimeout(function(){c.abort();},15000),r=await fetch(pu,{signal:c.signal});clearTimeout(t);if(!r.ok)continue;var tx=await r.text(),d=JSON.parse(tx);if(d&&typeof d==="object"){activeProxyIndex=i;updateProxyStatus(i,true);if(!d.success)console.warn("[ Rolimons ] "+ep+" success=false");return d;}}catch(e){}}
+            try{var pu=PROXY_LIST[activeProxyIndex](ep),c=new AbortController(),t=setTimeout(function(){c.abort();},15000),r=await fetch(pu,{signal:c.signal});clearTimeout(t);if(!r.ok)throw new Error("HTTP "+r.status);var tx=await r.text(),d=JSON.parse(tx);if(!d.success)console.warn("[Rolimons] "+ep+" success=false");return d;}catch(err){console.warn("[Rolimons] Proxy failed: "+err.message);}
+            for(var i=0;i<PROXY_LIST.length;i++){if(i===activeProxyIndex)continue;try{var pu=PROXY_LIST[i](ep),c=new AbortController(),t=setTimeout(function(){c.abort();},15000),r=await fetch(pu,{signal:c.signal});clearTimeout(t);if(!r.ok)continue;var tx=await r.text(),d=JSON.parse(tx);if(d&&typeof d==="object"){activeProxyIndex=i;updateProxyStatus(i,true);if(!d.success)console.warn("[Rolimons] "+ep+" success=false");return d;}}catch(e){}}
             return null;
         }
 
-        /* ============================================================
-           Util.Demands / Trends / TagToString (exact from Util.lua)
-           ============================================================ */
+        /* Util mappings (exact from Util.lua) */
         var Demands={[-1]:"Unassigned",[0]:"Terrible",[1]:"Low",[2]:"Normal",[3]:"High",[4]:"Amazing"};
         var Trends={[-1]:"None",[0]:"Lowering",[1]:"Unstable",[2]:"Stable",[3]:"Raising",[4]:"Fluctuating"};
         var TagToString={[1]:"Demand",[2]:"Rares",[3]:"Robux",[4]:"Any",[5]:"Upgrading",[6]:"Downgrade",[7]:"RAP",[8]:"Wishlist",[9]:"Projecteds",[10]:"Adds"};
         var TagColors={[1]:"tag-blue",[2]:"tag-gold",[3]:"tag-green",[4]:"tag-dim",[5]:"tag-green",[6]:"tag-red",[7]:"tag-blue",[8]:"tag-gold",[9]:"tag-dim",[10]:"tag-dim"};
 
-        /* Cached data */
-        var cachedItems=null, cachedRawItems=null, cachedItemCount=null, cachedUgcItems=null;
+        var cachedItems=null,cachedRawItems=null,cachedItemCount=null,cachedUgcItems=null,itemDetailsLoaded=false;
 
-        /* ============================================================
-           ParseItemAsObject — standard items (keyed by ID in data.items)
-           item[1]=Name, item[2]=Acronym, item[3]=RAP, item[4]=Value,
-           item[5]=DefaultValue, item[6]=Demand, item[7]=Trend,
-           item[8]=Projected, item[9]=Hyped, item[10]=Rare
-           ============================================================ */
         function ParseItemAsObject(item){
             if(!item||!Array.isArray(item))return null;
             return{Success:true,RawData:item,Name:item[1]||"Unknown",Acronym:item[2]||"",RAP:item[3]||0,Value:item[4]||0,DefaultValue:item[5]||0,Demand:Demands[item[6]]!==undefined?Demands[item[6]]:"Unassigned",Trend:Trends[item[7]]!==undefined?Trends[item[7]]:"None",Projected:item[8]!==-1,Hyped:item[9]!==-1,Rare:item[10]!==-1};
         }
-
-        /* ============================================================
-           ParseUgcItemAsObject — UGC items (flat array from data.ugc_limiteds)
-           ugc[0]=id, ugc[1]=Name, ugc[2]=Acronym, ugc[3]=RAP,
-           ugc[4]=Value, ugc[5]=DefaultValue, ugc[6]=Demand,
-           ugc[7]=Trend, ugc[8]=Projected, ugc[9]=Hyped, ugc[10]=Rare
-           ============================================================ */
         function ParseUgcItemAsObject(ugc){
             if(!ugc||!Array.isArray(ugc)||ugc.length<11)return null;
             return{ItemId:ugc[0],Name:ugc[1]||"Unknown",Acronym:ugc[2]||"",RAP:ugc[3]||0,Value:ugc[4]||0,DefaultValue:ugc[5]||0,Demand:Demands[ugc[6]]!==undefined?Demands[ugc[6]]:"Unassigned",Trend:Trends[ugc[7]]!==undefined?Trends[ugc[7]]:"None",Projected:ugc[8]!==-1,Hyped:ugc[9]!==-1,Rare:ugc[10]!==-1};
         }
-
-        /* ============================================================
-           ParseTradeAsObject (exact from Util.lua)
-           ============================================================ */
-        function ParseTradeAsObject(tradeAd){
-            if(!tradeAd||!Array.isArray(tradeAd))return null;
-            var username=tradeAd[4],offeringData=tradeAd[5]||{},requestingData=tradeAd[6]||{};
-            var offeringItems=offeringData.items||[],offeringRobux=offeringData.robux||0;
-            var requestingItems=requestingData.items||[],rawTags=requestingData.tags||null;
-            var tags=null;
-            if(rawTags!==null&&Array.isArray(rawTags))tags=rawTags.map(function(t){return TagToString[t]!==undefined?TagToString[t]:("Tag "+t);});
-            return{Username:username||"Unknown",OfferingItems:offeringItems,OfferingRobux:offeringRobux,RequestingItems:requestingItems,Tags:tags};
+        function ParseTradeAsObject(ta){
+            if(!ta||!Array.isArray(ta))return null;
+            var od=ta[5]||{},rd=ta[6]||{},rt=rd.tags||null,tags=null;
+            if(rt!==null&&Array.isArray(rt))tags=rt.map(function(t){return TagToString[t]!==undefined?TagToString[t]:("Tag "+t);});
+            return{Username:ta[4]||"Unknown",OfferingItems:od.items||[],OfferingRobux:od.robux||0,RequestingItems:rd.items||[],Tags:tags};
         }
 
-        /* Image helpers */
-        function thumbUrl(assetId,size){
-            size=size||150;
-            var url="https://thumbnails.roblox.com/v1/items/item-thumbnail?assetId="+assetId+"&width="+size+"&height="+size+"&format=Png";
-            if(activeProxyIndex>=0)return PROXY_LIST[activeProxyIndex](url);
-            return url;
-        }
-        function showImageModal(src,name){
-            var o=document.createElement("div");o.className="img-modal-overlay";
-            o.innerHTML='<img src="'+src+'" alt="'+(name||'')+'">'+(name?'<div class="img-modal-name">'+name+'</div>':'');
-            o.addEventListener("click",function(){o.remove();});document.body.appendChild(o);
-        }
-        var FALLBACK="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect fill='%23111' width='40' height='40' rx='8'/%3E%3C/svg%3E";
+        function showImageModal(src,name){var o=document.createElement("div");o.className="img-modal-overlay";o.innerHTML='<img src="'+src+'" alt="'+(name||'')+'">'+(name?'<div class="img-modal-name">'+name+'</div>':'');o.addEventListener("click",function(){o.remove();});document.body.appendChild(o);}
 
-        /* Format helpers */
         function fmt(n){if(n===null||n===undefined||n===-1)return"--";return Number(n).toLocaleString();}
         function demBadge(d){var c={Amazing:"badge-success",High:"badge-info",Normal:"badge-gold",Low:"badge-warning",Terrible:"badge-error",Unassigned:"badge-dim"};return'<span class="badge '+(c[d]||"badge-dim")+'">'+d+'</span>';}
         function trndBadge(t){var c={Raising:"badge-success",Stable:"badge-info",Fluctuating:"badge-warning",Unstable:"badge-warning",Lowering:"badge-error",None:"badge-dim"};var ic={Raising:"fa-arrow-up",Stable:"fa-minus",Fluctuating:"fa-wave-square",Unstable:"fa-wave-square",Lowering:"fa-arrow-down",None:"fa-minus"};return'<span class="badge '+(c[t]||"badge-dim")+'"><i class="fas '+(ic[t]||"fa-minus")+' mr-1" style="font-size:9px;"></i>'+t+'</span>';}
         function tagBadge(n,num){return'<span class="tag '+(TagColors[num]||"tag-dim")+'">'+n+'</span>';}
         function rolLink(id){return"https://www.rolimons.com/item/"+id;}
 
-        /* Toast / Status / Loading */
         function showToast(m,t){t=t||"info";var c=document.getElementById("toastContainer"),el=document.createElement("div");el.className="toast toast-"+t;var ic={success:"fa-check-circle",error:"fa-times-circle",info:"fa-info-circle"};el.innerHTML='<i class="fas '+(ic[t]||ic.info)+'"></i><span>'+m+'</span>';c.appendChild(el);setTimeout(function(){el.style.transition="opacity .3s,transform .3s";el.style.opacity="0";el.style.transform="translateX(40px)";setTimeout(function(){el.remove();},300);},4000);}
         function setStatus(s){document.getElementById("statusText").textContent=s;}
         function setLoading(id,on){var b=document.getElementById(id);if(!b)return;b.disabled=on;if(on){b.dataset.oh=b.innerHTML;b.innerHTML='<span class="spinner"></span> Loading...';}else{b.innerHTML=b.dataset.oh||b.innerHTML;}}
 
-        /* Navigation */
         function navigateTo(p){document.querySelectorAll(".nav-item").forEach(function(n){n.classList.toggle("active",n.dataset.page===p);});document.querySelectorAll(".page-section").forEach(function(s){s.classList.toggle("active",s.id==="page-"+p);});document.getElementById("sidebar").classList.remove("open");document.getElementById("sidebarOverlay").classList.remove("active");}
         document.querySelectorAll(".nav-item").forEach(function(n){n.addEventListener("click",function(){if(n.dataset.page)navigateTo(n.dataset.page);});});
         document.getElementById("hamburgerBtn").addEventListener("click",function(){document.getElementById("sidebar").classList.toggle("open");document.getElementById("sidebarOverlay").classList.toggle("active");});
@@ -304,281 +327,168 @@
         document.getElementById("itemDetailInput").addEventListener("keydown",function(e){if(e.key==="Enter")fetchItemDetails();});
         document.getElementById("playerInfoInput").addEventListener("keydown",function(e){if(e.key==="Enter")fetchPlayerInfo();});
 
-        /* ============================================================
-           FetchAndCache — single call to /itemdetails that parses
-           BOTH data.items (standard) AND data.ugc_limiteds (UGC)
-           ============================================================ */
-        var itemDetailsLoaded = false;
+        /* FetchAndCache */
         async function FetchAndCache(){
-            if(itemDetailsLoaded) return true;
+            if(itemDetailsLoaded)return true;
             setStatus("Fetching item data...");
-            var data = await CallEndpoint(Endpoints.ItemDetails);
+            var data=await CallEndpoint(Endpoints.ItemDetails);
             setStatus("Ready");
-            if(!data || !data.success) return false;
-
-            /* Parse standard items: data.items is { "id": [name, acronym, rap, ...] } */
-            cachedRawItems = data.items;
-            cachedItemCount = data.item_count;
-            cachedItems = {};
-            for(var id in data.items){
-                cachedItems[id] = ParseItemAsObject(data.items[id]);
-            }
-
-            /* Parse UGC items: data.ugc_limiteds is [[id, name, acronym, rap, ...], ...] */
-            if(Array.isArray(data.ugc_limiteds)){
-                cachedUgcItems = [];
-                for(var i = 0; i < data.ugc_limiteds.length; i++){
-                    var parsed = ParseUgcItemAsObject(data.ugc_limiteds[i]);
-                    if(parsed) cachedUgcItems.push(parsed);
-                }
-            } else {
-                cachedUgcItems = [];
-            }
-
-            itemDetailsLoaded = true;
-            return true;
+            if(!data||!data.success)return false;
+            cachedRawItems=data.items;cachedItemCount=data.item_count;cachedItems={};
+            for(var id in data.items)cachedItems[id]=ParseItemAsObject(data.items[id]);
+            if(Array.isArray(data.ugc_limiteds)){cachedUgcItems=[];for(var i=0;i<data.ugc_limiteds.length;i++){var p=ParseUgcItemAsObject(data.ugc_limiteds[i]);if(p)cachedUgcItems.push(p);}}else{cachedUgcItems=[];}
+            itemDetailsLoaded=true;return true;
         }
 
-        /* ============================================================
-           Item Details — searches both standard + UGC
-           ============================================================ */
+        /* Item Details */
         async function fetchItemDetails(){
             var inp=document.getElementById("itemDetailInput").value.trim();
-            if(!inp){showToast("Please enter an Item ID.","error");return;}
-            var itemId=parseInt(inp);if(isNaN(itemId)){showToast("Invalid Item ID.","error");return;}
-            setLoading("itemDetailBtn",true);
-            var ok = await FetchAndCache();
-            setLoading("itemDetailBtn",false);
-
-            if(!ok){
-                document.getElementById("itemDetailResult").innerHTML='<div class="card" style="border-color:rgba(255,82,82,.2);"><div class="flex items-center gap-3"><i class="fas fa-times-circle text-xl" style="color:var(--error);"></i><div><div class="font-semibold" style="color:var(--error);">API Error</div><div class="text-sm" style="color:var(--text-muted);">Could not reach the Rolimons API.</div></div></div></div>';
-                showToast("API request failed.","error");return;
-            }
-
-            var p=null, isUgc=false;
-
-            /* Try standard items first (keyed by ID string) */
-            if(cachedItems[String(itemId)]){
-                p = cachedItems[String(itemId)];
-                p.ItemId = itemId;
-            }
-
-            /* If not found, search UGC array by ItemId */
-            if(!p && cachedUgcItems){
-                for(var i=0;i<cachedUgcItems.length;i++){
-                    if(cachedUgcItems[i].ItemId===itemId){p=cachedUgcItems[i];isUgc=true;break;}
-                }
-            }
-
-            if(!p){
-                document.getElementById("itemDetailResult").innerHTML='<div class="card" style="border-color:rgba(255,82,82,.2);"><div class="flex items-center gap-3"><i class="fas fa-times-circle text-xl" style="color:var(--error);"></i><div><div class="font-semibold" style="color:var(--error);">Item Not Found</div><div class="text-sm" style="color:var(--text-muted);">No item with ID '+itemId+' in standard or UGC databases.</div></div></div></div>';
-                showToast("Item "+itemId+" not found.","error");return;
-            }
-
+            if(!inp){showToast("Enter an Item ID.","error");return;}
+            var itemId=parseInt(inp);if(isNaN(itemId)){showToast("Invalid ID.","error");return;}
+            setLoading("itemDetailBtn",true);var ok=await FetchAndCache();setLoading("itemDetailBtn",false);
+            if(!ok){document.getElementById("itemDetailResult").innerHTML='<div class="card" style="border-color:rgba(255,82,82,.2);"><div class="flex items-center gap-3"><i class="fas fa-times-circle text-xl" style="color:var(--error);"></i><div><div class="font-semibold" style="color:var(--error);">API Error</div><div class="text-sm" style="color:var(--text-muted);">Could not reach the API.</div></div></div></div>';showToast("Failed.","error");return;}
+            var p=null,isUgc=false;
+            if(cachedItems[String(itemId)]){p=cachedItems[String(itemId)];p.ItemId=itemId;}
+            if(!p&&cachedUgcItems){for(var i=0;i<cachedUgcItems.length;i++){if(cachedUgcItems[i].ItemId===itemId){p=cachedUgcItems[i];isUgc=true;break;}}}
+            if(!p){document.getElementById("itemDetailResult").innerHTML='<div class="card" style="border-color:rgba(255,82,82,.2);"><div class="flex items-center gap-3"><i class="fas fa-times-circle text-xl" style="color:var(--error);"></i><div><div class="font-semibold" style="color:var(--error);">Not Found</div><div class="text-sm" style="color:var(--text-muted);">No item with ID '+itemId+'.</div></div></div></div>';showToast("Not found.","error");return;}
             var vd=p.Value-p.RAP,vds=vd>0?"+"+fmt(vd):vd<0?fmt(vd):"0",vdc=vd>0?"rap-pos":vd<0?"rap-neg":"";
-            var imgSrc=thumbUrl(itemId,420);
-
+            /* Build HTML without inline image src — set it via JS */
             document.getElementById("itemDetailResult").innerHTML=
                 '<div class="card mb-4"><div class="flex flex-col sm:flex-row gap-6">'+
-                    '<div class="flex-shrink-0 cursor-zoom-in" onclick="showImageModal(\''+imgSrc.replace(/'/g,"\\'")+'\',\''+p.Name.replace(/'/g,"\\'")+'\')">'+
-                        '<img src="'+thumbUrl(itemId,150)+'" alt="'+p.Name+'" class="item-thumb-xl hover:brightness-110 transition-all" onerror="this.src=\''+FALLBACK+'\'">'+
-                        '<div class="text-xs text-center mt-2" style="color:var(--text-dim);"><i class="fas fa-magnifying-glass-plus mr-1"></i>Click to enlarge</div>'+
-                    '</div>'+
-                    '<div class="flex-1">'+
-                        '<div class="flex items-center gap-3 flex-wrap mb-2">'+
-                            '<h2 class="text-xl font-bold">'+p.Name+'</h2>'+
-                            (isUgc?'<span class="badge badge-purple"><i class="fas fa-palette mr-1" style="font-size:9px;"></i>UGC</span>':'')+
-                            (p.Projected?'<span class="badge badge-warning">Projected</span>':'')+
-                            (p.Hyped?'<span class="badge badge-info">Hyped</span>':'')+
-                            (p.Rare?'<span class="badge badge-gold">Rare</span>':'')+
-                        '</div>'+
-                        '<div class="text-sm mb-3" style="color:var(--text-muted);">ID: <span class="font-mono">'+itemId+'</span>'+(p.Acronym?' &middot; Acronym: <span class="font-mono">'+p.Acronym+'</span>':'')+'</div>'+
-                        '<div class="flex gap-2 flex-wrap"><a href="'+rolLink(itemId)+'" target="_blank" class="btn-secondary text-xs"><i class="fas fa-external-link-alt mr-1"></i> Rolimons</a><a href="https://www.roblox.com/catalog/'+itemId+'" target="_blank" class="btn-secondary text-xs"><i class="fab fa-roblox mr-1"></i> Roblox</a></div>'+
-                    '</div></div></div>'+
-                '<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">'+
-                    '<div class="card">'+
-                        '<div class="detail-row"><span class="detail-label">Recent Average Price</span><span class="detail-value" style="color:var(--accent);">R$ '+fmt(p.RAP)+'</span></div>'+
-                        '<div class="detail-row"><span class="detail-label">Value</span><span class="detail-value" style="color:var(--gold);">R$ '+fmt(p.Value)+'</span></div>'+
-                        '<div class="detail-row"><span class="detail-label">Value vs RAP</span><span class="detail-value '+vdc+'">'+vds+'</span></div>'+
-                        '<div class="detail-row"><span class="detail-label">Default Value</span><span class="detail-value">'+fmt(p.DefaultValue)+'</span></div>'+
-                    '</div>'+
-                    '<div class="card">'+
-                        '<div class="detail-row"><span class="detail-label">Demand</span><span>'+demBadge(p.Demand)+'</span></div>'+
-                        '<div class="detail-row"><span class="detail-label">Trend</span><span>'+trndBadge(p.Trend)+'</span></div>'+
-                        '<div class="detail-row"><span class="detail-label">Projected</span><span class="badge '+(p.Projected?'badge-warning':'badge-dim')+'">'+(p.Projected?'Yes':'No')+'</span></div>'+
-                        '<div class="detail-row"><span class="detail-label">Rare</span><span class="badge '+(p.Rare?'badge-gold':'badge-dim')+'">'+(p.Rare?'Yes':'No')+'</span></div>'+
-                    '</div></div>';
+                '<div class="flex-shrink-0 cursor-zoom-in" id="detailThumbWrap"><img id="detailThumb" class="item-thumb-xl hover:brightness-110 transition-all"><div class="text-xs text-center mt-2" style="color:var(--text-dim);"><i class="fas fa-magnifying-glass-plus mr-1"></i>Click to enlarge</div></div>'+
+                '<div class="flex-1"><div class="flex items-center gap-3 flex-wrap mb-2"><h2 class="text-xl font-bold">'+p.Name+'</h2>'+
+                (isUgc?'<span class="badge badge-purple"><i class="fas fa-palette mr-1" style="font-size:9px;"></i>UGC</span>':'')+
+                (p.Projected?'<span class="badge badge-warning">Projected</span>':'')+(p.Hyped?'<span class="badge badge-info">Hyped</span>':'')+(p.Rare?'<span class="badge badge-gold">Rare</span>':'')+
+                '</div><div class="text-sm mb-3" style="color:var(--text-muted);">ID: <span class="font-mono">'+itemId+'</span>'+(p.Acronym?' &middot; Acronym: <span class="font-mono">'+p.Acronym+'</span>':'')+'</div>'+
+                '<div class="flex gap-2 flex-wrap"><a href="'+rolLink(itemId)+'" target="_blank" class="btn-secondary text-xs"><i class="fas fa-external-link-alt mr-1"></i> Rolimons</a><a href="https://www.roblox.com/catalog/'+itemId+'" target="_blank" class="btn-secondary text-xs"><i class="fab fa-roblox mr-1"></i> Roblox</a></div></div></div></div>'+
+                '<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4"><div class="card">'+
+                '<div class="detail-row"><span class="detail-label">RAP</span><span class="detail-value" style="color:var(--accent);">R$ '+fmt(p.RAP)+'</span></div>'+
+                '<div class="detail-row"><span class="detail-label">Value</span><span class="detail-value" style="color:var(--gold);">R$ '+fmt(p.Value)+'</span></div>'+
+                '<div class="detail-row"><span class="detail-label">Value vs RAP</span><span class="detail-value '+vdc+'">'+vds+'</span></div>'+
+                '<div class="detail-row"><span class="detail-label">Default Value</span><span class="detail-value">'+fmt(p.DefaultValue)+'</span></div></div>'+
+                '<div class="card"><div class="detail-row"><span class="detail-label">Demand</span><span>'+demBadge(p.Demand)+'</span></div>'+
+                '<div class="detail-row"><span class="detail-label">Trend</span><span>'+trndBadge(p.Trend)+'</span></div>'+
+                '<div class="detail-row"><span class="detail-label">Projected</span><span class="badge '+(p.Projected?'badge-warning':'badge-dim')+'">'+(p.Projected?'Yes':'No')+'</span></div>'+
+                '<div class="detail-row"><span class="detail-label">Rare</span><span class="badge '+(p.Rare?'badge-gold':'badge-dim')+'">'+(p.Rare?'Yes':'No')+'</span></div></div></div>';
+            /* Set image with rbxcdn priority */
+            var detailThumb = document.getElementById("detailThumb");
+            setImgWithRbxcdn(detailThumb, itemId, 150);
+            /* Click to zoom */
+            document.getElementById("detailThumbWrap").onclick = function(){
+                var src = detailThumb.src;
+                if(src && src !== FALLBACK_IMG) showImageModal(src, p.Name);
+            };
             showToast("Found: "+p.Name+(isUgc?" (UGC)":""),"success");
         }
 
-        /* ============================================================
-           All Items Browser (non-UGC only)
-           ============================================================ */
-        async function fetchAllItems(){
-            setLoading("allItemsBtn",true);var ok=await FetchAndCache();setLoading("allItemsBtn",false);
-            if(ok){filterAllItems();if(!this._notified){showToast("Loaded "+Object.keys(cachedItems).length+" standard items.","success");this._notified=true;}}
-            else showToast("Failed to fetch items.","error");
-        }
+        /* All Items */
+        var allItemsNotified=false;
+        async function fetchAllItems(){setLoading("allItemsBtn",true);var ok=await FetchAndCache();setLoading("allItemsBtn",false);if(ok){filterAllItems();if(!allItemsNotified){showToast("Loaded "+Object.keys(cachedItems).length+" items.","success");allItemsNotified=true;}}else showToast("Failed.","error");}
         function filterAllItems(){
             if(!cachedItems){document.getElementById("allItemsResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);"><i class="fas fa-boxes-stacked text-3xl mb-3 block"></i>Click "Load Items" to fetch.</div>';return;}
             var s=document.getElementById("allItemsSearch").value.toLowerCase().trim(),df=document.getElementById("allItemsDemandFilter").value,sb=document.getElementById("allItemsSort").value;
             var e=Object.entries(cachedItems);
             if(s)e=e.filter(function(x){return x[1].Name.toLowerCase().includes(s)||x[0].includes(s)||(x[1].Acronym&&x[1].Acronym.toLowerCase().includes(s));});
             if(df)e=e.filter(function(x){return x[1].Demand===df;});
-            switch(sb){case"value-desc":e.sort(function(a,b){return b[1].Value-a[1].Value;});break;case"value-asc":e.sort(function(a,b){return a[1].Value-b[1].Value;});break;case"rap-desc":e.sort(function(a,b){return b[1].RAP-a[1].RAP;});break;case"rap-asc":e.sort(function(a,b){return a[1].RAP-b[1].RAP;});break;case"name-asc":e.sort(function(a,b){return a[1].Name.localeCompare(b[1].Name);});break;}
+            switch(sb){case"value-desc":e.sort(function(a,b){return b[1].Value-a[1].Value;});break;case"value-asc":e.sort(function(a,b){return a[1].Value-b[1].Value;});break;case"rap-desc":e.sort(function(a,b){return b[1].RAP-a[1].RAP;});break;case"rap-asc":e.sort(function(a,b){return a[1].RAP-b[1].RAP;});break;case"name-asc":e.sort(function(a,b){return a[1].Name.localeCompare(b[1].Name);});break;case"id-desc":e.sort(function(a,b){return parseInt(b[0])-parseInt(a[0]);});break;}
             var d=e.slice(0,200),tf=e.length;
-            if(!d.length){document.getElementById("allItemsResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);"><i class="fas fa-search text-3xl mb-3 block"></i>No items match.</div>';return;}
-            var rows=d.map(function(x){var id=x[0],it=x[1],vd=it.Value-it.RAP,ds=vd>0?'<span class="rap-pos">+'+fmt(vd)+'</span>':vd<0?'<span class="rap-neg">'+fmt(vd)+'</span>':'<span style="color:var(--text-dim);">0</span>';return'<tr><td><img src="'+thumbUrl(id,80)+'" class="item-thumb-sm" loading="lazy" onerror="this.src=\''+FALLBACK+'\'"></td><td><a href="'+rolLink(id)+'" target="_blank" class="hover:underline" style="color:var(--accent);">'+it.Name+'</a><div class="text-xs" style="color:var(--text-dim);">'+id+'</div></td><td>'+fmt(it.RAP)+'</td><td style="color:var(--gold);">'+fmt(it.Value)+'</td><td>'+ds+'</td><td>'+demBadge(it.Demand)+'</td><td>'+trndBadge(it.Trend)+'</td><td>'+(it.Projected?'<span class="badge badge-warning" style="font-size:9px;">Proj</span> ':'')+(it.Rare?'<span class="badge badge-gold" style="font-size:9px;">Rare</span>':'')+'</td></tr>';}).join("");
-            document.getElementById("allItemsResult").innerHTML='<div class="text-xs mb-3" style="color:var(--text-muted);">Showing '+d.length+' of '+tf+(tf>200?' (limited to 200)':'')+'</div><div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:56px;"></th><th>Name</th><th>RAP</th><th>Value</th><th>Diff</th><th>Demand</th><th>Trend</th><th>Flags</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+            if(!d.length){document.getElementById("allItemsResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);"><i class="fas fa-search text-3xl mb-3 block"></i>No match.</div>';return;}
+            var tbody=document.createElement("tbody");
+            for(var i=0;i<d.length;i++){
+                var id=d[i][0],it=d[i][1],vd=it.Value-it.RAP,ds=vd>0?'<span class="rap-pos">+'+fmt(vd)+'</span>':vd<0?'<span class="rap-neg">'+fmt(vd)+'</span>':'<span style="color:var(--text-dim);">0</span>';
+                var tr=document.createElement("tr");
+                tr.innerHTML='<td></td><td><a href="'+rolLink(id)+'" target="_blank" class="hover:underline" style="color:var(--accent);">'+it.Name+'</a><div class="text-xs" style="color:var(--text-dim);">'+id+'</div></td><td>'+fmt(it.RAP)+'</td><td style="color:var(--gold);">'+fmt(it.Value)+'</td><td>'+ds+'</td><td>'+demBadge(it.Demand)+'</td><td>'+trndBadge(it.Trend)+'</td><td>'+(it.Projected?'<span class="badge badge-warning" style="font-size:9px;">Proj</span> ':'')+(it.Rare?'<span class="badge badge-gold" style="font-size:9px;">Rare</span>':'')+'</td>';
+                var img=document.createElement("img");img.className="item-thumb-sm";img.loading="lazy";
+                setImgWithRbxcdn(img, id, 80);
+                tr.cells[0].appendChild(img);
+                tbody.appendChild(tr);
+            }
+            document.getElementById("allItemsResult").innerHTML='<div class="text-xs mb-3" style="color:var(--text-muted);">Showing '+d.length+' of '+tf+(tf>200?' (limited to 200)':'')+'</div><div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:56px;"></th><th>Name</th><th>RAP</th><th>Value</th><th>Diff</th><th>Demand</th><th>Trend</th><th>Flags</th></tr></thead></table></div>';
+            document.querySelector("#allItemsResult .data-table").appendChild(tbody);
         }
 
-        /* ============================================================
-           UGC Limiteds Browser — reads from cachedUgcItems which
-           was parsed from data.ugc_limiteds in FetchAndCache()
-           ============================================================ */
-        async function fetchUgcItems(){
-            setLoading("ugcBtn",true);var ok=await FetchAndCache();setLoading("ugcBtn",false);
-            if(ok){filterUgcItems();if(!this._notified){showToast("Loaded "+cachedUgcItems.length+" UGC limiteds.","success");this._notified=true;}}
-            else showToast("Failed to fetch UGC items.","error");
-        }
+        /* UGC Limiteds */
+        var ugcNotified=false;
+        async function fetchUgcItems(){setLoading("ugcBtn",true);var ok=await FetchAndCache();setLoading("ugcBtn",false);if(ok){filterUgcItems();if(!ugcNotified){showToast("Loaded "+cachedUgcItems.length+" UGC items.","success");ugcNotified=true;}}else showToast("Failed.","error");}
         function filterUgcItems(){
-            if(!cachedUgcItems||!cachedUgcItems.length){document.getElementById("ugcResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);"><i class="fas fa-palette text-3xl mb-3 block" style="color:var(--purple);"></i>Click "Load UGC Items" to fetch.</div>';return;}
+            if(!cachedUgcItems||!cachedUgcItems.length){document.getElementById("ugcResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);"><i class="fas fa-palette text-3xl mb-3 block" style="color:var(--purple);"></i>Click "Load UGC" to fetch.</div>';return;}
             var s=document.getElementById("ugcSearch").value.toLowerCase().trim(),df=document.getElementById("ugcDemandFilter").value,sb=document.getElementById("ugcSort").value;
             var e=cachedUgcItems.slice();
             if(s)e=e.filter(function(it){return it.Name.toLowerCase().includes(s)||String(it.ItemId).includes(s)||(it.Acronym&&it.Acronym.toLowerCase().includes(s));});
             if(df)e=e.filter(function(it){return it.Demand===df;});
             switch(sb){case"value-desc":e.sort(function(a,b){return b.Value-a.Value;});break;case"value-asc":e.sort(function(a,b){return a.Value-b.Value;});break;case"rap-desc":e.sort(function(a,b){return b.RAP-a.RAP;});break;case"rap-asc":e.sort(function(a,b){return a.RAP-b.RAP;});break;case"name-asc":e.sort(function(a,b){return a.Name.localeCompare(b.Name);});break;case"id-desc":e.sort(function(a,b){return b.ItemId-a.ItemId;});break;}
             var d=e.slice(0,200),tf=e.length;
-            if(!d.length){document.getElementById("ugcResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);"><i class="fas fa-search text-3xl mb-3 block"></i>No UGC items match.</div>';return;}
-            var rows=d.map(function(it){
-                var vd=it.Value-it.RAP,ds=vd>0?'<span class="rap-pos">+'+fmt(vd)+'</span>':vd<0?'<span class="rap-neg">'+fmt(vd)+'</span>':'<span style="color:var(--text-dim);">0</span>';
-                return'<tr>'+
-                    '<td><img src="'+thumbUrl(it.ItemId,80)+'" class="item-thumb-sm" loading="lazy" onerror="this.src=\''+FALLBACK+'\'"></td>'+
-                    '<td><a href="'+rolLink(it.ItemId)+'" target="_blank" class="hover:underline" style="color:var(--purple);">'+it.Name+'</a><div class="text-xs" style="color:var(--text-dim);">'+it.ItemId+'</div></td>'+
-                    '<td>'+fmt(it.RAP)+'</td><td style="color:var(--gold);">'+fmt(it.Value)+'</td><td>'+ds+'</td><td>'+demBadge(it.Demand)+'</td><td>'+trndBadge(it.Trend)+'</td>'+
-                    '<td>'+(it.Projected?'<span class="badge badge-warning" style="font-size:9px;">Proj</span> ':'')+(it.Rare?'<span class="badge badge-gold" style="font-size:9px;">Rare</span>':'')+'</td></tr>';
-            }).join("");
-            document.getElementById("ugcResult").innerHTML=
-                '<div class="text-xs mb-3" style="color:var(--purple);">Showing '+d.length+' of '+tf+' UGC limiteds'+(tf>200?' (limited to 200)':'')+'</div>'+
-                '<div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:56px;"></th><th>Name</th><th>RAP</th><th>Value</th><th>Diff</th><th>Demand</th><th>Trend</th><th>Flags</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+            if(!d.length){document.getElementById("ugcResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);"><i class="fas fa-search text-3xl mb-3 block"></i>No match.</div>';return;}
+            var tbody=document.createElement("tbody");
+            for(var i=0;i<d.length;i++){
+                var it=d[i],vd=it.Value-it.RAP,ds=vd>0?'<span class="rap-pos">+'+fmt(vd)+'</span>':vd<0?'<span class="rap-neg">'+fmt(vd)+'</span>':'<span style="color:var(--text-dim);">0</span>';
+                var tr=document.createElement("tr");
+                tr.innerHTML='<td></td><td><a href="'+rolLink(it.ItemId)+'" target="_blank" class="hover:underline" style="color:var(--purple);">'+it.Name+'</a><div class="text-xs" style="color:var(--text-dim);">'+it.ItemId+'</div></td><td>'+fmt(it.RAP)+'</td><td style="color:var(--gold);">'+fmt(it.Value)+'</td><td>'+ds+'</td><td>'+demBadge(it.Demand)+'</td><td>'+trndBadge(it.Trend)+'</td><td>'+(it.Projected?'<span class="badge badge-warning" style="font-size:9px;">Proj</span> ':'')+(it.Rare?'<span class="badge badge-gold" style="font-size:9px;">Rare</span>':'')+'</td>';
+                var img=document.createElement("img");img.className="item-thumb-sm";img.loading="lazy";
+                setImgWithRbxcdn(img, it.ItemId, 80);
+                tr.cells[0].appendChild(img);
+                tbody.appendChild(tr);
+            }
+            document.getElementById("ugcResult").innerHTML='<div class="text-xs mb-3" style="color:var(--purple);">Showing '+d.length+' of '+tf+' UGC limiteds'+(tf>200?' (limited to 200)':'')+'</div><div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:56px;"></th><th>Name</th><th>RAP</th><th>Value</th><th>Diff</th><th>Demand</th><th>Trend</th><th>Flags</th></tr></thead></table></div>';
+            document.querySelector("#ugcResult .data-table").appendChild(tbody);
         }
 
-        /* ============================================================
-           Trade Ads — name resolution merges standard + UGC caches
-           ============================================================ */
+        /* Trade Ads */
         async function fetchTradeAds(){
             var raw=document.getElementById("tradeAdsRawToggle").checked;
             setLoading("tradeAdsBtn",true);setStatus("Fetching trade ads...");
             var data=await CallEndpoint(Endpoints.GetRecentAds);setLoading("tradeAdsBtn",false);setStatus("Ready");
             if(data&&data.success){
-                if(raw){document.getElementById("tradeAdsResult").innerHTML='<div class="card"><div class="flex items-center justify-between mb-3"><span class="text-sm font-semibold" style="color:var(--text-muted);">Raw Response</span><span class="text-xs font-mono" style="color:var(--text-dim);">trade_ad_count: '+data.trade_ad_count+'</span></div><div class="raw-data-block">'+JSON.stringify(data,null,2)+'</div></div>';showToast("Raw data loaded.","success");return;}
+                if(raw){document.getElementById("tradeAdsResult").innerHTML='<div class="card"><div class="flex items-center justify-between mb-3"><span class="text-sm font-semibold" style="color:var(--text-muted);">Raw Response</span><span class="text-xs font-mono" style="color:var(--text-dim);">trade_ad_count: '+data.trade_ad_count+'</span></div><div class="raw-data-block">'+JSON.stringify(data,null,2)+'</div></div>';showToast("Raw loaded.","success");return;}
                 var ra=data.trade_ads||[],ads=[],rm=[];
                 for(var i=0;i<ra.length;i++){var p=ParseTradeAsObject(ra[i]);if(p){ads.push(p);rm.push(Array.isArray((ra[i][6]||{}).tags)?(ra[i][6]||{}).tags:[]);}}
-                if(!ads.length){document.getElementById("tradeAdsResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);">No trade ads found.</div>';return;}
-                /* Build merged name map: standard items + UGC items */
-                var nm={};
-                if(cachedItems)for(var id in cachedItems)nm[id]=cachedItems[id];
-                if(cachedUgcItems)for(var i=0;i<cachedUgcItems.length;i++)nm[String(cachedUgcItems[i].ItemId)]=cachedUgcItems[i];
+                if(!ads.length){document.getElementById("tradeAdsResult").innerHTML='<div class="text-sm text-center py-12" style="color:var(--text-dim);">No ads found.</div>';return;}
+                var nm={};if(cachedItems)for(var id in cachedItems)nm[id]=cachedItems[id];if(cachedUgcItems)for(var i=0;i<cachedUgcItems.length;i++)nm[String(cachedUgcItems[i].ItemId)]=cachedUgcItems[i];
                 var h='<div class="text-xs mb-4" style="color:var(--text-muted);">Showing '+ads.length+' of '+data.trade_ad_count+' ads</div><div class="grid grid-cols-1 lg:grid-cols-2 gap-4">';
                 for(var i=0;i<ads.length;i++){
-                    var ad=ads[i],rt=rm[i]||[];
-                    var oh='';for(var j=0;j<ad.OfferingItems.length;j++){var iid=ad.OfferingItems[j],iname=nm[String(iid)]?nm[String(iid)].Name:("Item "+iid);oh+='<a href="'+rolLink(iid)+'" target="_blank" class="item-chip item-chip-offer" title="'+iname+'"><img src="'+thumbUrl(iid,80)+'" loading="lazy" onerror="this.style.display=\'none\'">'+iname+'</a> ';}
+                    var ad=ads[i],rt=rm[i]||[],oh='',rh='';
+                    for(var j=0;j<ad.OfferingItems.length;j++){var iid=ad.OfferingItems[j],iname=nm[String(iid)]?nm[String(iid)].Name:("Item "+iid);oh+='<a href="'+rolLink(iid)+'" target="_blank" class="item-chip item-chip-offer" title="'+iname+'"><img src="'+thumbUrl(iid,80)+'" loading="lazy" onerror="imgErr(this)">'+iname+'</a> ';}
                     if(ad.OfferingRobux>0)oh+='<span class="item-chip item-chip-robux"><i class="fas fa-coins mr-1" style="font-size:10px;"></i>R$ '+fmt(ad.OfferingRobux)+'</span>';
-                    var rh='';for(var j=0;j<ad.RequestingItems.length;j++){var iid=ad.RequestingItems[j],iname=nm[String(iid)]?nm[String(iid)].Name:("Item "+iid);rh+='<a href="'+rolLink(iid)+'" target="_blank" class="item-chip item-chip-request" title="'+iname+'"><img src="'+thumbUrl(iid,80)+'" loading="lazy" onerror="this.style.display=\'none\'">'+iname+'</a> ';}
+                    for(var j=0;j<ad.RequestingItems.length;j++){var iid=ad.RequestingItems[j],iname=nm[String(iid)]?nm[String(iid)].Name:("Item "+iid);rh+='<a href="'+rolLink(iid)+'" target="_blank" class="item-chip item-chip-request" title="'+iname+'"><img src="'+thumbUrl(iid,80)+'" loading="lazy" onerror="imgErr(this)">'+iname+'</a> ';}
                     var th='';if(ad.Tags){for(var j=0;j<ad.Tags.length;j++)th+=tagBadge(ad.Tags[j],rt[j]||0);}
                     h+='<div class="trade-ad-card"><div class="flex items-center justify-between mb-3"><span class="font-semibold text-sm" style="color:var(--text);">'+ad.Username+'</span>'+(th?'<div class="flex flex-wrap gap-1">'+th+'</div>':'')+'</div><div class="mb-3"><div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--success);"><i class="fas fa-arrow-up mr-1" style="font-size:10px;"></i> Offering</div><div class="flex flex-wrap gap-1.5">'+(oh||'<span class="text-xs" style="color:var(--text-dim);">Nothing</span>')+'</div></div><div><div class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:var(--gold);"><i class="fas fa-arrow-down mr-1" style="font-size:10px;"></i> Requesting</div><div class="flex flex-wrap gap-1.5">'+(rh||'<span class="text-xs" style="color:var(--text-dim);">Nothing</span>')+'</div></div></div>';
                 }
-                h+='</div>';document.getElementById("tradeAdsResult").innerHTML=h;showToast("Loaded "+data.trade_ad_count+" trade ads.","success");
-            }else{showToast("API request failed.","error");}
+                h+='</div>';document.getElementById("tradeAdsResult").innerHTML=h;showToast("Loaded "+data.trade_ad_count+" ads.","success");
+            }else{showToast("Failed.","error");}
         }
 
-        /* ============================================================
-           Deal Activity
-           ============================================================ */
-        async function fetchDealActivity(){
-            setLoading("dealActivityBtn",true);setStatus("Fetching deal activity...");
-            var data=await CallEndpoint(Endpoints.DealActivity);setLoading("dealActivityBtn",false);setStatus("Ready");
-            if(data&&data.success){document.getElementById("dealActivityResult").innerHTML='<div class="card"><div class="flex items-center justify-between mb-3"><span class="text-sm font-semibold" style="color:var(--text-muted);">Raw Deal Activity</span><span class="badge badge-success">Success</span></div><div class="raw-data-block">'+JSON.stringify(data,null,2)+'</div></div>';showToast("Deal activity loaded.","success");}
-            else{document.getElementById("dealActivityResult").innerHTML='<div class="card" style="border-color:rgba(255,82,82,.2);"><div class="flex items-center gap-3"><i class="fas fa-times-circle text-xl" style="color:var(--error);"></i><div><div class="font-semibold" style="color:var(--error);">Request Failed</div><div class="text-sm" style="color:var(--text-muted);">Could not reach the API.</div></div></div></div>';showToast("API request failed.","error");}
-        }
+        /* Deal Activity */
+        async function fetchDealActivity(){setLoading("dealActivityBtn",true);setStatus("Fetching...");var data=await CallEndpoint(Endpoints.DealActivity);setLoading("dealActivityBtn",false);setStatus("Ready");if(data&&data.success){document.getElementById("dealActivityResult").innerHTML='<div class="card"><div class="flex items-center justify-between mb-3"><span class="text-sm font-semibold" style="color:var(--text-muted);">Raw Deal Activity</span><span class="badge badge-success">Success</span></div><div class="raw-data-block">'+JSON.stringify(data,null,2)+'</div></div>';showToast("Loaded.","success");}else{document.getElementById("dealActivityResult").innerHTML='<div class="card" style="border-color:rgba(255,82,82,.2);"><div class="flex items-center gap-3"><i class="fas fa-times-circle text-xl" style="color:var(--error);"></i><div><div class="font-semibold" style="color:var(--error);">Failed</div><div class="text-sm" style="color:var(--text-muted);">Could not reach API.</div></div></div></div>';showToast("Failed.","error");}}
 
-        /* ============================================================
-           RAP Calculator
-           ============================================================ */
-        function CalculateRAPChange(OP,NP){
-            var RAP=Number(OP),price=Number(NP);if(isNaN(RAP)||isNaN(price)||RAP<=0||price<=0)return null;
-            var eR,RC,PC,iG;
-            if(price>=RAP){var s=price-RAP,g=Math.floor(s/10),f=RAP+g;eR=f;iG=true;PC=Math.round(100*g/f*100)/100;RC=g;}
-            else{var s=RAP-price,l=Math.floor(s/10),f=RAP-l;eR=f;iG=false;PC=-Math.round(100*l/f*100)/100;RC=-l;}
-            return{OriginalRAP:RAP,ExpectedRAP:eR,RAPChange:RC,PercentChange:PC,IsGainingRAP:iG};
-        }
+        /* RAP Calculator */
+        function CalculateRAPChange(OP,NP){var RAP=Number(OP),price=Number(NP);if(isNaN(RAP)||isNaN(price)||RAP<=0||price<=0)return null;var eR,RC,PC,iG;if(price>=RAP){var s=price-RAP,g=Math.floor(s/10),f=RAP+g;eR=f;iG=true;PC=Math.round(100*g/f*100)/100;RC=g;}else{var s=RAP-price,l=Math.floor(s/10),f=RAP-l;eR=f;iG=false;PC=-Math.round(100*l/f*100)/100;RC=-l;}return{OriginalRAP:RAP,ExpectedRAP:eR,RAPChange:RC,PercentChange:PC,IsGainingRAP:iG};}
         function calculateRAP(){
             var o=document.getElementById("rapOldPrice").value,n=document.getElementById("rapNewPrice").value;
-            if(!o||!n){document.getElementById("rapResult").innerHTML='<div class="text-sm" style="color:var(--text-dim);">Enter values to calculate.</div>';return;}
-            var r=CalculateRAPChange(o,n);
-            if(!r){document.getElementById("rapResult").innerHTML='<div class="text-sm" style="color:var(--error);">Enter valid positive numbers.</div>';return;}
+            if(!o||!n){document.getElementById("rapResult").innerHTML='<div class="text-sm" style="color:var(--text-dim);">Enter values.</div>';return;}
+            var r=CalculateRAPChange(o,n);if(!r){document.getElementById("rapResult").innerHTML='<div class="text-sm" style="color:var(--error);">Enter valid numbers.</div>';return;}
             var cc=r.IsGainingRAP?"rap-pos":"rap-neg",ci=r.IsGainingRAP?"fa-arrow-up":"fa-arrow-down",cs=r.RAPChange>0?"+":"",ps=r.PercentChange>0?"+":"";
             document.getElementById("rapResult").innerHTML='<div><div class="detail-row"><span class="detail-label">Original RAP</span><span class="detail-value">R$ '+fmt(r.OriginalRAP)+'</span></div><div class="detail-row"><span class="detail-label">Expected RAP</span><span class="detail-value" style="color:var(--accent);font-size:18px;font-weight:700;">R$ '+fmt(r.ExpectedRAP)+'</span></div><div class="detail-row"><span class="detail-label">RAP Change</span><span class="detail-value '+cc+'" style="font-size:16px;font-weight:700;"><i class="fas '+ci+' mr-1" style="font-size:12px;"></i>'+cs+fmt(r.RAPChange)+'</span></div><div class="detail-row"><span class="detail-label">Percent Change</span><span class="detail-value '+cc+'">'+ps+r.PercentChange+'%</span></div><div class="detail-row"><span class="detail-label">Direction</span><span class="badge '+(r.IsGainingRAP?'badge-success':'badge-error')+'"><i class="fas '+(r.IsGainingRAP?'fa-arrow-trend-up':'fa-arrow-trend-down')+' mr-1" style="font-size:10px;"></i>'+(r.IsGainingRAP?'Gaining RAP':'Losing RAP')+'</span></div></div><div class="mt-4 p-3 rounded-lg text-xs" style="background:rgba(0,0,0,.3);color:var(--text-dim);"><strong>Formula:</strong> change = floor(|'+fmt(n)+' - '+fmt(r.OriginalRAP)+'| / 10) = '+fmt(Math.abs(r.RAPChange))+'<br>'+(r.IsGainingRAP?'Expected RAP = '+fmt(r.OriginalRAP)+' + '+fmt(r.RAPChange)+' = '+fmt(r.ExpectedRAP):'Expected RAP = '+fmt(r.OriginalRAP)+' - '+fmt(Math.abs(r.RAPChange))+' = '+fmt(r.ExpectedRAP))+'</div>';
         }
 
-        /* ============================================================
-           Player Info (Deprecated)
-           ============================================================ */
-        async function fetchPlayerInfo(){
-            var inp=document.getElementById("playerInfoInput").value.trim();if(!inp){showToast("Enter a User ID.","error");return;}
-            var uid=parseInt(inp);if(isNaN(uid)){showToast("Invalid User ID.","error");return;}
-            setLoading("playerInfoBtn",true);setStatus("Attempting PlayerInfo...");
-            var data=await CallEndpoint(Endpoints.PlayerInfo+uid);setLoading("playerInfoBtn",false);setStatus("Ready");
-            if(data&&data.success){var pl={Name:data.name,Value:data.value,RAP:data.rap,Rank:data.rank,Premium:data.premium,PrivacyEnabled:data.privacy_enabled,Terminated:data.terminated,StatsUpdated:data.stats_updated,LastScan:data.last_scan,LastOnline:data.last_online,LastLocation:data.last_location,Rolibadges:data.rolibadges};var h='<div class="card mt-4" style="border-color:rgba(0,230,118,.2);"><div class="text-xs mb-3" style="color:var(--success);"><i class="fas fa-check-circle mr-1"></i>Unexpectedly succeeded!</div>';for(var k in pl)h+='<div class="detail-row"><span class="detail-label">'+k+'</span><span class="detail-value font-mono text-sm">'+(pl[k]!==null&&pl[k]!==undefined?pl[k]:'--')+'</span></div>';h+='</div>';document.getElementById("playerInfoResult").innerHTML=h;showToast("PlayerInfo succeeded unexpectedly!","info");}
-            else{document.getElementById("playerInfoResult").innerHTML='<div class="mt-4 p-4 rounded-lg" style="background:rgba(255,82,82,.06);border:1px solid rgba(255,82,82,.15);"><div class="font-semibold mb-1" style="color:var(--error);"><i class="fas fa-ban mr-1"></i>Request Failed</div><div class="text-sm" style="color:var(--text-muted);">As documented, PlayerInfo is restricted by Rolimon\'s.</div></div>';showToast("Expected 403 — PlayerInfo is restricted.","info");}
-        }
+        /* Player Info (Deprecated) */
+        async function fetchPlayerInfo(){var inp=document.getElementById("playerInfoInput").value.trim();if(!inp){showToast("Enter ID.","error");return;}var uid=parseInt(inp);if(isNaN(uid)){showToast("Invalid ID.","error");return;}setLoading("playerInfoBtn",true);setStatus("Attempting...");var data=await CallEndpoint(Endpoints.PlayerInfo+uid);setLoading("playerInfoBtn",false);setStatus("Ready");if(data&&data.success){var pl={Name:data.name,Value:data.value,RAP:data.rap,Rank:data.rank,Premium:data.premium,PrivacyEnabled:data.privacy_enabled,Terminated:data.terminated,StatsUpdated:data.stats_updated,LastScan:data.last_scan,LastOnline:data.last_online,LastLocation:data.last_location,Rolibadges:data.rolibadges};var h='<div class="card mt-4" style="border-color:rgba(0,230,118,.2);"><div class="text-xs mb-3" style="color:var(--success);"><i class="fas fa-check-circle mr-1"></i>Unexpectedly succeeded!</div>';for(var k in pl)h+='<div class="detail-row"><span class="detail-label">'+k+'</span><span class="detail-value font-mono text-sm">'+(pl[k]!==null&&pl[k]!==undefined?pl[k]:'--')+'</span></div>';h+='</div>';document.getElementById("playerInfoResult").innerHTML=h;showToast("Unexpectedly succeeded!","info");}else{document.getElementById("playerInfoResult").innerHTML='<div class="mt-4 p-4 rounded-lg" style="background:rgba(255,82,82,.06);border:1px solid rgba(255,82,82,.15);"><div class="font-semibold mb-1" style="color:var(--error);"><i class="fas fa-ban mr-1"></i>Failed</div><div class="text-sm" style="color:var(--text-muted);">Expected 403 — PlayerInfo is restricted.</div></div>';showToast("Expected 403.","info");}}
 
-        /* ============================================================
-           Dashboard — single call to /itemdetails, parses both
-           data.items AND data.ugc_limiteds
-           ============================================================ */
+        /* Dashboard */
         async function loadDashboard(){
             setStatus("Connecting...");
-            /* Fetch itemdetails + trade ads in parallel */
-            var results = await Promise.all([CallEndpoint(Endpoints.ItemDetails), CallEndpoint(Endpoints.GetRecentAds)]);
-            var data = results[0], adData = results[1];
-
-            if(data && data.success){
-                /* Standard items */
-                cachedRawItems = data.items; cachedItemCount = data.item_count; cachedItems = {};
-                var proj=0, rare=0;
-                for(var id in data.items){
-                    var p=ParseItemAsObject(data.items[id]); cachedItems[id]=p;
-                    if(p.Projected)proj++; if(p.Rare)rare++;
-                }
-                document.getElementById("dashItemCount").textContent=fmt(data.item_count);
-                document.getElementById("dashProjected").textContent=fmt(proj);
-                document.getElementById("dashRare").textContent=fmt(rare);
-
-                /* UGC items from data.ugc_limiteds */
-                if(Array.isArray(data.ugc_limiteds)){
-                    cachedUgcItems = [];
-                    for(var i=0; i<data.ugc_limiteds.length; i++){
-                        var parsed = ParseUgcItemAsObject(data.ugc_limiteds[i]);
-                        if(parsed) cachedUgcItems.push(parsed);
-                    }
-                    document.getElementById("dashUgcCount").textContent = fmt(cachedUgcItems.length);
-                } else {
-                    document.getElementById("dashUgcCount").textContent = "0";
-                }
-                itemDetailsLoaded = true;
-            } else {
-                document.getElementById("dashItemCount").textContent="Error";
-                document.getElementById("dashUgcCount").textContent="Error";
-            }
-
-            if(adData&&adData.success) document.getElementById("dashTradeCount").textContent=fmt(adData.trade_ad_count);
-            else document.getElementById("dashTradeCount").textContent="Error";
-
+            var results=await Promise.all([CallEndpoint(Endpoints.ItemDetails),CallEndpoint(Endpoints.GetRecentAds)]);
+            var data=results[0],adData=results[1];
+            if(data&&data.success){
+                cachedRawItems=data.items;cachedItemCount=data.item_count;cachedItems={};var proj=0,rare=0;
+                for(var id in data.items){var p=ParseItemAsObject(data.items[id]);cachedItems[id]=p;if(p.Projected)proj++;if(p.Rare)rare++;}
+                document.getElementById("dashItemCount").textContent=fmt(data.item_count);document.getElementById("dashProjected").textContent=fmt(proj);document.getElementById("dashRare").textContent=fmt(rare);
+                if(Array.isArray(data.ugc_limiteds)){cachedUgcItems=[];for(var i=0;i<data.ugc_limiteds.length;i++){var u=ParseUgcItemAsObject(data.ugc_limiteds[i]);if(u)cachedUgcItems.push(u);}document.getElementById("dashUgcCount").textContent=fmt(cachedUgcItems.length);}else{document.getElementById("dashUgcCount").textContent="0";}
+                itemDetailsLoaded=true;
+            }else{document.getElementById("dashItemCount").textContent="Error";document.getElementById("dashUgcCount").textContent="Error";}
+            if(adData&&adData.success)document.getElementById("dashTradeCount").textContent=fmt(adData.trade_ad_count);else document.getElementById("dashTradeCount").textContent="Error";
             setStatus("Ready");
         }
-        loadDashboard();
-        filterAllItems();
+        loadDashboard();filterAllItems();
     </script>
 </body>
 </html>
